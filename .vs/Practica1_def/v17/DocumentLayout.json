@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{89D5802E-86D5-4D4F-A1FC-1BD83EADC8F0}|LogicaTests\\LogicaTests.csproj|C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\logicatests\\utils\\validartests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{89D5802E-86D5-4D4F-A1FC-1BD83EADC8F0}|LogicaTests\\LogicaTests.csproj|solutionrelative:logicatests\\utils\\validartests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423EAE60-175B-4023-BDFF-143D40207400}|Logica\\Logica.csproj|c:\\users\\lydia\\desktop\\ingenier\u00EDa inform\u00E1tica\\cuarto\\primer cuatri\\validaci\u00F3n y prueba\\ejemplo\\logica\\modeladodatos\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423EAE60-175B-4023-BDFF-143D40207400}|Logica\\Logica.csproj|solutionrelative:logica\\modeladodatos\\usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{423EAE60-175B-4023-BDFF-143D40207400}|Logica\\Logica.csproj|C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\logica\\utils\\validar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{423EAE60-175B-4023-BDFF-143D40207400}|Logica\\Logica.csproj|solutionrelative:logica\\utils\\validar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Usuarios.cs",
+              "DocumentMoniker": "C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\Logica\\ModeladoDatos\\Usuarios.cs",
+              "RelativeDocumentMoniker": "Logica\\ModeladoDatos\\Usuarios.cs",
+              "ToolTip": "C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\Logica\\ModeladoDatos\\Usuarios.cs",
+              "RelativeToolTip": "Logica\\ModeladoDatos\\Usuarios.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAADwv3sAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T20:24:50.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ValidarTests.cs",
+              "DocumentMoniker": "C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\LogicaTests\\utils\\ValidarTests.cs",
+              "RelativeDocumentMoniker": "LogicaTests\\utils\\ValidarTests.cs",
+              "ToolTip": "C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\LogicaTests\\utils\\ValidarTests.cs",
+              "RelativeToolTip": "LogicaTests\\utils\\ValidarTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T16:07:55.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Validar.cs",
+              "DocumentMoniker": "C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\Logica\\utils\\Validar.cs",
+              "RelativeDocumentMoniker": "Logica\\utils\\Validar.cs",
+              "ToolTip": "C:\\Users\\lydia\\Desktop\\Ingenier\u00EDa inform\u00E1tica\\Cuarto\\Primer cuatri\\Validaci\u00F3n y prueba\\Ejemplo\\Logica\\utils\\Validar.cs",
+              "RelativeToolTip": "Logica\\utils\\Validar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-10T15:55:21.389Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
