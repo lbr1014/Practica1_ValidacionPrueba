@@ -4,3 +4,9 @@ C:\Users\lydia\Desktop\Ingeniería informática\Cuarto\Primer cuatri\Validación
 C:\Users\lydia\Desktop\Ingeniería informática\Cuarto\Primer cuatri\Validación y prueba\Ejemplo\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
 C:\Users\lydia\Desktop\Ingeniería informática\Cuarto\Primer cuatri\Validación y prueba\Ejemplo\Logica\obj\Debug\Logica.dll
 C:\Users\lydia\Desktop\Ingeniería informática\Cuarto\Primer cuatri\Validación y prueba\Ejemplo\Logica\obj\Debug\Logica.pdb
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\bin\Debug\Logica.dll
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\bin\Debug\Logica.pdb
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\obj\Debug\Logica.dll
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\obj\Debug\Logica.pdb

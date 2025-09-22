@@ -31,9 +31,9 @@ namespace Practica1.ModeladoDatos
             this.tipoUsuario = tipoUsuario;
         }
 
-        public int CambiarEstado(int estado)
+        public void CambiarEstado(int estado)
         {
-            return this.estado = estado;
+            this.estado = estado;
         }
 
         public string obtenerEstado(Usuario usuario)
@@ -48,7 +48,7 @@ namespace Practica1.ModeladoDatos
                 case 1:
                     estadoUsuario = "ACTIVO";
                     break;
-                case 3:
+                case 2:
                     estadoUsuario = "BLOQUEADO";
                     break;
                 default:
