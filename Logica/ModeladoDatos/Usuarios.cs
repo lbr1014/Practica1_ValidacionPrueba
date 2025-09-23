@@ -26,7 +26,7 @@ namespace Practica1.ModeladoDatos
             this.name = name;
             this.apellidos = apellidos;
             this.email = email;
-            this.password = password;
+            this.password = Utilidades.EncriptarContraseña(password);
             this.estado = estado;
             this.tipoUsuario = tipoUsuario;
         }
