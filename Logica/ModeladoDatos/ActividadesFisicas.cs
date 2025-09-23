@@ -20,5 +20,8 @@ namespace Logica.ModeladoDatos
             this.duracion = duracion;
             this.descripcion = descripcion;
         }
+
+        public String Nombre { get { return this.name; } set { this.name = value; } }
+
     }
 }
