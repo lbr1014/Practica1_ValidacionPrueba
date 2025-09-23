@@ -70,20 +70,22 @@ namespace Practica1.ModeladoDatos
 
             bool coincide = string.Equals(this.password, password, StringComparison.Ordinal);
 
-            if (!coincide)
+            if (coincide)
             {
-                if (contador < 3)
-                {
-                    contador++;
-                }
-                else
-                {
-                    BloquearCuenta();
-                }
-                contraseñaIgual = false;
+                contador = 0;
+                return contraseñaIgual;
             }
-            contador = 0;
+
+            contador++;
+
+            if (contador >= 3)
+            {
+                BloquearCuenta();
+            }
+            contraseñaIgual = false;
             return contraseñaIgual;
+
+
         }
 
         public void BloquearCuenta()
