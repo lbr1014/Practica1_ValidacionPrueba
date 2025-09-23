@@ -36,5 +36,17 @@ namespace Logica.utils.Tests
             Assert.IsFalse(Validar.Contrasena("ContrasenaSinCaracteresEspeciales1"));
             
         }
+
+        [TestMethod()]
+        public void EmailTest()
+        {
+            Assert.IsTrue(Validar.Email("miUsuario@gmail.com"));
+            Assert.IsFalse(Validar.Email("miUsuario@gmail"));
+            Assert.IsFalse(Validar.Email("miUsuario@@gmail.com"));
+            Assert.IsFalse(Validar.Email("@gmail.com"));
+            Assert.IsFalse(Validar.Email("miUsu ario@gmail.com"));
+            Assert.IsFalse(Validar.Email("mi-Usuario@gmail.com"));
+            Assert.IsFalse(Validar.Email("miUsuario@."));
+        }
     }
 }
