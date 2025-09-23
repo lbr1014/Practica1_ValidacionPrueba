@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Logica.ModeladoDatos;
 using Practica1.ModeladoDatos; 
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,20 @@ namespace Practica1.ModeladoDatos.Tests
     public class ActividadesFisicasTests
     {
 
-        
-        
+        private ActividadesFisicas CrearActividadCorrecta(string id, string nombre, int duracion, string descripcion)
+        {
+            return new ActividadesFisicas(id, nombre, duracion, descripcion);
+        }
+
+        [TestMethod]
+        public void ActividadCorrecta()
+        {
+            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio");
+
+            Assert.AreEqual("Correr", actividad.NombreActividad);
+            Assert.AreEqual(30, actividad.Duracion);
+            Assert.AreEqual("Correr en el gimnasio", actividad.Descripcion);
+        }
+
     }
 }

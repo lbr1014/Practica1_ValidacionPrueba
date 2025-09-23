@@ -58,6 +58,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="ModeladoDatos\ActividadesFisicasTests.cs" />
     <Compile Include="ModeladoDatos\UsuarioTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\ValidarTests.cs" />

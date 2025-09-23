@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logica.ModeladoDatos
 {
-    internal class ActividadesFisicas
+    public class ActividadesFisicas
     {
         private string idActividadFisica;
         private string nombreActividadFisica;
