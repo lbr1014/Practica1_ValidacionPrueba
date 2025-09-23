@@ -65,6 +65,23 @@ namespace Practica1.ModeladoDatos.Tests
         }
 
         [TestMethod()]
+        public void ObtenerTipoUsuarioTest()
+        {
+            var usuarioAdmin = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", ACTIVO, "ADMIN");
+            Assert.AreEqual("ADMIN", usuarioAdmin.ObtenerTipoUsuario(usuarioAdmin));
+
+            usuarioAdmin.CambiarTipoUsuario("PREMIUM");
+            Assert.AreEqual("PREMIUM", usuarioAdmin.ObtenerTipoUsuario(usuarioAdmin));
+
+            usuarioAdmin.CambiarTipoUsuario("NORMAL");
+            Assert.AreEqual("NORMAL", usuarioAdmin.ObtenerTipoUsuario(usuarioAdmin));
+
+            var usuarioError = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", ACTIVO, "Cualquiera");
+            Assert.AreEqual("ERROR", usuarioError.ObtenerTipoUsuario(usuarioError));
+
+        }
+
+        [TestMethod()]
         public void CambiarTipoUsuarioTest()
         {
             var usuarioAdmin = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", ACTIVO, "ADMIN");

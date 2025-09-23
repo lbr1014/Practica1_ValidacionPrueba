@@ -31,6 +31,9 @@ namespace Practica1.ModeladoDatos
             this.tipoUsuario = tipoUsuario;
         }
 
+       
+
+
         public void CambiarEstado(int estado)
         {
             this.estado = estado;
@@ -57,6 +60,29 @@ namespace Practica1.ModeladoDatos
 
             }
             return estadoUsuario;
+        }
+
+        public String ObtenerTipoUsuario(Usuario usuario)
+        {
+            tipoUsuario = usuario.tipoUsuario;
+            String tipo = "";
+            switch (tipoUsuario)
+            {
+                case "ADMIN":
+                    tipo = "ADMIN";
+                    break;
+                case "NORMAL":
+                    tipo = "NORMAL";
+                    break;
+                case "PREMIUM":
+                    tipo = "PREMIUM";
+                    break;
+                default:
+                    tipo = "ERROR";
+                    break;
+
+            }
+            return tipo;
         }
 
         public String CambiarTipoUsuario(String tipoUsuario)
