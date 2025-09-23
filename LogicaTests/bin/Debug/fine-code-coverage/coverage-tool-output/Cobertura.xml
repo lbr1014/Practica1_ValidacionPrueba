@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.83402489626556" branch-rate="0.722222222222222" lines-covered="201" lines-valid="241" branches-covered="39" branches-valid="54" complexity="85" version="0" timestamp="1758628778">
+<coverage line-rate="0.821576763485477" branch-rate="0.703703703703704" lines-covered="198" lines-valid="241" branches-covered="38" branches-valid="54" complexity="85" version="0" timestamp="1758638909">
   <sources />
   <packages>
-    <package name="Logica" line-rate="0.727272727272727" branch-rate="0.722222222222222" complexity="70">
+    <package name="Logica" line-rate="0.706293706293706" branch-rate="0.703703703703704" complexity="70">
       <classes>
         <class name="Logica.ModeladoDatos.ActividadesFisicas" filename="C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\ModeladoDatos\ActividadesFisicas.cs" line-rate="0" branch-rate="1" complexity="1">
           <methods>
@@ -177,7 +177,7 @@
             <line number="105" hits="1" branch="false" />
           </lines>
         </class>
-        <class name="Practica1.ModeladoDatos.Usuario" filename="C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\ModeladoDatos\Usuarios.cs" line-rate="0.986111111111111" branch-rate="1" complexity="32">
+        <class name="Practica1.ModeladoDatos.Usuario" filename="C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\ModeladoDatos\Usuarios.cs" line-rate="0.944444444444444" branch-rate="0.944444444444444" complexity="32">
           <methods>
             <method name=".ctor" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
@@ -225,94 +225,93 @@
                 <line number="65" hits="1" branch="false" />
               </lines>
             </method>
-            <method name="ComprobarContraseña" signature="(...)" line-rate="1" branch-rate="1" complexity="4">
+            <method name="ComprobarContraseña" signature="(...)" line-rate="0.823529411764706" branch-rate="0.75" complexity="4">
               <lines>
                 <line number="68" hits="1" branch="false" />
                 <line number="69" hits="1" branch="false" />
-                <line number="71" hits="1" branch="true" condition-coverage="100% (2/2)" />
-                <line number="72" hits="1" branch="false" />
+                <line number="71" hits="1" branch="false" />
                 <line number="73" hits="1" branch="true" condition-coverage="100% (2/2)" />
                 <line number="74" hits="1" branch="false" />
-                <line number="75" hits="1" branch="false" />
+                <line number="75" hits="1" branch="true" condition-coverage="50% (1/2)" />
                 <line number="76" hits="1" branch="false" />
                 <line number="77" hits="1" branch="false" />
-                <line number="79" hits="1" branch="false" />
-                <line number="80" hits="1" branch="false" />
-                <line number="81" hits="1" branch="false" />
-                <line number="82" hits="1" branch="false" />
+                <line number="78" hits="1" branch="false" />
+                <line number="80" hits="0" branch="false" />
+                <line number="81" hits="0" branch="false" />
+                <line number="82" hits="0" branch="false" />
                 <line number="83" hits="1" branch="false" />
                 <line number="84" hits="1" branch="false" />
                 <line number="85" hits="1" branch="false" />
                 <line number="86" hits="1" branch="false" />
+                <line number="87" hits="1" branch="false" />
               </lines>
             </method>
             <method name="BloquearCuenta" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="89" hits="1" branch="false" />
                 <line number="90" hits="1" branch="false" />
                 <line number="91" hits="1" branch="false" />
+                <line number="92" hits="1" branch="false" />
               </lines>
             </method>
             <method name="get_Nombre" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="93" hits="1" branch="false" />
+                <line number="94" hits="1" branch="false" />
               </lines>
             </method>
             <method name="set_Nombre" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="93" hits="1" branch="false" />
+                <line number="94" hits="1" branch="false" />
               </lines>
             </method>
             <method name="get_Apellidos" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="95" hits="1" branch="false" />
+                <line number="96" hits="1" branch="false" />
               </lines>
             </method>
             <method name="set_Apellidos" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="95" hits="1" branch="false" />
+                <line number="96" hits="1" branch="false" />
               </lines>
             </method>
             <method name="get_Email" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="97" hits="1" branch="false" />
+                <line number="98" hits="1" branch="false" />
               </lines>
             </method>
             <method name="set_Email" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="97" hits="1" branch="false" />
+                <line number="98" hits="1" branch="false" />
               </lines>
             </method>
             <method name="set_Password" signature="(...)" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="99" hits="0" branch="false" />
+                <line number="100" hits="0" branch="false" />
               </lines>
             </method>
             <method name="get_TipoUsuario" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="101" hits="1" branch="false" />
+                <line number="102" hits="1" branch="false" />
               </lines>
             </method>
             <method name="set_TipoUsuario" signature="(...)" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="101" hits="1" branch="false" />
+                <line number="102" hits="1" branch="false" />
               </lines>
             </method>
             <method name="Equals" signature="(...)" line-rate="1" branch-rate="1" complexity="10">
               <lines>
-                <line number="106" hits="1" branch="false" />
-                <line number="107" hits="1" branch="true" condition-coverage="100% (10/10)" />
-                <line number="108" hits="1" branch="false" />
+                <line number="107" hits="1" branch="false" />
+                <line number="108" hits="1" branch="true" condition-coverage="100% (10/10)" />
                 <line number="109" hits="1" branch="false" />
                 <line number="110" hits="1" branch="false" />
                 <line number="111" hits="1" branch="false" />
                 <line number="112" hits="1" branch="false" />
                 <line number="113" hits="1" branch="false" />
+                <line number="114" hits="1" branch="false" />
               </lines>
             </method>
             <method name="GetHashCode" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
-                <line number="116" hits="1" branch="false" />
                 <line number="117" hits="1" branch="false" />
                 <line number="118" hits="1" branch="false" />
                 <line number="119" hits="1" branch="false" />
@@ -321,6 +320,7 @@
                 <line number="122" hits="1" branch="false" />
                 <line number="123" hits="1" branch="false" />
                 <line number="124" hits="1" branch="false" />
+                <line number="125" hits="1" branch="false" />
               </lines>
             </method>
           </methods>
@@ -357,38 +357,37 @@
             <line number="65" hits="1" branch="false" />
             <line number="68" hits="1" branch="false" />
             <line number="69" hits="1" branch="false" />
-            <line number="71" hits="1" branch="true" condition-coverage="100% (2/2)" />
-            <line number="72" hits="1" branch="false" />
+            <line number="71" hits="1" branch="false" />
             <line number="73" hits="1" branch="true" condition-coverage="100% (2/2)" />
             <line number="74" hits="1" branch="false" />
-            <line number="75" hits="1" branch="false" />
+            <line number="75" hits="1" branch="true" condition-coverage="50% (1/2)" />
             <line number="76" hits="1" branch="false" />
             <line number="77" hits="1" branch="false" />
-            <line number="79" hits="1" branch="false" />
-            <line number="80" hits="1" branch="false" />
-            <line number="81" hits="1" branch="false" />
-            <line number="82" hits="1" branch="false" />
+            <line number="78" hits="1" branch="false" />
+            <line number="80" hits="0" branch="false" />
+            <line number="81" hits="0" branch="false" />
+            <line number="82" hits="0" branch="false" />
             <line number="83" hits="1" branch="false" />
             <line number="84" hits="1" branch="false" />
             <line number="85" hits="1" branch="false" />
             <line number="86" hits="1" branch="false" />
-            <line number="89" hits="1" branch="false" />
+            <line number="87" hits="1" branch="false" />
             <line number="90" hits="1" branch="false" />
             <line number="91" hits="1" branch="false" />
-            <line number="93" hits="1" branch="false" />
-            <line number="95" hits="1" branch="false" />
-            <line number="97" hits="1" branch="false" />
-            <line number="99" hits="0" branch="false" />
-            <line number="101" hits="1" branch="false" />
-            <line number="106" hits="1" branch="false" />
-            <line number="107" hits="1" branch="true" condition-coverage="100% (10/10)" />
-            <line number="108" hits="1" branch="false" />
+            <line number="92" hits="1" branch="false" />
+            <line number="94" hits="1" branch="false" />
+            <line number="96" hits="1" branch="false" />
+            <line number="98" hits="1" branch="false" />
+            <line number="100" hits="0" branch="false" />
+            <line number="102" hits="1" branch="false" />
+            <line number="107" hits="1" branch="false" />
+            <line number="108" hits="1" branch="true" condition-coverage="100% (10/10)" />
             <line number="109" hits="1" branch="false" />
             <line number="110" hits="1" branch="false" />
             <line number="111" hits="1" branch="false" />
             <line number="112" hits="1" branch="false" />
             <line number="113" hits="1" branch="false" />
-            <line number="116" hits="1" branch="false" />
+            <line number="114" hits="1" branch="false" />
             <line number="117" hits="1" branch="false" />
             <line number="118" hits="1" branch="false" />
             <line number="119" hits="1" branch="false" />
@@ -397,6 +396,7 @@
             <line number="122" hits="1" branch="false" />
             <line number="123" hits="1" branch="false" />
             <line number="124" hits="1" branch="false" />
+            <line number="125" hits="1" branch="false" />
           </lines>
         </class>
         <class name="Practica1.utils.Utilidades" filename="C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\utils\Utilidades.cs" line-rate="0" branch-rate="1" complexity="1">
@@ -539,17 +539,17 @@
                 <line number="88" hits="1" branch="false" />
               </lines>
             </method>
-            <method name="ComprobarContraseñaIncorrectaTest" signature="()" line-rate="0.833333333333333" branch-rate="1" complexity="1">
+            <method name="ComprobarContraseñaIncorrectaTest" signature="()" line-rate="1" branch-rate="1" complexity="1">
               <lines>
                 <line number="92" hits="1" branch="false" />
                 <line number="93" hits="1" branch="false" />
                 <line number="94" hits="1" branch="false" />
                 <line number="95" hits="1" branch="false" />
                 <line number="96" hits="1" branch="false" />
-                <line number="98" hits="0" branch="false" />
+                <line number="98" hits="1" branch="false" />
               </lines>
             </method>
-            <method name="ComprobarContraseñaBloquearUsuarioTest" signature="()" line-rate="1" branch-rate="1" complexity="1">
+            <method name="ComprobarContraseñaBloquearUsuarioTest" signature="()" line-rate="0.875" branch-rate="1" complexity="1">
               <lines>
                 <line number="102" hits="1" branch="false" />
                 <line number="103" hits="1" branch="false" />
@@ -558,7 +558,7 @@
                 <line number="106" hits="1" branch="false" />
                 <line number="108" hits="1" branch="false" />
                 <line number="109" hits="1" branch="false" />
-                <line number="110" hits="1" branch="false" />
+                <line number="110" hits="0" branch="false" />
               </lines>
             </method>
             <method name="BloquearCuentaTest" signature="()" line-rate="1" branch-rate="1" complexity="1">
@@ -649,7 +649,7 @@
             <line number="94" hits="1" branch="false" />
             <line number="95" hits="1" branch="false" />
             <line number="96" hits="1" branch="false" />
-            <line number="98" hits="0" branch="false" />
+            <line number="98" hits="1" branch="false" />
             <line number="102" hits="1" branch="false" />
             <line number="103" hits="1" branch="false" />
             <line number="104" hits="1" branch="false" />
@@ -657,7 +657,7 @@
             <line number="106" hits="1" branch="false" />
             <line number="108" hits="1" branch="false" />
             <line number="109" hits="1" branch="false" />
-            <line number="110" hits="1" branch="false" />
+            <line number="110" hits="0" branch="false" />
             <line number="114" hits="1" branch="false" />
             <line number="115" hits="1" branch="false" />
             <line number="116" hits="1" branch="false" />

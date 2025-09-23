@@ -68,12 +68,13 @@ namespace Practica1.ModeladoDatos
         {
             bool contraseñaIgual = true;
 
-            if (this.password != password)
+            bool coincide = string.Equals(this.password, password, StringComparison.Ordinal);
+
+            if (!coincide)
             {
                 if (contador < 3)
                 {
                     contador++;
-                    ComprobarContraseña(password);
                 }
                 else
                 {
