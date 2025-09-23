@@ -1,4 +1,5 @@
-﻿using Practica1.utils;
+﻿using Logica.utils;
+using Practica1.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +27,19 @@ namespace Practica1.ModeladoDatos
             this.name = name;
             this.apellidos = apellidos;
             this.email = email;
-            this.password = Utilidades.EncriptarContraseña(password);
-            this.estado = estado;
             this.tipoUsuario = tipoUsuario;
+            if (Validar.Contrasena(password))
+            {
+                this.password = Utilidades.EncriptarContraseña(password);
+                this.estado = estado;
+                
+            }
+            else {
+                this.password = null;
+                this.estado = 2;
+
+            }
+            
         }
 
         public void CambiarEstado(int estado)
