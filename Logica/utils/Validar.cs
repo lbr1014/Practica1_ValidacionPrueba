@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -69,6 +70,40 @@ namespace Logica.utils
             return int.Parse(fragmento) % 97;
         }
 
+        // Validación de la contraseña
+        public static bool Contrasena(string password)
+        {
+            int contadorMayusculas = 0;
+            int contadorMinusculas = 0;
+            int contadorNumeros = 0;
+            int contadorCaracteresEspeciales = 0;
 
-    }
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 12) { 
+                return false;
+            }
+
+            for (int i = 0; i< password.Length;i++)
+            {
+                char caracterContrasena = password[i];
+                
+                if (char.IsUpper(caracterContrasena)) {
+                    contadorMayusculas++;
+
+                } else if (char.IsLower(caracterContrasena)) {
+                    contadorMinusculas++;
+
+                } else if (char.IsDigit(caracterContrasena)) {
+                    contadorNumeros++;
+
+                }
+                else {
+                    contadorCaracteresEspeciales++;
+                }
+            }
+
+            return contadorMayusculas >= 2 && contadorMinusculas >= 2 && contadorNumeros >= 1 && contadorCaracteresEspeciales >= 1;
+        }
+
+       
+        }
 }
