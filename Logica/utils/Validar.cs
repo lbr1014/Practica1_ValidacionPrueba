@@ -109,24 +109,24 @@ namespace Logica.utils
         //EMail
         public static bool Email(string email)
         {
-            if (string.IsNullOrWhiteSpace(email)) {  return false; }
-                
+            if (string.IsNullOrWhiteSpace(email)) { return false; }
+
 
             int arroba = email.IndexOf('@');
-            if( arroba <= 0 || arroba != email.LastIndexOf('@') ) { return false; }
+            if (arroba <= 0 || arroba != email.LastIndexOf('@')) { return false; }
 
-            string usuario =email.Substring(0, arroba);
+            string usuario = email.Substring(0, arroba);
             string dominio = email.Substring(arroba + 1);
 
             if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(dominio))
                 return false;
 
-            int puntoDominio = email.IndexOf('.');
-            if (puntoDominio <= 0 || puntoDominio != dominio.Length -1 ) { return false; }
+            int puntoDominio = dominio.LastIndexOf('.');
+            if (puntoDominio <= 0 || puntoDominio != dominio.Length - 1) { return false; }
 
-            foreach ( char c in email)
+            foreach (char c in email)
             {
-                if(!(char.IsLetterOrDigit(c) || c == '@' || c == '.' || c == '_')) {  return false; }
+                if (!(char.IsLetterOrDigit(c) || c == '@' || c == '.' || c == '_')) { return false; }
             }
 
 
