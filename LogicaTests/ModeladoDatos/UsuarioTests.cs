@@ -78,6 +78,15 @@ namespace Practica1.ModeladoDatos.Tests
         }
 
         [TestMethod()]
+        public void BloquearCuentaTest()
+        {
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN");
+            usuario.BloquearCuenta();
+            Assert.AreEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
+            Assert.AreNotEqual("ACTIVO", usuario.obtenerEstado(usuario));
+        }
+
+        [TestMethod()]
         public void ComprobarContraseñaCorrectaTest()
         {
             var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN");
@@ -110,12 +119,17 @@ namespace Practica1.ModeladoDatos.Tests
         }
 
         [TestMethod()]
-        public void BloquearCuentaTest()
+        public void AsignarContraseñaTest()
         {
             var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN");
-            usuario.BloquearCuenta();
-            Assert.AreEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
-            Assert.AreNotEqual("ACTIVO", usuario.obtenerEstado(usuario));
+
+            Assert.IsTrue(usuario.ComprobarContraseña("ContraseñaCorrecta1!"));
+            usuario.Password = "NuevaContraseñaCorrecta1!";
+
+            Assert.IsFalse(usuario.ComprobarContraseña("ContraseñaCorrecta1!"));
+            Assert.IsTrue(usuario.ComprobarContraseña("NuevaContraseñaCorrecta1!"));
+
+
         }
 
         [TestMethod()]

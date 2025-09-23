@@ -68,7 +68,8 @@ namespace Practica1.ModeladoDatos
         {
             bool contraseñaIgual = true;
 
-            bool coincide = string.Equals(this.password, password, StringComparison.Ordinal);
+            string candidatoHash = Utilidades.EncriptarContraseña(password);
+            bool coincide = string.Equals(this.password, candidatoHash, StringComparison.Ordinal);
 
             if (coincide)
             {
