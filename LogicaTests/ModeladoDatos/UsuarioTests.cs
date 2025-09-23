@@ -78,15 +78,44 @@ namespace Practica1.ModeladoDatos.Tests
         }
 
         [TestMethod()]
-        public void ComprobarContraseñaTest()
+        public void ComprobarContraseñaCorrectaTest()
         {
-            Assert.Fail();
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN");
+            bool resultado = usuario.ComprobarContraseña("ContraseñaCorrecta1!");
+            Assert.IsTrue(resultado);
+            Assert.AreNotEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
+
+        }
+
+        [TestMethod()]
+        public void ComprobarContraseñaIncorrectaTest()
+        {
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN");
+            bool resultado = usuario.ComprobarContraseña("OtraContraseñaDistinta1!");
+            Assert.IsFalse(resultado);
+            Assert.AreNotEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
+
+        }
+
+        [TestMethod()]
+        public void ComprobarContraseñaBloquearUsuarioTest()
+        {
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN");
+            usuario.ComprobarContraseña("ClaveMala1");
+            usuario.ComprobarContraseña("ClaveMala2");
+            bool resultado = usuario.ComprobarContraseña("ClaveMala3");
+
+            Assert.IsFalse(resultado);
+            Assert.AreEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
         }
 
         [TestMethod()]
         public void BloquearCuentaTest()
         {
-            Assert.Fail();
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN");
+            usuario.BloquearCuenta();
+            Assert.AreEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
+            Assert.AreNotEqual("ACTIVO", usuario.obtenerEstado(usuario));
         }
 
         [TestMethod()]

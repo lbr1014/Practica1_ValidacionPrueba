@@ -23,5 +23,18 @@ namespace Logica.utils.Tests
         {
             Assert.IsFalse(Validar.NIF("111111"));
         }
+
+        [TestMethod()]
+        public void ContrasenaTest()
+        {
+            Assert.IsTrue(Validar.Contrasena("ContraseñaCorrecta1!"));
+
+            Assert.IsFalse(Validar.Contrasena("aaAA1!"));
+            Assert.IsFalse(Validar.Contrasena("ContrasenaSinNumeros!"));
+            Assert.IsFalse(Validar.Contrasena("Contrasenasinmayusculas1!"));
+            Assert.IsFalse(Validar.Contrasena("CONTRASEÑASINMINUSCULAS1!"));
+            Assert.IsFalse(Validar.Contrasena("ContrasenaSinCaracteresEspeciales1"));
+            
+        }
     }
 }

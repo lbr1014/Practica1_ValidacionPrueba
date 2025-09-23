@@ -87,7 +87,7 @@ namespace Practica1.ModeladoDatos
 
         public void BloquearCuenta()
         {
-            this.estado = 3;
+            this.estado = 2;
         }
 
         public String Nombre { get { return this.name; } set { this.name = value; } }
