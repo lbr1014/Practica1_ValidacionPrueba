@@ -63,7 +63,7 @@ namespace Practica1.ModeladoDatos
         {
             return this.tipoUsuario = tipoUsuario;
         }
-        //Comentario prueba de trabajo simultaneo
+        
         public bool ComprobarContraseña(String password)
         {
             bool contraseñaIgual = true;

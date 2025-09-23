@@ -5,8 +5,3 @@ obj/
 *.vsidx
 *.json
 
-*.dll
-*.pdb
-*.xml
-*.html
-*.cache
