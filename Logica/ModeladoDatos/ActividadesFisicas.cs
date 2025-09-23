@@ -22,6 +22,9 @@ namespace Logica.ModeladoDatos
         }
 
         public String NombreActividad { get { return this.nombreActividadFisica; } set { this.nombreActividadFisica = value; } }
+        public int Duracion { get { return this.duracion; } set { this.duracion = value; } }
+
+        public String Descripcion { get { return this.descripcion; } set { this.descripcion = value; } }
 
     }
 }
