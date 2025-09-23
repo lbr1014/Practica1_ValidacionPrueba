@@ -10,3 +10,9 @@ C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\obj\Debug\
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\obj\Debug\Logica.dll
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\obj\Debug\Logica.pdb
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\Logica.dll
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\Logica.pdb
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\obj\Debug\Logica.dll
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\obj\Debug\Logica.pdb

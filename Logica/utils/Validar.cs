@@ -122,7 +122,7 @@ namespace Logica.utils
                 return false;
 
             int puntoDominio = dominio.LastIndexOf('.');
-            if (puntoDominio <= 0 || puntoDominio != dominio.Length - 1) { return false; }
+            if (puntoDominio <= 0 || puntoDominio == dominio.Length - 1) { return false; }
 
             foreach (char c in email)
             {
