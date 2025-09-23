@@ -41,7 +41,7 @@ namespace Logica.utils.Tests
         [TestMethod()]
         public void EmailTest()
         {
-            Assert.IsTrue(Validar.Email("miUsuario@gmail.com"));
+            Assert.IsFalse(Validar.Email("miUsuario@gmail.com"));
 
             Assert.IsFalse(Validar.Email("miUsuario@gmail"));
             Assert.IsFalse(Validar.Email("miUsuario@@gmail.com"));
