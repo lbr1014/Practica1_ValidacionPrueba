@@ -4,3 +4,9 @@ obj/
 *.user
 *.vsidx
 *.json
+
+*.dll
+*.pdb
+*.xml
+*.html
+*.cache
