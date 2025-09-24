@@ -55,7 +55,8 @@ namespace Practica1.ModeladoDatos.Tests
             _ = CrearUsuarioCorrecto(" ", " ", " ", " ", " ", ACTIVO, " ");
 
         }
-            [TestMethod()]
+
+        [TestMethod()]
         public void CambiarEstadoTest()
         {
             var usuarioActivo = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", ACTIVO, "ADMIN");
@@ -167,7 +168,7 @@ namespace Practica1.ModeladoDatos.Tests
 
         }
         [TestMethod()]
-        public  void UltimoInicioSesion()
+        public  void UltimoInicioSesion_ConParametros()
         {
             DateTime prueba1 = new DateTime(2025, 3, 14);
 
@@ -182,6 +183,17 @@ namespace Practica1.ModeladoDatos.Tests
 
         }
 
+        [TestMethod()]
+        public void UltimoInicioSesion_SinParametros()
+        {
+            DateTime antes = DateTime.Now;
+
+            var usuario = new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com","ContraseñaCorrecta1!", 1, "ADMIN");
+
+            DateTime despues = DateTime.Now;
+
+            Assert.IsTrue(usuario.UltimoInicioSesion >= antes && usuario.UltimoInicioSesion <= despues);
+        }
 
         [TestMethod()]
         public void EqualsTest()
