@@ -18,9 +18,10 @@ namespace Practica1.ModeladoDatos
         private int estado;
         private String tipoUsuario;
         private int contador = 0;
+        private DateTime ultimoInicioSesion;
 
         //Constructor
-        public Usuario(string idUsuario, string name, string apellidos, string email, string password, int estado, String tipoUsuario)
+        public Usuario(string idUsuario, string name, string apellidos, string email, string password, int estado, String tipoUsuario,  DateTime? ultimoInicioSesion = null)
         {
             this.idUsuario = idUsuario;
             this.name = name;
@@ -29,6 +30,8 @@ namespace Practica1.ModeladoDatos
             this.password = Utilidades.EncriptarContraseña(password);
             this.estado = estado;
             this.tipoUsuario = tipoUsuario;
+            this.ultimoInicioSesion = ultimoInicioSesion ?? DateTime.Now;
+      
         }
 
        
@@ -120,6 +123,14 @@ namespace Practica1.ModeladoDatos
             this.estado = 2;
         }
 
+        public void DesbloquearCuenta()
+        {
+            if (tipoUsuario == "ADMIN") {
+                this.estado = 1;
+            }
+            
+        }
+
         public String Nombre { get { return this.name; } set { this.name = value; } }
 
         public String Apellidos { get { return this.apellidos; } set { this.apellidos = value; } }
@@ -129,6 +140,8 @@ namespace Practica1.ModeladoDatos
         public String Password { set { this.password = Utilidades.EncriptarContraseña(value); } }
 
         public String TipoUsuario { get { return this.tipoUsuario; } set { this.tipoUsuario = value; } }
+
+        public DateTime UltimoInicioSesion { get { return this.ultimoInicioSesion; } set { this.ultimoInicioSesion = value; } }
 
 
 

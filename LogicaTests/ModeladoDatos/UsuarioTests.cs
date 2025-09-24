@@ -15,8 +15,8 @@ namespace Practica1.ModeladoDatos.Tests
         private const int ACTIVO = 1;
         private const int BLOQUEADO = 2;
 
-        private Usuario CrearUsuarioCorrecto(string id, string nombre, string apellidos, string email, string password, int estado, string tipo) { 
-            return new Usuario(id,nombre, apellidos, email, password, estado, tipo);
+        private Usuario CrearUsuarioCorrecto(string id, string nombre, string apellidos, string email, string password, int estado, string tipo, DateTime? ultimoInicioSesion= null) { 
+            return new Usuario(id,nombre, apellidos, email, password, estado, tipo, ultimoInicioSesion ?? DateTime.Now);
         }
 
         [TestMethod()]
@@ -104,6 +104,24 @@ namespace Practica1.ModeladoDatos.Tests
         }
 
         [TestMethod()]
+        public void DesbloquearCuentaTest()
+        {
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "NORMAL");
+            usuario.BloquearCuenta();
+            Assert.AreEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
+            Assert.AreNotEqual("ACTIVO", usuario.obtenerEstado(usuario));
+
+            usuario.DesbloquearCuenta();
+            Assert.AreNotEqual("ACTIVO", usuario.obtenerEstado(usuario));
+
+            usuario.TipoUsuario="ADMIN";
+            usuario.DesbloquearCuenta();
+            Assert.AreEqual("ACTIVO", usuario.obtenerEstado(usuario));
+            Assert.AreNotEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
+
+        }
+
+        [TestMethod()]
         public void ComprobarContraseñaCorrectaTest()
         {
             var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN");
@@ -148,6 +166,22 @@ namespace Practica1.ModeladoDatos.Tests
 
 
         }
+        [TestMethod()]
+        public  void UltimoInicioSesion()
+        {
+            DateTime prueba1 = new DateTime(2025, 3, 14);
+
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", ACTIVO, "ADMIN", prueba1);
+           
+            Assert.AreEqual(prueba1, usuario.UltimoInicioSesion);
+
+            DateTime prueba2 = new DateTime(2025, 9, 24);
+            usuario.UltimoInicioSesion = prueba2;
+            
+            Assert.AreEqual(prueba2, usuario.UltimoInicioSesion);
+
+        }
+
 
         [TestMethod()]
         public void EqualsTest()
