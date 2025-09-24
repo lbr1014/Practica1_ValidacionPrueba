@@ -14,13 +14,21 @@ namespace Logica.utils.Tests
         [TestMethod()]
         public void NIFTest()
         {
-            Assert.IsFalse(Validar.NIF("111111K"));
             Assert.IsTrue(Validar.NIF("71567703Y"));
+
+            Assert.IsFalse(Validar.NIF(" "));
+            Assert.IsFalse(Validar.NIF("22L"));
+            Assert.IsFalse(Validar.NIF("71567703"));
+            Assert.IsFalse(Validar.NIF("KKKKKKKK"));
+            Assert.IsFalse(Validar.NIF("ABCDEFGHX"));
+            
+            
         }
 
         [TestMethod()]
         public void IBANTest()
         {
+            Assert.IsFalse(Validar.NIF(" "));
             Assert.IsFalse(Validar.NIF("111111"));
         }
 
@@ -29,6 +37,7 @@ namespace Logica.utils.Tests
         {
             Assert.IsTrue(Validar.Contrasena("ContraseñaCorrecta1!"));
 
+            Assert.IsFalse(Validar.Contrasena(" "));
             Assert.IsFalse(Validar.Contrasena("aaAA1!"));
             Assert.IsFalse(Validar.Contrasena("ContrasenaSinNumeros!"));
             Assert.IsFalse(Validar.Contrasena("Contrasenasinmayusculas1!"));
@@ -44,12 +53,15 @@ namespace Logica.utils.Tests
 
             Assert.IsTrue(Validar.Email("nombre@gmail.com"));
 
+            Assert.IsFalse(Validar.Email(" "));
             Assert.IsFalse(Validar.Email("miUsuario@gmail"));
             Assert.IsFalse(Validar.Email("miUsuario@@gmail.com"));
             Assert.IsFalse(Validar.Email("@gmail.com"));
+            Assert.IsFalse(Validar.Email(" @gmail.com"));
             Assert.IsFalse(Validar.Email("miUsu ario@gmail.com"));
             Assert.IsFalse(Validar.Email("mi-Usuario@gmail.com"));
             Assert.IsFalse(Validar.Email("miUsuario@."));
+            Assert.IsFalse(Validar.Email("miUsuario@. "));
         }
     }
 }
