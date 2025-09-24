@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Practica1.utils;
+using Utilidad = Practica1.utils.Utilidades;
+using Logica.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,12 @@ namespace Utilidades.Tests
         [TestMethod()]
         public void EncriptarContraseñaTest()
         {
-            Assert.Fail();
+            string contraseñaSinCifrar = "ContraseñaCorrecta1!";
+            string contraseñaCifrada = Utilidad.EncriptarContraseña(contraseñaSinCifrar);
+
+            
+            Assert.AreNotEqual(contraseñaSinCifrar, contraseñaCifrada);
+
         }
     }
 }

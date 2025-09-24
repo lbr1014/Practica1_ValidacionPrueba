@@ -16,12 +16,12 @@ namespace Practica1.utils
                 byte[] hash = sha256.ComputeHash(bytes);
 
                 // Convertir hash a string hexadecimal
-                StringBuilder sb = new StringBuilder();
+                StringBuilder ContraseñaCifrada = new StringBuilder();
                 foreach (byte b in hash)
                 {
-                    sb.Append(b.ToString("x2")); // formato hexadecimal
+                    ContraseñaCifrada.Append(b.ToString("x2")); // formato hexadecimal
                 }
-                return sb.ToString();
+                return ContraseñaCifrada.ToString();
             }
         }
     }

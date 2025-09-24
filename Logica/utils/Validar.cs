@@ -78,25 +78,32 @@ namespace Logica.utils
             int contadorNumeros = 0;
             int contadorCaracteresEspeciales = 0;
 
-            if (string.IsNullOrWhiteSpace(password) || password.Length < 12) { 
+            if (string.IsNullOrWhiteSpace(password) || password.Length < 12)
+            {
                 return false;
             }
 
-            for (int i = 0; i< password.Length;i++)
+            for (int i = 0; i < password.Length; i++)
             {
                 char caracterContrasena = password[i];
-                
-                if (char.IsUpper(caracterContrasena)) {
+
+                if (char.IsUpper(caracterContrasena))
+                {
                     contadorMayusculas++;
 
-                } else if (char.IsLower(caracterContrasena)) {
+                }
+                else if (char.IsLower(caracterContrasena))
+                {
                     contadorMinusculas++;
 
-                } else if (char.IsDigit(caracterContrasena)) {
+                }
+                else if (char.IsDigit(caracterContrasena))
+                {
                     contadorNumeros++;
 
                 }
-                else {
+                else
+                {
                     contadorCaracteresEspeciales++;
                 }
             }
@@ -134,7 +141,15 @@ namespace Logica.utils
 
         }
 
+        public static bool UltimoInicioSesion(DateTime ultimoInicioSesion)
+        {
+            if (ultimoInicioSesion > DateTime.Today)
+            {
+                return false;
+            }
 
+            return true;
+        }
     }
 
 

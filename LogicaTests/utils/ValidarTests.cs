@@ -63,5 +63,19 @@ namespace Logica.utils.Tests
             Assert.IsFalse(Validar.Email("miUsuario@."));
             Assert.IsFalse(Validar.Email("miUsuario@. "));
         }
+
+        [TestMethod()]
+        public void UltimoInicioSesionTest()
+        {
+            DateTime inicioSesion = new DateTime(2025, 3, 14);
+            Assert.IsTrue(Validar.UltimoInicioSesion(inicioSesion));
+
+            DateTime inicioSesionIncorrectoAño = new DateTime(2026, 3, 14);
+            Assert.IsFalse(Validar.UltimoInicioSesion(inicioSesionIncorrectoAño));
+
+            DateTime inicioSesionIncorrectoMes = new DateTime(2025, 12, 14);
+            Assert.IsFalse(Validar.UltimoInicioSesion(inicioSesionIncorrectoMes));
+
+        }
     }
 }
