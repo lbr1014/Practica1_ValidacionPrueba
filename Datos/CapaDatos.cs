@@ -11,15 +11,20 @@ namespace Datos
     public class CapaDatos : ICapaDatos
     {
         //Comentario
-        List<Usuario> idUsuarios = new List<Usuario>();
+        List<Usuario> UsuariosLista = new List<Usuario>();
+        List<ActividadesFisicas> ActividadesFisicasLista = new List<ActividadesFisicas>();
         public bool GuardaActividad(ActividadesFisicas e)
         {
-            throw new NotImplementedException();
+            if (e == null) {return false;}
+            ActividadesFisicasLista.Add(e);
+            return true;
         }
 
         public bool GuardaUsuario(Usuario u)
         {
-            throw new NotImplementedException();
+            if (u == null) { return false; }
+            UsuariosLista.Add(u);
+            return true;
         }
 
         public ActividadesFisicas LeeActividad(int idElemento)
@@ -34,17 +39,17 @@ namespace Datos
 
         public int NumActividades(int idUsuario)
         {
-            throw new NotImplementedException();
+            return ActividadesFisicasLista.Count;
         }
 
         public int NumUsuarios()
         {
-            throw new NotImplementedException();
+            return UsuariosLista.Count; ;
         }
 
         public int NumUsuariosActivos()
         {
-            throw new NotImplementedException();
+            return UsuariosLista.Count(u => u.obtenerEstado(u) == "ACTIVO");
         }
 
         public bool ValidaUsuario(string email, string password)

@@ -12,6 +12,7 @@ namespace Logica.ModeladoDatos
         private string nombreActividadFisica;
         private int duracion;
         private string descripcion;
+        
 
         public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, int duracion, string descripcion)
         {
