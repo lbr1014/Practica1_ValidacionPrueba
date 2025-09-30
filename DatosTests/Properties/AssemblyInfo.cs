@@ -1,20 +1,33 @@
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
+// La información general de un ensamblado se controla mediante el siguiente 
+// conjunto de atributos. Cambie estos valores de atributo para modificar la información
+// asociada con un ensamblado.
 [assembly: AssemblyTitle("DatosTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("HP")]
 [assembly: AssemblyProduct("DatosTests")]
-[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyCopyright("Copyright © HP 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
+// Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 
+// para los componentes COM.  Si es necesario obtener acceso a un tipo en este ensamblado desde 
+// COM, establezca el atributo ComVisible en true en este tipo.
 [assembly: ComVisible(false)]
 
-[assembly: Guid("26b142da-2dab-4d31-a59a-edb09e1adc7d")]
+// El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
+[assembly: Guid("0e6f7086-b1c5-4a5a-98f3-54165e454239")]
 
-// [assembly: AssemblyVersion("1.0.*")]
+// La información de versión de un ensamblado consta de los cuatro valores siguientes:
+//
+//      Versión principal
+//      Versión secundaria
+//      Número de compilación
+//      Revisión
+//
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
