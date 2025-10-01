@@ -17,11 +17,18 @@ namespace Practica1.ModeladoDatos
         private string password;
         private int estado;
         private String tipoUsuario;
-        private int contador = 0;
+        private String sexo;
+        private float peso;
+        private float altura;
+        private int edad;
+
         private DateTime ultimoInicioSesion;
+        private int contador = 0;
+
+        
 
         //Constructor
-        public Usuario(string idUsuario, string name, string apellidos, string email, string password, int estado, String tipoUsuario,  DateTime? ultimoInicioSesion = null)
+        public Usuario(string idUsuario, string name, string apellidos, string email, string password, int estado, String tipoUsuario, String sexo, float peso, float altura, int edad,  DateTime? ultimoInicioSesion = null)
         {
             this.idUsuario = idUsuario;
             this.name = name;
@@ -30,6 +37,11 @@ namespace Practica1.ModeladoDatos
             this.password = Utilidades.EncriptarContraseña(password);
             this.estado = estado;
             this.tipoUsuario = tipoUsuario;
+            this.sexo = sexo;
+            this.peso = peso;
+            this.altura = altura;
+            this.edad = edad;
+
             this.ultimoInicioSesion = ultimoInicioSesion ?? DateTime.Now;
       
         }
@@ -40,11 +52,6 @@ namespace Practica1.ModeladoDatos
 
        
 
-
-        public void CambiarEstado(int estado)
-        {
-            this.estado = estado;
-        }
 
         public string obtenerEstado(Usuario usuario)
 
@@ -92,11 +99,28 @@ namespace Practica1.ModeladoDatos
             return tipo;
         }
 
-        public String CambiarTipoUsuario(String tipoUsuario)
+        public string obtenerSexo(Usuario usuario)
+
         {
-            return this.tipoUsuario = tipoUsuario;
+            sexo = usuario.sexo;
+            String sexoUsuario = "";
+            switch (sexo)
+            {
+                case "HOMBRE":
+                    sexoUsuario = "HOMBRE";
+                    break;
+                case "MUJER":
+                    sexoUsuario = "MUJER";
+                    break;
+                
+                default:
+                    sexoUsuario = "OTRO";
+                    break;
+
+            }
+            return sexoUsuario;
         }
-        
+
         public bool ComprobarContraseña(String password)
         {
             bool contraseñaIgual = true;
@@ -135,6 +159,8 @@ namespace Practica1.ModeladoDatos
             
         }
 
+
+
         public String Nombre { get { return this.name; } set { this.name = value; } }
 
         public String IdUsuario { get { return this.idUsuario; } set { this.idUsuario = value; } }
@@ -145,7 +171,17 @@ namespace Practica1.ModeladoDatos
 
         public String Password { set { this.password = Utilidades.EncriptarContraseña(value); } }
 
-        public String TipoUsuario { get { return this.tipoUsuario; } set { this.tipoUsuario = value; } }
+        public String TipoUsuario { set { this.tipoUsuario = value; } }
+
+        public int Estado { set { this.estado = value; } }
+
+        public String Sexo {  set { this.sexo = value; } }
+
+        public float Peso { get { return this.peso; } set { this.peso = value; } }
+
+        public int Edad { get { return this.edad; } set { this.edad = value; } }
+
+        public float Altura { get { return this.altura; } set { this.altura = value; } }
 
         public DateTime UltimoInicioSesion { get { return this.ultimoInicioSesion; } set { this.ultimoInicioSesion = value; } }
 

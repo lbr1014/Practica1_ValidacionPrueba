@@ -13,15 +13,26 @@ namespace Logica.ModeladoDatos
         private string nombreActividadFisica;
         private int duracion;
         private string descripcion;
+        private int calorias;
+        private int metabolismoBasal;
+
         private Usuario usuario;
         
 
-        public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, int duracion, string descripcion, Usuario usuario)
+        public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, int duracion, string descripcion, int calorias, int metabolismoBasal, Usuario usuario)
         {
             this.idActividadFisica = idActividadFisica;
             this.nombreActividadFisica = nombreActividadFisica;
             this.duracion = duracion;
             this.descripcion = descripcion;
+            this.calorias = calorias;
+            this.metabolismoBasal = metabolismoBasal;
+            this.usuario = usuario;
+        }
+
+        public ActividadesFisicas(string idActividadFisica, Usuario usuario)
+        {
+            this.idActividadFisica = idActividadFisica;
             this.usuario = usuario;
         }
 
