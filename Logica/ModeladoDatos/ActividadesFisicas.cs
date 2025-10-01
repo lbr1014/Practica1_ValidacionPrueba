@@ -50,13 +50,13 @@ namespace Logica.ModeladoDatos
             {
                 mbr = (10 * peso) + (6.25f *altura) -( 5 * edad) - 161; 
             }
-            if (sexo == "HOMBRE")
+            else if (sexo == "HOMBRE")
             {
                 mbr = (10 * peso) + (6.25f * altura) - (5 * edad) + 5;
             }
             else
             {
-                mbr = 0;
+                mbr = (((10 * peso) + (6.25f * altura) - (5 * edad) - 161 ) + ((10 * peso) + (6.25f * altura) - (5 * edad) + 5)) / 2;
             }
             return mbr;
 
@@ -74,6 +74,8 @@ namespace Logica.ModeladoDatos
 
         public String Descripcion { get { return this.descripcion; } set { this.descripcion = value; } }
         public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }
+
+        public float Met{ get { return this.duracion; } }
 
         public override bool Equals(object obj)
         {
