@@ -13,8 +13,9 @@ namespace Logica.ModeladoDatos
         private string nombreActividadFisica;
         private int duracion;
         private string descripcion;
-        private int calorias;
+        private float calorias;
         private int metabolismoBasal;
+        private float met;
 
         private Usuario usuario;
         
@@ -34,6 +35,36 @@ namespace Logica.ModeladoDatos
         {
             this.idActividadFisica = idActividadFisica;
             this.usuario = usuario;
+        }
+
+        public float CalcularMetabolismobasal(Usuario usuario)
+        {
+            var sexo = Usuario.obtenerSexo(usuario);
+            float peso = Usuario.Peso;
+            float altura = Usuario.Altura;
+            int edad = Usuario.Edad;
+            float mbr = 0;
+            if(sexo == "MUJER")
+            {
+                mbr = (10 * peso) + (6.25f *altura) -( 5 * edad) - 161; 
+            }
+            if (sexo == "HOMBRE")
+            {
+                mbr = (10 * peso) + (6.25f * altura) - (5 * edad) + 5;
+            }
+            else
+            {
+                mbr = 0;
+            }
+            return mbr;
+
+        }
+
+        public float CalcularCalorias(Usuario usuario)
+        {
+            float peso = usuario.Peso;
+            calorias = met * peso * duracion;
+            return calorias;
         }
 
         public String NombreActividad { get { return this.nombreActividadFisica; } set { this.nombreActividadFisica = value; } }
