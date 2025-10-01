@@ -10,9 +10,26 @@ namespace Datos
 {
     public class CapaDatos : ICapaDatos
     {
-        //Comentario
+        //ATRIBUTOS
         List<Usuario> UsuariosLista = new List<Usuario>();
         List<ActividadesFisicas> ActividadesFisicasLista = new List<ActividadesFisicas>();
+        CapaDatos capaPersistente = new CapaDatos();
+
+        //CONSTRUCTOR
+        public CapaDatos() 
+        {
+            var usuario1 = new Usuario("a-005", "Alexia", "Putellas", "balondeoro3@gmail.com", "Conmasde12caracteres!", 1, "NORMAL");
+            var usuario2 = new Usuario("a-004", "Lando", "Norris", "norris@gmail.com", "Conmasde12caracteres!", 1, "NORMAL");
+            capaPersistente.GuardaUsuario(usuario1);
+            capaPersistente.GuardaUsuario(usuario2);
+            capaPersistente.GuardaActividad(new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1));
+            capaPersistente.GuardaActividad(new ActividadesFisicas("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario1));
+            capaPersistente.GuardaActividad(new ActividadesFisicas("AF-003", "Pesas", 50, "Ir al gimnasio y levantar pesas", usuario2));
+           
+
+        }  
+
+
         public bool GuardaActividad(ActividadesFisicas e)
         {
             if (e == null) {return false;}
@@ -29,12 +46,16 @@ namespace Datos
 
         public ActividadesFisicas LeeActividad(int idElemento)
         {
-            throw new NotImplementedException();
+            if (idElemento < 0 || idElemento >= ActividadesFisicasLista.Count)
+                return null;
+            return ActividadesFisicasLista[idElemento];
+
         }
 
         public Usuario LeeUsuario(string email)
         {
-            throw new NotImplementedException();
+            return UsuariosLista.FirstOrDefault(u => u.Email == email);
+
         }
 
         public int NumActividades(String idUsuario)
@@ -55,7 +76,10 @@ namespace Datos
 
         public bool ValidaUsuario(string email, string password)
         {
-            throw new NotImplementedException();
+            var usuario = UsuariosLista.FirstOrDefault(u => u.Email == email);
+            if (usuario == null) return false;
+
+            return usuario.ComprobarContraseña(password);
         }
     }
 }

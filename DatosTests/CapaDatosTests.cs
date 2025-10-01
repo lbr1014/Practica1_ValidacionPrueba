@@ -1,10 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Datos;
-using System;
-using Practica1.ModeladoDatos;
+﻿using Datos;
 using Logica.ModeladoDatos;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Practica1.ModeladoDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,6 +21,15 @@ namespace Datos.Tests
         public void Setup()
         {
             capaDatos = new CapaDatos();
+        }
+
+        [TestMethod]
+        public void CapaDatosTest()
+        {
+            Assert.AreEqual(2, capaDatos.NumUsuarios());
+            Assert.AreEqual(2, capaDatos.NumActividades("a-005"));
+            Assert.AreEqual(1, capaDatos.NumActividades("a-004"));
+
         }
 
         [TestMethod]
