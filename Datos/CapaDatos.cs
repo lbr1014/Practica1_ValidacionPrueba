@@ -18,10 +18,12 @@ namespace Datos
         //CONSTRUCTOR
         public CapaDatos() 
         {
+            
             var usuario1 = new Usuario("a-005", "Alexia", "Putellas", "balondeoro3@gmail.com", "Conmasde12caracteres!", 1, "NORMAL");
             var usuario2 = new Usuario("a-004", "Lando", "Norris", "norris@gmail.com", "Conmasde12caracteres!", 1, "NORMAL");
             capaPersistente.GuardaUsuario(usuario1);
             capaPersistente.GuardaUsuario(usuario2);
+
             capaPersistente.GuardaActividad(new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1));
             capaPersistente.GuardaActividad(new ActividadesFisicas("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario1));
             capaPersistente.GuardaActividad(new ActividadesFisicas("AF-003", "Pesas", 50, "Ir al gimnasio y levantar pesas", usuario2));

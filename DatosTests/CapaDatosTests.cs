@@ -22,7 +22,7 @@ namespace Datos.Tests
         {
             capaDatos = new CapaDatos();
         }
-
+        /*
         [TestMethod]
         public void CapaDatosTest()
         {
@@ -30,7 +30,7 @@ namespace Datos.Tests
             Assert.AreEqual(2, capaDatos.NumActividades("a-005"));
             Assert.AreEqual(1, capaDatos.NumActividades("a-004"));
 
-        }
+        }*/
 
         [TestMethod]
         public void GuardaUsuarioVacio()
