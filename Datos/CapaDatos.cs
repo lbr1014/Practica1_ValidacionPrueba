@@ -37,9 +37,10 @@ namespace Datos
             throw new NotImplementedException();
         }
 
-        public int NumActividades(int idUsuario)
+        public int NumActividades(String idUsuario)
         {
-            return ActividadesFisicasLista.Count;
+            return ActividadesFisicasLista
+           .Count(a => a.Usuario != null && a.Usuario.IdUsuario == idUsuario);
         }
 
         public int NumUsuarios()

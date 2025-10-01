@@ -34,6 +34,10 @@ namespace Practica1.ModeladoDatos
       
         }
 
+        public Usuario(string idUsuario) {
+            this.idUsuario = idUsuario;
+        }
+
        
 
 
@@ -132,6 +136,8 @@ namespace Practica1.ModeladoDatos
         }
 
         public String Nombre { get { return this.name; } set { this.name = value; } }
+
+        public String IdUsuario { get { return this.idUsuario; } set { this.idUsuario = value; } }
 
         public String Apellidos { get { return this.apellidos; } set { this.apellidos = value; } }
 

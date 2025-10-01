@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Practica1.ModeladoDatos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +13,23 @@ namespace Logica.ModeladoDatos
         private string nombreActividadFisica;
         private int duracion;
         private string descripcion;
+        private Usuario usuario;
         
 
-        public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, int duracion, string descripcion)
+        public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, int duracion, string descripcion, Usuario usuario)
         {
             this.idActividadFisica = idActividadFisica;
             this.nombreActividadFisica = nombreActividadFisica;
             this.duracion = duracion;
             this.descripcion = descripcion;
+            this.usuario = usuario;
         }
 
         public String NombreActividad { get { return this.nombreActividadFisica; } set { this.nombreActividadFisica = value; } }
         public int Duracion { get { return this.duracion; } set { this.duracion = value; } }
 
         public String Descripcion { get { return this.descripcion; } set { this.descripcion = value; } }
+        public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }
 
         public override bool Equals(object obj)
         {

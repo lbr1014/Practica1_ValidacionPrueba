@@ -67,7 +67,7 @@ namespace Datos
         /// </summary>
         /// <param name="idUsuario">Identificador del Usuario cuyos datos se quieren consultar.</param>
         /// <returns>Número de Actividades.</returns>
-        int NumActividades(int idUsuario);
+        int NumActividades(String idUsuario);
 
     }
 }

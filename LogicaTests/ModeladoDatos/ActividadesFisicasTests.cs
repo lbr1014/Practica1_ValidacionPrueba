@@ -13,17 +13,26 @@ namespace Practica1.ModeladoDatos.Tests
     public class ActividadesFisicasTests
     {
 
-        private ActividadesFisicas CrearActividadCorrecta(string id, string nombre, int duracion, string descripcion)
+
+        private ActividadesFisicas CrearActividadCorrecta(string id, string nombre, int duracion, string descripcion, Usuario usuario)
         {
-            return new ActividadesFisicas(id, nombre, duracion, descripcion);
+            return new ActividadesFisicas(id, nombre, duracion, descripcion, usuario);
+        }
+        
+        private Usuario CrearUsuarioCorrecto()
+        {
+            return new Usuario("a-001");
         }
 
-        [TestMethod]
-        public void ActividadCorrecta()
-        {
-            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio");
 
-            Assert.AreEqual("Correr", actividad.NombreActividad);
+        [TestMethod]
+        public void ActividadCorrecta()   
+        {
+            var usuario = CrearUsuarioCorrecto();
+            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio",usuario );
+        
+
+        Assert.AreEqual("Correr", actividad.NombreActividad);
             actividad.NombreActividad = "Nadar";
             Assert.AreEqual("Nadar", actividad.NombreActividad);
 
@@ -34,16 +43,18 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.AreEqual("Correr en el gimnasio", actividad.Descripcion);
             actividad.Descripcion = "Hacer largos en una piscina olimpica";
             Assert.AreEqual("Hacer largos en una piscina olimpica", actividad.Descripcion);
+            Assert.AreEqual(usuario, actividad.Usuario);
         }
 
         [TestMethod()]
         public void EqualsTest()
         {
-            var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio");
-            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio");
+            var usuario = CrearUsuarioCorrecto();
+            var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
+            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
             Assert.IsTrue(actividad1.Equals(actividad2));
 
-            var actividad3 = CrearActividadCorrecta("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica");
+            var actividad3 = CrearActividadCorrecta("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario);
             Assert.IsFalse(actividad1.Equals(actividad3));
 
         }
@@ -51,14 +62,15 @@ namespace Practica1.ModeladoDatos.Tests
         [TestMethod()]
         public void GetHashCodeTest()
         {
-            var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio");
-            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio");
+            var usuario = CrearUsuarioCorrecto();
+            var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
+            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
 
             int hash1 = actividad1.GetHashCode();
             int hash2 = actividad2.GetHashCode();
             Assert.AreEqual(hash1, hash2);
 
-            var actividad3 = CrearActividadCorrecta("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica");
+            var actividad3 = CrearActividadCorrecta("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario);
             int hash3 = actividad3.GetHashCode();
             Assert.AreNotEqual(hash1, hash3);
         }
