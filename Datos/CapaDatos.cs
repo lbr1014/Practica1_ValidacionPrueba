@@ -45,7 +45,7 @@ namespace Datos
 
         public int NumUsuarios()
         {
-            return UsuariosLista.Count; ;
+            return UsuariosLista.Distinct().Count(); ;
         }
 
         public int NumUsuariosActivos()
