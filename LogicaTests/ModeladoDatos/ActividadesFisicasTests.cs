@@ -19,16 +19,20 @@ namespace Practica1.ModeladoDatos.Tests
             return new ActividadesFisicas(id, nombre, duracion, descripcion, usuario);
         }
         
-        private Usuario CrearUsuarioCorrecto()
+        private Usuario CrearUsuarioCorrecto1()
         {
-            return new Usuario("a-001");
+            return new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres!", 1,  "ADMIN", "HOMBRE", 65.0f, 179.0f, 40);
+        }
+        private Usuario CrearUsuarioCorrecto2()
+        {
+            return new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "Conmasde12caracteres!", 1, "NORMAL", "MUJER", 69.0f, 173.0f, 31);
         }
 
 
         [TestMethod]
         public void ActividadCorrecta()   
         {
-            var usuario = CrearUsuarioCorrecto();
+            var usuario = CrearUsuarioCorrecto1();
             var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio",usuario );
         
 
@@ -46,10 +50,23 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.AreEqual(usuario, actividad.Usuario);
         }
 
+        [TestMethod]
+        public void CalculoCaloriasCorrecto()
+        {
+            var usuario1 = CrearUsuarioCorrecto1();
+            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
+
+            float caloriasCalculadas1 = actividad.CalcularCalorias(usuario1);
+            float caloriasEsperadas1 = 10f * usuario1.Peso * 30f;
+
+            Assert.IsTrue(Math.Abs(caloriasCalculadas1 - caloriasEsperadas1) < 0.001f);
+
+        }
+
         [TestMethod()]
         public void EqualsTest()
         {
-            var usuario = CrearUsuarioCorrecto();
+            var usuario = CrearUsuarioCorrecto1();
             var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
             var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
             Assert.IsTrue(actividad1.Equals(actividad2));
@@ -62,7 +79,7 @@ namespace Practica1.ModeladoDatos.Tests
         [TestMethod()]
         public void GetHashCodeTest()
         {
-            var usuario = CrearUsuarioCorrecto();
+            var usuario = CrearUsuarioCorrecto1();
             var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
             var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
 
