@@ -150,6 +150,34 @@ namespace Logica.utils
 
             return true;
         }
+
+        // Tipo de usuario permitido: ADMIN, NORMAL, PREMIUM
+        public static bool TipoUsuario(string tipo)
+        {
+            if (string.IsNullOrWhiteSpace(tipo)) { return false; }
+            string t = tipo.ToUpperInvariant();
+            return t == "ADMIN" || t == "NORMAL" || t == "PREMIUM";
+        }
+
+        // Estado permitido: 0=INACTIVO, 1=ACTIVO, 2=BLOQUEADO
+        public static bool Estado(int estado)
+        {
+            return estado == 0 || estado == 1 || estado == 2;
+        }
+
+        // Peso en kilogramos
+        public static bool Peso(float kg)
+        {
+            return kg > 0f && kg <= 500f;
+        }
+
+        // Altura en metros
+        public static bool Altura(float metros)
+        {
+            return metros > 0f && metros <= 3.0f;
+        }
+
+
     }
 
 

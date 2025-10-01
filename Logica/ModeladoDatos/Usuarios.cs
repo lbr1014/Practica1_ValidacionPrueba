@@ -1,4 +1,5 @@
-﻿using Practica1.utils;
+﻿using Logica.utils;
+using Practica1.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,10 @@ namespace Practica1.ModeladoDatos
         private string name;
         private string apellidos;
         private string email;
-        private string password;
-        private int estado;
-        private String tipoUsuario;
-        private String sexo;
+        private string password;    
+        private int estado;              // 0=INACTIVO, 1=ACTIVO, 2=BLOQUEADO
+        private String tipoUsuario;     // ADMIN | NORMAL | PREMIUM
+        private String sexo;           // HOMBRE | MUJER | OTRO
         private float peso;
         private float altura;
         private int edad;
@@ -28,22 +29,45 @@ namespace Practica1.ModeladoDatos
         
 
         //Constructor
-        public Usuario(string idUsuario, string name, string apellidos, string email, string password, int estado, String tipoUsuario, String sexo, float peso, float altura, int edad,  DateTime? ultimoInicioSesion = null)
+        public Usuario(string idUsuario, string name, string apellidos, string email, string password, int estado = 1 , string tipoUsuario = "NORMAL", string sexo, float peso, float altura, int edad,  DateTime? ultimoInicioSesion = null)
         {
             this.idUsuario = idUsuario;
             this.name = name;
             this.apellidos = apellidos;
+
+            if (!Validar.Email(email))
+                throw new ArgumentException("Email inválido.");
             this.email = email;
+
+            if (!Validar.Contrasena(password))
+                throw new ArgumentException("La contraseña no cumple la política (mín. 12, 2 mayús., 2 minús., 1 dígito, 1 especial).");
             this.password = Utilidades.EncriptarContraseña(password);
+
+            if (!Validar.Estado(estado))
+                throw new ArgumentException("Estado inválido. 0=INACTIVO, 1=ACTIVO, 2=BLOQUEADO.");
             this.estado = estado;
+
+            if (!Validar.TipoUsuario(tipoUsuario))
+                throw new ArgumentException("Tipo de usuario inválido. Valores permitidos: ADMIN, NORMAL, PREMIUM.");
             this.tipoUsuario = tipoUsuario;
-            this.sexo = sexo;
+
+
+            this.sexo = sexo == "HOMBRE" || sexo == "MUJER" ? sexo : "OTRO";
+
+            if (!Validar.Peso(peso))
+                throw new ArgumentException("El peso debe estar en kilogramos.");
             this.peso = peso;
+            if (!Validar.Altura(altura))
+                throw new ArgumentException("La altura debe estar en metros.");
             this.altura = altura;
+
             this.edad = edad;
 
-            this.ultimoInicioSesion = ultimoInicioSesion ?? DateTime.Now;
-      
+            DateTime posiblefecha = ultimoInicioSesion ?? DateTime.Now;
+            if (!Validar.UltimoInicioSesion(posiblefecha))
+                throw new ArgumentException("La fecha de último inicio de sesión no puede ser futura.");
+            this.UltimoInicioSesion = posiblefecha;
+
         }
 
         public Usuario(string idUsuario) {
@@ -159,6 +183,11 @@ namespace Practica1.ModeladoDatos
             
         }
 
+        public void AlturaCentimetros()
+        {
+            this.altura = altura * 100f;;
+        }
+
 
 
         public String Nombre { get { return this.name; } set { this.name = value; } }
@@ -167,23 +196,89 @@ namespace Practica1.ModeladoDatos
 
         public String Apellidos { get { return this.apellidos; } set { this.apellidos = value; } }
 
-        public String Email { get { return this.email; } set { this.email = value; } }
+        public String Email 
+        {
+            get { return this.email; }
+            set 
+            {
+                if (!Validar.Email(value))
+                    throw new ArgumentException("Email inválido.");
+                this.email = value; 
+            } 
+        }
 
-        public String Password { set { this.password = Utilidades.EncriptarContraseña(value); } }
+        public String Password 
+        { 
+            set 
+            {
+                if (!Validar.Contrasena(value))
+                    throw new ArgumentException("La contraseña no cumple la política (mín. 12, 2 mayús., 2 minús., 1 dígito, 1 especial).");
+                this.password = Utilidades.EncriptarContraseña(value);
+            }
+        }
 
-        public String TipoUsuario { set { this.tipoUsuario = value; } }
+        public String TipoUsuario
+        {
+            set 
+            {
+                if (!Validar.TipoUsuario(value))
+                    throw new ArgumentException("Tipo de usuario inválido. Valores permitidos: ADMIN, NORMAL, PREMIUM.");
+                this.tipoUsuario = value; 
+            } 
+        }
 
-        public int Estado { set { this.estado = value; } }
+        public int Estado 
+        {
+            set 
+            {
+                if (!Validar.Estado(value))
+                    throw new ArgumentException("Estado inválido. 0=INACTIVO, 1=ACTIVO, 2=BLOQUEADO.");
+                this.estado = value;
+            }
+        }
 
-        public String Sexo {  set { this.sexo = value; } }
+        public String Sexo 
+        { 
+            set 
+            {
+                this.sexo = value == "HOMBRE" || value == "MUJER" ? value : "OTRO";
+            } 
+        }
 
-        public float Peso { get { return this.peso; } set { this.peso = value; } }
+        public float Peso 
+        {
+            get { return this.peso; } 
+            set 
+            {
+                if(!Validar.Peso(value))
+                    throw new ArgumentException("El peso debe estar en kilogramos.");
+                this.peso = value;
+            } 
+        }
 
         public int Edad { get { return this.edad; } set { this.edad = value; } }
 
-        public float Altura { get { return this.altura; } set { this.altura = value; } }
+        public float Altura 
+        { 
+            get { return this.altura; } 
+            set 
+            {
+                if (!Validar.Altura(value))
+                    throw new ArgumentException("La altura debe estar en metros.");
+                this.altura = value;
+            }
+        }
 
-        public DateTime UltimoInicioSesion { get { return this.ultimoInicioSesion; } set { this.ultimoInicioSesion = value; } }
+        public DateTime UltimoInicioSesion
+        { 
+            get { return this.ultimoInicioSesion; } 
+            set 
+            {
+                if (!Validar.UltimoInicioSesion(value))
+                    throw new ArgumentException("La fecha de último inicio de sesión no puede ser futura.");
+                this.ultimoInicioSesion = value;
+            }
+        }
 
 
 

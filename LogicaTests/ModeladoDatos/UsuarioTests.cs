@@ -15,24 +15,26 @@ namespace Practica1.ModeladoDatos.Tests
         private const int ACTIVO = 1;
         private const int BLOQUEADO = 2;
 
-        private Usuario CrearUsuarioCorrecto(string id, string nombre, string apellidos, string email, string password, int estado, string tipo, DateTime? ultimoInicioSesion= null) { 
-            return new Usuario(id,nombre, apellidos, email, password, estado, tipo, ultimoInicioSesion ?? DateTime.Now);
+        private Usuario CrearUsuarioCorrecto(string id, string nombre, string apellidos, string email, string password, int estado = 1, string tipo = "NORMAL", string sexo, float peso, float altura, int edad, DateTime? ultimoInicioSesion = null) { 
+            return new Usuario(id,nombre, apellidos, email, password, estado, tipo, sexo, peso, altura, edad, ultimoInicioSesion ?? DateTime.Now);
+            
+
         }
 
         [TestMethod()]
         public void UsuarioTest_CrearConValoresValidosActivo()
         {
-            var usuarioActivo = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", ACTIVO, "ADMIN");
-            var usuarioInactivo = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", INACTIVO, "ADMIN");
-            var usuarioBloqueado = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", BLOQUEADO, "ADMIN");
-            var error = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", 5, "ADMIN");
+            var usuarioActivo = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres!", ACTIVO, "ADMIN", "HOMBRE", 67, 1.83f,23);
+            var usuarioInactivo = CrearUsuarioCorrecto("a-002", "Maria", "Perez", "maria22@gmail.com", "Conmasde12caracteres!", INACTIVO, "ADMIN", "MUJER",60,1.7f,22);
+            var usuarioBloqueado = CrearUsuarioCorrecto("a-003", "Alexia", "Putellas", "alexia11@gmail.com", "Conmasde12caracteres!", BLOQUEADO, "ADMIN", "MUJER", 69, 1.73f, 31);
+            var error = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", 5, "ADMIN", "HOMBRE", 67, 1.83f, 23);
 
             Assert.IsNotNull(usuarioActivo);
             Assert.AreEqual("Pablo", usuarioActivo.Nombre);
             Assert.AreEqual("García", usuarioActivo.Apellidos);
             Assert.AreEqual("pablo66@gmail.com", usuarioActivo.Email);
             Assert.AreEqual("ACTIVO", usuarioActivo.obtenerEstado(usuarioActivo));
-            Assert.AreEqual("ADMIN", usuarioActivo.TipoUsuario);
+            Assert.AreEqual("ADMIN", usuarioActivo.ObtenerTipoUsuario(usuarioActivo));
             Assert.IsTrue(usuarioActivo.ComprobarContraseña("Conmasde12caracteres"));
             Assert.IsFalse(usuarioActivo.ComprobarContraseña("mala"));
 
@@ -46,38 +48,38 @@ namespace Practica1.ModeladoDatos.Tests
         [TestMethod()]
         public void UsuarioTest_EmailIncorrecto()
         {
-            _ = CrearUsuarioCorrecto("a-001", "Pablo", "García", "noemail", "Conmasde12caracteres", ACTIVO, "ADMIN");
+            _ = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres!", ACTIVO, "ADMIN", "HOMBRE", 67, 1.83f, 23);
         }
 
         [TestMethod()]
         public void UsuarioTest_CamposVacios()
         {
-            _ = CrearUsuarioCorrecto(" ", " ", " ", " ", " ", ACTIVO, " ");
+            _ = CrearUsuarioCorrecto(" ", " ", " ", " ", " ", ACTIVO, " ", "", 0,0f,0);
 
         }
 
         [TestMethod()]
         public void CambiarEstadoTest()
         {
-            var usuarioActivo = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", ACTIVO, "ADMIN");
+            var usuarioActivo = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres!", ACTIVO, "ADMIN", "HOMBRE", 67, 1.83f,23);
             Assert.AreEqual("ACTIVO", usuarioActivo.obtenerEstado(usuarioActivo));
-            usuarioActivo.CambiarEstado(BLOQUEADO);
+            usuarioActivo.Estado = BLOQUEADO; 
             Assert.AreEqual("BLOQUEADO", usuarioActivo.obtenerEstado(usuarioActivo));
         }
 
         [TestMethod()]
         public void ObtenerTipoUsuarioTest()
         {
-            var usuarioAdmin = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", ACTIVO, "ADMIN");
+            var usuarioAdmin = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres!", ACTIVO, "ADMIN", "HOMBRE", 67, 1.83f, 23);
             Assert.AreEqual("ADMIN", usuarioAdmin.ObtenerTipoUsuario(usuarioAdmin));
 
-            usuarioAdmin.CambiarTipoUsuario("PREMIUM");
+            usuarioAdmin.TipoUsuario = "PREMIUM";
             Assert.AreEqual("PREMIUM", usuarioAdmin.ObtenerTipoUsuario(usuarioAdmin));
 
-            usuarioAdmin.CambiarTipoUsuario("NORMAL");
+            usuarioAdmin.TipoUsuario = "NORMAL";
             Assert.AreEqual("NORMAL", usuarioAdmin.ObtenerTipoUsuario(usuarioAdmin));
 
-            var usuarioError = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", ACTIVO, "Cualquiera");
+            var usuarioError = CrearUsuarioCorrecto("a-002", "Maria", "Perez", "maria22@gmail.com", "Conmasde12caracteres!", INACTIVO, "ERROR", "MUJER", 60, 1.7f, 22);
             Assert.AreEqual("ERROR", usuarioError.ObtenerTipoUsuario(usuarioError));
 
         }
