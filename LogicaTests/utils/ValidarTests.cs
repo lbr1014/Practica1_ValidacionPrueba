@@ -136,5 +136,19 @@ namespace Logica.utils.Tests
             Assert.IsFalse(Validar.Altura(float.NegativeInfinity));
             Assert.IsFalse(Validar.Altura(float.PositiveInfinity));
         }
+
+        [TestMethod()]
+        public void EdadTest()
+        {
+            // Válidos
+            Assert.IsTrue(Validar.Edad(1));
+            Assert.IsTrue(Validar.Edad(23));
+            Assert.IsTrue(Validar.Edad(120));
+
+            // Inválidos
+            Assert.IsFalse(Validar.Edad(0));
+            Assert.IsFalse(Validar.Edad(-1));
+            Assert.IsFalse(Validar.Edad(121));
+        }
     }
 }

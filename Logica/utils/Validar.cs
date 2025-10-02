@@ -177,6 +177,12 @@ namespace Logica.utils
             return metros > 0f && metros <= 3.0f;
         }
 
+        // Edad en años
+        public static bool Edad(int años)
+        {
+            return años > 0 && años <= 120f;
+        }
+
 
     }
 

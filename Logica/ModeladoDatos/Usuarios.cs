@@ -69,6 +69,8 @@ namespace Practica1.ModeladoDatos
                 throw new ArgumentException("La altura debe estar en metros.");
             this.altura = altura;
 
+            if (!Validar.Edad(edad))
+                throw new ArgumentException("La edad debe estar entre 1 y 120 años.");
             this.edad = edad;
 
             DateTime posiblefecha = ultimoInicioSesion ?? DateTime.Now;
@@ -268,7 +270,15 @@ namespace Practica1.ModeladoDatos
             } 
         }
 
-        public int Edad { get { return this.edad; } set { this.edad = value; } }
+        public int Edad { 
+            get { return this.edad; } 
+            set
+            {
+                if (!Validar.Edad(value))
+                    throw new ArgumentException("La edad debe estar entre 1 y 120 años.");
+                this.edad = value;
+            } 
+        }
 
         public float Altura 
         { 

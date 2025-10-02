@@ -39,7 +39,9 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.AreEqual("pablo66@gmail.com", usuarioActivo.Email);
             Assert.AreEqual("ACTIVO", usuarioActivo.obtenerEstado(usuarioActivo));
             Assert.AreEqual("ADMIN", usuarioActivo.ObtenerTipoUsuario(usuarioActivo));
+            Assert.AreEqual(67, usuarioActivo.Peso);
             Assert.AreEqual(1.83f, usuarioActivo.Altura);
+            Assert.AreEqual(23, usuarioActivo.Edad);
 
             Assert.IsTrue(usuarioActivo.ComprobarContraseña("ConMasDe12Caracteres!"));
             Assert.IsFalse(usuarioActivo.ComprobarContraseña("mala"));
@@ -94,6 +96,13 @@ namespace Practica1.ModeladoDatos.Tests
         }
 
         [TestMethod()]
+        public void UsuarioTestEdadIncorre()
+        {
+            Assert.ThrowsException<ArgumentException>(() =>
+                CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 200, ACTIVO, "NORMAL"));
+        }
+
+        [TestMethod()]
         public void UsuarioTestCamposVacios()
         {
             Assert.ThrowsException<ArgumentException>(() =>
@@ -135,6 +144,10 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.AreEqual(183f, usuario.AlturaCentimetros(), 0.001);
 
             Assert.AreEqual(1.72f, usuario.Altura = 1.72f);
+
+            Assert.ThrowsException<ArgumentException>(() => usuario.Edad = 0);
+            Assert.ThrowsException<ArgumentException>(() => usuario.Edad = 121);
+            Assert.AreEqual(32, usuario.Edad = 32);
 
             var futuro = DateTime.Now.AddMinutes(1);
             Assert.ThrowsException<ArgumentException>(() => CrearUsuarioCorrecto("a-002", "Maria", "Perez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, INACTIVO, "ADMIN", futuro));
