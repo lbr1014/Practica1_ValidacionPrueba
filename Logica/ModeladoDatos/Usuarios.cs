@@ -52,11 +52,19 @@ namespace Practica1.ModeladoDatos
             this.tipoUsuario = tipoUsuario;
 
 
-            this.sexo = sexo == "HOMBRE" || sexo == "MUJER" ? sexo : "OTRO";
+            if (sexo == "HOMBRE" || sexo == "MUJER")
+            {
+                this.sexo = sexo;
+            }
+            else
+            {
+                this.sexo = "OTRO";
+            }
 
             if (!Validar.Peso(peso))
                 throw new ArgumentException("El peso debe estar en kilogramos.");
             this.peso = peso;
+
             if (!Validar.Altura(altura))
                 throw new ArgumentException("La altura debe estar en metros.");
             this.altura = altura;
@@ -92,9 +100,7 @@ namespace Practica1.ModeladoDatos
                 case 2:
                     estadoUsuario = "BLOQUEADO";
                     break;
-                default:
-                    estadoUsuario = "ERROR";
-                    break;
+
 
             }
             return estadoUsuario;
@@ -114,9 +120,6 @@ namespace Practica1.ModeladoDatos
                     break;
                 case "PREMIUM":
                     tipo = "PREMIUM";
-                    break;
-                default:
-                    tipo = "ERROR";
                     break;
 
             }
@@ -154,13 +157,13 @@ namespace Practica1.ModeladoDatos
 
             if (coincide)
             {
-                contador = 0;
+                this.contador = 0;
                 return contraseñaIgual;
             }
 
-            contador++;
+            this.contador++;
 
-            if (contador >= 3)
+            if (this.contador >= 3)
             {
                 BloquearCuenta();
             }
@@ -175,10 +178,11 @@ namespace Practica1.ModeladoDatos
             this.estado = 2;
         }
 
-        public void DesbloquearCuenta()
+        public void DesbloquearCuenta(Usuario usuario)
         {
-            if (tipoUsuario == "ADMIN") {
-                this.estado = 1;
+            if (this.tipoUsuario == "ADMIN") {
+                usuario.estado = 1;
+                usuario.contador = 0;
             }
             
         }
@@ -241,7 +245,15 @@ namespace Practica1.ModeladoDatos
         { 
             set 
             {
-                this.sexo = value == "HOMBRE" || value == "MUJER" ? value : "OTRO";
+                if (value == "HOMBRE" || value == "MUJER")
+                {
+                    this.sexo = value;
+                }
+                else
+                {
+                    this.sexo = "OTRO";
+                }
+
             } 
         }
 
@@ -286,8 +298,6 @@ namespace Practica1.ModeladoDatos
         {
             return obj is Usuario usuario &&
                    idUsuario == usuario.idUsuario &&
-                   name == usuario.name &&
-                   apellidos == usuario.apellidos &&
                    email == usuario.email &&
                    password == usuario.password;
         }
@@ -296,8 +306,6 @@ namespace Practica1.ModeladoDatos
         {
             int hashCode = -818170147;
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(idUsuario);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(name);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(apellidos);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(email);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(password);
             return hashCode;

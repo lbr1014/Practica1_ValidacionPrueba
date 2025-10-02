@@ -21,8 +21,8 @@ namespace Logica.utils.Tests
             Assert.IsFalse(Validar.NIF("71567703"));
             Assert.IsFalse(Validar.NIF("KKKKKKKK"));
             Assert.IsFalse(Validar.NIF("ABCDEFGHX"));
-            
-            
+
+
         }
 
         [TestMethod()]
@@ -43,7 +43,7 @@ namespace Logica.utils.Tests
             Assert.IsFalse(Validar.Contrasena("Contrasenasinmayusculas1!"));
             Assert.IsFalse(Validar.Contrasena("CONTRASEÑASINMINUSCULAS1!"));
             Assert.IsFalse(Validar.Contrasena("ContrasenaSinCaracteresEspeciales1"));
-            
+
         }
 
 
@@ -76,6 +76,65 @@ namespace Logica.utils.Tests
             DateTime inicioSesionIncorrectoMes = new DateTime(2025, 12, 14);
             Assert.IsFalse(Validar.UltimoInicioSesion(inicioSesionIncorrectoMes));
 
+        }
+
+        [TestMethod()]
+        public void TipoUsuarioTest()
+        {
+
+            Assert.IsTrue(Validar.TipoUsuario("ADMIN"));
+            Assert.IsTrue(Validar.TipoUsuario("NORMAL"));
+            Assert.IsTrue(Validar.TipoUsuario("PREMIUM"));
+
+            Assert.IsFalse(Validar.TipoUsuario(null));
+            Assert.IsFalse(Validar.TipoUsuario(""));
+            Assert.IsFalse(Validar.TipoUsuario(" "));
+            Assert.IsFalse(Validar.TipoUsuario("admin"));
+            Assert.IsFalse(Validar.TipoUsuario("Premium"));
+            Assert.IsFalse(Validar.TipoUsuario("CUALQUIERA"));
+            Assert.IsFalse(Validar.TipoUsuario("PREM IUM"));
+
+        }
+
+        [TestMethod()]
+        public void EstadoTest()
+        {
+            Assert.IsTrue(Validar.Estado(0));
+            Assert.IsTrue(Validar.Estado(1));
+            Assert.IsTrue(Validar.Estado(2));
+
+            Assert.IsFalse(Validar.Estado(-1));
+            Assert.IsFalse(Validar.Estado(3));
+            Assert.IsFalse(Validar.Estado(99));
+        }
+
+        [TestMethod()]
+        public void PesoTest()
+        {
+            Assert.IsTrue(Validar.Peso(1f));
+            Assert.IsTrue(Validar.Peso(75.5f));
+            Assert.IsTrue(Validar.Peso(500f));
+
+            Assert.IsFalse(Validar.Peso(0f));
+            Assert.IsFalse(Validar.Peso(-0.1f));
+            Assert.IsFalse(Validar.Peso(500.01f));
+            Assert.IsFalse(Validar.Peso(float.NaN));
+            Assert.IsFalse(Validar.Peso(float.NegativeInfinity));
+            Assert.IsFalse(Validar.Peso(float.PositiveInfinity));
+        }
+
+        [TestMethod()]
+        public void AlturaTest()
+        {
+            Assert.IsTrue(Validar.Altura(1.8f));
+            Assert.IsTrue(Validar.Altura(3.0f));
+
+            Assert.IsFalse(Validar.Altura(0f));
+            Assert.IsFalse(Validar.Altura(-1f));
+            Assert.IsFalse(Validar.Altura(3.01f));
+            Assert.IsFalse(Validar.Altura(float.NaN));
+            Assert.IsFalse(Validar.Altura(float.NegativeInfinity));
+            Assert.IsFalse(Validar.Altura(float.PositiveInfinity));
         }
     }
 }

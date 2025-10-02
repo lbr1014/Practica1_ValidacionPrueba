@@ -155,8 +155,8 @@ namespace Logica.utils
         public static bool TipoUsuario(string tipo)
         {
             if (string.IsNullOrWhiteSpace(tipo)) { return false; }
-            string t = tipo.ToUpperInvariant();
-            return t == "ADMIN" || t == "NORMAL" || t == "PREMIUM";
+            //string t = tipo.ToUpperInvariant();
+            return tipo == "ADMIN" || tipo == "NORMAL" || tipo == "PREMIUM";
         }
 
         // Estado permitido: 0=INACTIVO, 1=ACTIVO, 2=BLOQUEADO

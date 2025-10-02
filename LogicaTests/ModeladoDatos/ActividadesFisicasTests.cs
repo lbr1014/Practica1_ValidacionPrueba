@@ -98,7 +98,7 @@ namespace Practica1.ModeladoDatos.Tests
             var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
             var usuario2 = CrearUsuarioCorrecto2();
             var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario2);
-            var usuario3 = new Usuario("a-007", "Ivan", "Lopez", "ivan66@gmail.com", "ConMasDe12Caracteres!", "OTRO", 76.0f, 1.74f, 37);
+            var usuario3 = new Usuario("a-007", "Ivan", "Lopez", "ivan66@gmail.com", "ConMasDe12Caracteres!", "OTRO", 76.0f, 1.74f, 37, 1, "NORMAL");
             var actividad3 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario3);
 
             float mbrHombre = actividad.CalcularMetabolismobasal(usuario1);

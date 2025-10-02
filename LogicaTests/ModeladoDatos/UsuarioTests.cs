@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Logica.ModeladoDatos;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Practica1.ModeladoDatos;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,10 @@ namespace Practica1.ModeladoDatos.Tests
             
 
         }
+        private Usuario CrearUsuariodCorrecto2(string id)
+        {
+            return new Usuario(id);
+        }
 
         [TestMethod()]
         public void UsuarioTestConValoresValidos()
@@ -34,6 +39,8 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.AreEqual("pablo66@gmail.com", usuarioActivo.Email);
             Assert.AreEqual("ACTIVO", usuarioActivo.obtenerEstado(usuarioActivo));
             Assert.AreEqual("ADMIN", usuarioActivo.ObtenerTipoUsuario(usuarioActivo));
+            Assert.AreEqual(1.83f, usuarioActivo.Altura);
+
             Assert.IsTrue(usuarioActivo.ComprobarContraseña("ConMasDe12Caracteres!"));
             Assert.IsFalse(usuarioActivo.ComprobarContraseña("mala"));
 
@@ -42,7 +49,10 @@ namespace Practica1.ModeladoDatos.Tests
 
             Assert.ThrowsException<ArgumentException>(() =>
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, 5, "ADMIN"));
-            
+
+            var usuarioID = CrearUsuariodCorrecto2("a-004");
+            Assert.IsNotNull(usuarioID);
+
 
         }
 
@@ -54,6 +64,35 @@ namespace Practica1.ModeladoDatos.Tests
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "noemail", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "ADMIN"));
         }
 
+
+        [TestMethod()]
+        public void UsuarioTestContraseñaIncorrecto()
+        {
+            Assert.ThrowsException<ArgumentException>(() =>
+                CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "mala!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "ADMIN"));
+        }
+
+        [TestMethod()]
+        public void UsuarioTestTipoIncorrecto()
+        {
+            Assert.ThrowsException<ArgumentException>(() =>
+                CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "MALO"));
+        }
+
+        [TestMethod()]
+        public void UsuarioTestPesoIncorre()
+        {
+            Assert.ThrowsException<ArgumentException>(() =>
+                CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 6700, 1.83f, 23, ACTIVO, "NORMAL"));
+        }
+
+        [TestMethod()]
+        public void UsuarioTestAlturaIncorre()
+        {
+            Assert.ThrowsException<ArgumentException>(() =>
+                CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 183.0f, 23, ACTIVO, "NORMAL"));
+        }
+
         [TestMethod()]
         public void UsuarioTestCamposVacios()
         {
@@ -63,10 +102,11 @@ namespace Practica1.ModeladoDatos.Tests
         }
 
         [TestMethod()]
-        public void SetInvalidosTest()
+        public void SetTest()
         {
             var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "DESCONOCIDO", 67, 1.83f, 23, ACTIVO, "NORMAL");
             Assert.ThrowsException<ArgumentException>(() => usuario.Email = "sin-arroba");
+            Assert.AreEqual("garcia44@gmail.com",usuario.Email = "garcia44@gmail.com");
 
             Assert.ThrowsException<ArgumentException>(() => usuario.Password = "corta");
 
@@ -77,14 +117,24 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.AreEqual("NORMAL", usuario.ObtenerTipoUsuario(usuario));
 
             Assert.AreEqual("OTRO", usuario.obtenerSexo(usuario));
+            usuario.Sexo = "MUJER";
+            Assert.AreEqual("MUJER", usuario.obtenerSexo(usuario));
+
+            usuario.Sexo = "HOMBRE";
+            Assert.AreEqual("HOMBRE", usuario.obtenerSexo(usuario));
+
+            usuario.Sexo = "NO BINARIO";
+            Assert.AreEqual("OTRO", usuario.obtenerSexo(usuario));
 
             Assert.ThrowsException<ArgumentException>(() => usuario.Peso = 0f);
             Assert.ThrowsException<ArgumentException>(() => usuario.Peso = 999f);
+            Assert.AreEqual(72, usuario.Peso = 72);
 
             Assert.ThrowsException<ArgumentException>(() => usuario.Altura = 0f);
             Assert.ThrowsException<ArgumentException>(() => usuario.Altura = 3.5f);
-
             Assert.AreEqual(183f, usuario.AlturaCentimetros(), 0.001);
+
+            Assert.AreEqual(1.72f, usuario.Altura = 1.72f);
 
             var futuro = DateTime.Now.AddMinutes(1);
             Assert.ThrowsException<ArgumentException>(() => CrearUsuarioCorrecto("a-002", "Maria", "Perez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, INACTIVO, "ADMIN", futuro));
@@ -121,15 +171,16 @@ namespace Practica1.ModeladoDatos.Tests
         public void BloquearYDesbloquearCuentaTest()
         {
             var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "NORMAL");
+            var usuarioAdmin = CrearUsuarioCorrecto("a-003", "Alexia", "Putellas", "alexia11@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, ACTIVO, "ADMIN");
+
             usuario.BloquearCuenta();
             Assert.AreEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
             Assert.AreNotEqual("ACTIVO", usuario.obtenerEstado(usuario));
 
-            usuario.DesbloquearCuenta();
+            usuario.DesbloquearCuenta(usuario);
             Assert.AreNotEqual("ACTIVO", usuario.obtenerEstado(usuario));
 
-            usuario.TipoUsuario="ADMIN";
-            usuario.DesbloquearCuenta();
+            usuarioAdmin.DesbloquearCuenta(usuario);
             Assert.AreEqual("ACTIVO", usuario.obtenerEstado(usuario));
             Assert.AreNotEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
 
@@ -138,7 +189,7 @@ namespace Practica1.ModeladoDatos.Tests
         [TestMethod()]
         public void ComprobarContraseñaTest()
         {
-            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "ADMIN");
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ContraseñaCorrecta1!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "NORMAL");
             bool resultado = usuario.ComprobarContraseña("ContraseñaCorrecta1!");
             Assert.IsTrue(resultado);
             Assert.AreNotEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
@@ -147,11 +198,14 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.IsFalse(resultado);
             Assert.AreNotEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
 
-            usuario.ComprobarContraseña("ClaveMala1");
-            usuario.ComprobarContraseña("ClaveMala2");
-            resultado = usuario.ComprobarContraseña("ClaveMala3");
-            Assert.IsFalse(resultado);
+            Assert.IsFalse(usuario.ComprobarContraseña("ClaveMala1"));
+            Assert.IsFalse(usuario.ComprobarContraseña("ClaveMala2"));
+            Assert.IsFalse(usuario.ComprobarContraseña("ClaveMala3"));
             Assert.AreEqual("BLOQUEADO", usuario.obtenerEstado(usuario));
+
+            var usuarioAdmin = CrearUsuarioCorrecto("a-003", "Alexia", "Putellas", "alexia11@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, ACTIVO, "ADMIN");
+            usuarioAdmin.DesbloquearCuenta(usuario);
+            Assert.AreEqual("ACTIVO", usuario.obtenerEstado(usuario));
 
             Assert.IsFalse(usuario.ComprobarContraseña("mala1"));
             Assert.IsFalse(usuario.ComprobarContraseña("mala2"));
