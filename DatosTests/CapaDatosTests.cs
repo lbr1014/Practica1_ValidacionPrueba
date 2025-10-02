@@ -22,7 +22,7 @@ namespace Datos.Tests
         {
             capaDatos = new CapaDatos();
         }
-        /*
+        
         [TestMethod]
         public void CapaDatosTest()
         {
@@ -30,7 +30,7 @@ namespace Datos.Tests
             Assert.AreEqual(2, capaDatos.NumActividades("a-005"));
             Assert.AreEqual(1, capaDatos.NumActividades("a-004"));
 
-        }*/
+        }
 
         [TestMethod]
         public void GuardaUsuarioVacio()
@@ -46,7 +46,7 @@ namespace Datos.Tests
         [TestMethod]
         public void GuardaUsuarioBueno()
         {
-            var usuario = new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", 1, "NORMAL"); 
+            var usuario = new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, 1, "NORMAL"); 
             var antes = capaDatos.NumUsuarios();
 
             var usuarioNuevoSistema = capaDatos.GuardaUsuario(usuario);
@@ -58,7 +58,7 @@ namespace Datos.Tests
         [TestMethod]
         public void GuardaUsuarioDuplicate()
         {
-            var usuario = new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", 1, "NORMAL");
+            var usuario = new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, 1, "NORMAL");
             capaDatos.GuardaUsuario(usuario);
             var before = capaDatos.NumUsuarios();
 
@@ -70,15 +70,15 @@ namespace Datos.Tests
         [TestMethod]
         public void NumUsuariosVacio()
         {
-            Assert.AreEqual(0, capaDatos.NumUsuarios());
+            Assert.AreEqual(2, capaDatos.NumUsuarios());
         }
 
         [TestMethod]
         public void NumUsuariosConUsuarios()
         {
-            capaDatos.GuardaUsuario(new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", 1, "NORMAL"));
-            capaDatos.GuardaUsuario(new Usuario("a-002", "María", "Pérez", "maria22@gmail.com", "Conmasde12caracteres", 1, "ADMIN"));
-            Assert.AreEqual(2, capaDatos.NumUsuarios());
+            capaDatos.GuardaUsuario(new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, 1, "NORMAL"));
+            capaDatos.GuardaUsuario(new Usuario("a-002", "María", "Pérez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, 1, "ADMIN"));
+            Assert.AreEqual(4, capaDatos.NumUsuarios());
         }
 
         [TestMethod]
@@ -95,7 +95,7 @@ namespace Datos.Tests
         [TestMethod]
         public void GuardaActividadBuena()
         {
-            var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "Conmasde12caracteres", 0, "NORMAL");
+            var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 0, "NORMAL");
             var actividad = new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
             var antes = capaDatos.NumActividades("a-002");
 
@@ -108,10 +108,10 @@ namespace Datos.Tests
         [TestMethod]
         public void NumUsuariosActivos()
         {
-            var activo = new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres", 1, "NORMAL");
-            var activo1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "Conmasde12caracteres", 1, "NORMAL");
+            var activo = new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, 1, "NORMAL");
+            var activo1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 1, "NORMAL");
 
-            var inactivo = new Usuario("a-003", "María", "Pérez", "maria22@gmail.com", "Conmasde12caracteres", 0, "NORMAL");
+            var inactivo = new Usuario("a-003", "María", "Pérez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, 0, "NORMAL");
 
 
             capaDatos.GuardaUsuario(activo);
@@ -120,26 +120,26 @@ namespace Datos.Tests
 
             var count = capaDatos.NumUsuariosActivos();
 
-            Assert.AreEqual(2, count);
+            Assert.AreEqual(4, count);
         }
 
         [TestMethod]
         public void NumUsuariosActivosNulo()
         {
-            var inactivo = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "Conmasde12caracteres", 0, "NORMAL");
-            var inactivo1 = new Usuario("a-003", "María", "Pérez", "maria22@gmail.com", "Conmasde12caracteres", 0, "NORMAL");
+            var inactivo = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 0, "NORMAL");
+            var inactivo1 = new Usuario("a-003", "María", "Pérez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, 0, "NORMAL");
 
             capaDatos.GuardaUsuario(inactivo);
             capaDatos.GuardaUsuario(inactivo1);
 
-            Assert.AreEqual(0, capaDatos.NumUsuariosActivos());
+            Assert.AreEqual(2, capaDatos.NumUsuariosActivos());
         }
 
         [TestMethod]
         public void NumActividades()
         {
-            var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "Conmasde12caracteres", 0, "NORMAL");
-            var usuario2 = new Usuario("a-003", "María", "Pérez", "maria22@gmail.com", "Conmasde12caracteres", 0, "NORMAL");
+            var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 0, "NORMAL");
+            var usuario2 = new Usuario("a-003", "María", "Pérez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, 0, "NORMAL");
            
 
             var actividad1_Usuario1 = new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio",usuario1 ); 

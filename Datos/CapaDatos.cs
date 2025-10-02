@@ -13,20 +13,20 @@ namespace Datos
         //ATRIBUTOS
         List<Usuario> UsuariosLista = new List<Usuario>();
         List<ActividadesFisicas> ActividadesFisicasLista = new List<ActividadesFisicas>();
-        CapaDatos capaPersistente = new CapaDatos();
+        
 
         //CONSTRUCTOR
         public CapaDatos() 
         {
             
-            var usuario1 = new Usuario("a-005", "Alexia", "Putellas", "balondeoro3@gmail.com", "Conmasde12caracteres!", 1, "NORMAL");
-            var usuario2 = new Usuario("a-004", "Lando", "Norris", "norris@gmail.com", "Conmasde12caracteres!", 1, "NORMAL");
-            capaPersistente.GuardaUsuario(usuario1);
-            capaPersistente.GuardaUsuario(usuario2);
+            var usuario1 = new Usuario("a-005", "Alexia", "Putellas", "balondeoro3@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 1, "NORMAL");
+            var usuario2 = new Usuario("a-004", "Lando", "Norris", "norris@gmail.com", "ConMasDe12Caracteres!","HOMBRE", 68, 1.75f, 25,  1, "NORMAL");
+            GuardaUsuario(usuario1);
+            GuardaUsuario(usuario2);
 
-            capaPersistente.GuardaActividad(new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1));
-            capaPersistente.GuardaActividad(new ActividadesFisicas("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario1));
-            capaPersistente.GuardaActividad(new ActividadesFisicas("AF-003", "Pesas", 50, "Ir al gimnasio y levantar pesas", usuario2));
+            GuardaActividad(new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1));
+            GuardaActividad(new ActividadesFisicas("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario1));
+            GuardaActividad(new ActividadesFisicas("AF-003", "Pesas", 50, "Ir al gimnasio y levantar pesas", usuario2));
            
 
         }  

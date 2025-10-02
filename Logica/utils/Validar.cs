@@ -143,7 +143,7 @@ namespace Logica.utils
 
         public static bool UltimoInicioSesion(DateTime ultimoInicioSesion)
         {
-            if (ultimoInicioSesion > DateTime.Today)
+            if (ultimoInicioSesion > DateTime.Now)
             {
                 return false;
             }

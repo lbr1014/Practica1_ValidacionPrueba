@@ -29,7 +29,7 @@ namespace Practica1.ModeladoDatos
         
 
         //Constructor
-        public Usuario(string idUsuario, string name, string apellidos, string email, string password, int estado = 1 , string tipoUsuario = "NORMAL", string sexo, float peso, float altura, int edad,  DateTime? ultimoInicioSesion = null)
+        public Usuario(string idUsuario, string name, string apellidos, string email, string password, string sexo, float peso, float altura, int edad, int estado = 1, string tipoUsuario = "NORMAL",  DateTime? ultimoInicioSesion = null)
         {
             this.idUsuario = idUsuario;
             this.name = name;
@@ -183,9 +183,9 @@ namespace Practica1.ModeladoDatos
             
         }
 
-        public void AlturaCentimetros()
+        public float AlturaCentimetros()
         {
-            this.altura = altura * 100f;;
+            return altura * 100f;;
         }
 
 

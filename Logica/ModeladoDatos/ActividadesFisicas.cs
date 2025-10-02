@@ -41,10 +41,10 @@ namespace Logica.ModeladoDatos
 
         public float CalcularMetabolismobasal(Usuario usuario)
         {
-            var sexo = Usuario.obtenerSexo(usuario);
-            float peso = Usuario.Peso;
-            float altura = Usuario.Altura;
-            int edad = Usuario.Edad;
+            var sexo = usuario.obtenerSexo(usuario);
+            float peso = usuario.Peso;
+            float altura = usuario.AlturaCentimetros();
+            int edad = usuario.Edad;
             float mbr = 0;
             if(sexo == "MUJER")
             {

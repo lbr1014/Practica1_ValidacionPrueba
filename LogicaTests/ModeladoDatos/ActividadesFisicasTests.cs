@@ -21,11 +21,11 @@ namespace Practica1.ModeladoDatos.Tests
         
         private Usuario CrearUsuarioCorrecto1()
         {
-            return new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "Conmasde12caracteres!", 1,  "ADMIN", "HOMBRE", 65.0f, 179.0f, 40);
+            return new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 65.0f, 1.79f, 40, 1, "ADMIN");
         }
         private Usuario CrearUsuarioCorrecto2()
         {
-            return new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "Conmasde12caracteres!", 1, "NORMAL", "MUJER", 69.0f, 173.0f, 31);
+            return new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69.0f, 1.73f, 31, 1, "NORMAL");
         }
 
 
@@ -75,7 +75,7 @@ namespace Practica1.ModeladoDatos.Tests
             var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
             var usuario2 = CrearUsuarioCorrecto2();
             var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario2);
-            var usuario3 = new Usuario("a-007", "Ivan", "Lopez", "ivan66@gmail.com", "Conmasde12caracteres!", 1, "NORMAL", "OTRO", 76.0f, 174.0f, 37);
+            var usuario3 = new Usuario("a-007", "Ivan", "Lopez", "ivan66@gmail.com", "ConMasDe12Caracteres!", "OTRO", 76.0f, 1.74f, 37);
             var actividad3 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario3);
 
             float mbrHombre = actividad.CalcularMetabolismobasal(usuario1);
