@@ -29,8 +29,13 @@ namespace Logica.ModeladoDatos
             this.usuario = usuario;
             calorias = CalcularCalorias(usuario);
             metabolismoBasal = CalcularMetabolismobasal(usuario);
-            met = 10 * PasarAHoras(duracion);
+            this.met = calculaMet(duracion);
 
+        }
+
+        public float calculaMet(float duracion)
+        {
+            return 10 * PasarAHoras(duracion);
         }
 
         public float PasarAHoras(float duracion)
@@ -68,8 +73,8 @@ namespace Logica.ModeladoDatos
 
         public float CalcularCalorias(Usuario usuario)
         {
-            float peso = usuario.Peso;
-            calorias = met * peso * PasarAHoras(duracion);
+             
+            calorias = this.met * usuario.Peso * this.duracion;
                 
             return calorias;
         }
@@ -80,7 +85,8 @@ namespace Logica.ModeladoDatos
         public String Descripcion { get { return this.descripcion; } set { this.descripcion = value; } }
         public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }
 
-        public float Met{ get { return 10 * PasarAHoras(duracion); } }
+        public float MET { get { return this.met; } set { this.met = calculaMet(value); } }
+
 
         public override bool Equals(object obj)
         {

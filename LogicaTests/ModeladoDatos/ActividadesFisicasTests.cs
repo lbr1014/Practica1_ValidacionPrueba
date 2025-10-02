@@ -27,6 +27,20 @@ namespace Practica1.ModeladoDatos.Tests
         {
             return new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69.0f, 1.73f, 31, 1, "NORMAL");
         }
+        private ActividadesFisicas CrearActividadCorrecta2(string id, Usuario usuario)
+        {
+            return new ActividadesFisicas(id, usuario);
+        }
+        [TestMethod]
+        public void ActividadConstructor2()
+            
+        {
+            var usuario = CrearUsuarioCorrecto2();
+            var actividad = CrearActividadCorrecta2("AF-001", usuario);
+            Assert.AreEqual(usuario, actividad.Usuario);
+
+
+        }
 
 
         [TestMethod]
@@ -51,7 +65,7 @@ namespace Practica1.ModeladoDatos.Tests
 
             Assert.IsNotNull(actividad.CalcularCalorias(usuario));
             Assert.IsNotNull(actividad.CalcularMetabolismobasal(usuario));
-            Assert.IsNotNull(actividad.Met);
+            Assert.IsNotNull(actividad.MET);
 
         }
 
@@ -61,11 +75,19 @@ namespace Practica1.ModeladoDatos.Tests
             var usuario1 = CrearUsuarioCorrecto1();
             var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
 
+            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 50, "Correr en el gimnasio", usuario1);
+
             float caloriasCalculadas1 = actividad.CalcularCalorias(usuario1);
-            //Problema calculo met
-            float caloriasEsperadas1 = (10.0f* 0.5f) * usuario1.Peso * (30/60.0f);
+           
+            float caloriasEsperadas1 = actividad.MET * usuario1.Peso * (actividad.Duracion);
+
+            float caloriasCalculadas2 = actividad2.CalcularCalorias(usuario1);
+
+            
 
             Assert.IsTrue(Math.Abs(caloriasCalculadas1 - caloriasEsperadas1) == 0, $" Calculadas :{caloriasCalculadas1} , Esperadas: {caloriasEsperadas1}");
+          
+
 
         }
 
