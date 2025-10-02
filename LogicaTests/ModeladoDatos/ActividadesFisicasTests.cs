@@ -40,9 +40,9 @@ namespace Practica1.ModeladoDatos.Tests
             actividad.NombreActividad = "Nadar";
             Assert.AreEqual("Nadar", actividad.NombreActividad);
 
-            Assert.AreEqual(30, actividad.Duracion);
+            Assert.AreEqual(30/60.0f, actividad.Duracion);
             actividad.Duracion = 40;
-            Assert.AreEqual(40, actividad.Duracion);
+            Assert.AreEqual(40/60.0f, actividad.Duracion);
 
             Assert.AreEqual("Correr en el gimnasio", actividad.Descripcion);
             actividad.Descripcion = "Hacer largos en una piscina olimpica";
@@ -62,9 +62,10 @@ namespace Practica1.ModeladoDatos.Tests
             var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
 
             float caloriasCalculadas1 = actividad.CalcularCalorias(usuario1);
-            float caloriasEsperadas1 = 10f * usuario1.Peso * 30f;
+            //Problema calculo met
+            float caloriasEsperadas1 = (10f* 0.5f) * usuario1.Peso * (30/60.0f);
 
-            Assert.IsTrue(Math.Abs(caloriasCalculadas1 - caloriasEsperadas1) == 0);
+            Assert.IsTrue(Math.Abs(caloriasCalculadas1 - caloriasEsperadas1) == 0, $" Calculadas :{caloriasCalculadas1} , Esperadas: {caloriasEsperadas1}");
 
         }
 
@@ -83,16 +84,16 @@ namespace Practica1.ModeladoDatos.Tests
             float mbrOtro = actividad3.CalcularMetabolismobasal(usuario3);
 
 
-            float mbrEsperadoHombre = (10 * usuario1.Peso) + (6.25f * usuario1.Altura) - (5 * usuario1.Edad) + 5;
-            float mbrEsperadoMujer = (10 * usuario2.Peso) + (6.25f * usuario2.Altura) - (5 * usuario2.Edad) - 161;
-            float mbrEsperadoOtro = (((10 * usuario3.Peso) + (6.25f * usuario3.Altura) - (5 * usuario3.Edad) - 161) + ((10 * usuario3.Peso) + (6.25f * usuario3.Altura) - (5 * usuario3.Edad) + 5)) / 2;
+            float mbrEsperadoHombre = (10 * usuario1.Peso) + (6.25f * usuario1.AlturaCentimetros()) - (5 * usuario1.Edad) + 5;
+            float mbrEsperadoMujer = (10 * usuario2.Peso) + (6.25f * usuario2.AlturaCentimetros()) - (5 * usuario2.Edad) - 161;
+            float mbrEsperadoOtro = (((10 * usuario3.Peso) + (6.25f * usuario3.AlturaCentimetros()) - (5 * usuario3.Edad) - 161) + ((10 * usuario3.Peso) + (6.25f * usuario3.AlturaCentimetros()) - (5 * usuario3.Edad) + 5)) / 2;
 
 
-            Assert.IsTrue(Math.Abs(mbrHombre - mbrEsperadoHombre) == 0);
+            Assert.IsTrue(Math.Abs(mbrHombre - mbrEsperadoHombre) == 0, $" CalculadasH :{mbrHombre} , EsperadasH: {mbrEsperadoHombre}");
 
-            Assert.IsTrue(Math.Abs(mbrMujer - mbrEsperadoMujer) == 0);
+            Assert.IsTrue(Math.Abs(mbrMujer - mbrEsperadoMujer) == 0, $" CalculadasM :{mbrMujer} , EsperadasM: {mbrEsperadoMujer}");
 
-            Assert.IsTrue(Math.Abs(mbrOtro - mbrEsperadoOtro) == 0);
+            Assert.IsTrue(Math.Abs(mbrOtro - mbrEsperadoOtro) == 0, $" CalculadasO :{mbrOtro} , EsperadasO: {mbrEsperadoOtro}");
 
         }
 

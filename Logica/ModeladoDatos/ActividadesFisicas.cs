@@ -11,7 +11,7 @@ namespace Logica.ModeladoDatos
     {
         private string idActividadFisica;
         private string nombreActividadFisica;
-        private int duracion;
+        private float duracion;
         private string descripcion;
         private float calorias;
         private float metabolismoBasal;
@@ -20,19 +20,23 @@ namespace Logica.ModeladoDatos
         private Usuario usuario;
         
 
-        public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, int duracion, string descripcion, Usuario usuario)
+        public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, float duracion, string descripcion, Usuario usuario)
         {
             this.idActividadFisica = idActividadFisica;
             this.nombreActividadFisica = nombreActividadFisica;
-            this.duracion = duracion /60;
+            this.duracion = PasarAHoras(duracion);
             this.descripcion = descripcion;
             this.usuario = usuario;
             calorias = CalcularCalorias(usuario);
             metabolismoBasal = CalcularMetabolismobasal(usuario);
-            met = 10 * duracion;
+            met = 10 * PasarAHoras(duracion);
 
         }
 
+        public float PasarAHoras(float duracion)
+        {
+            return duracion / 60.0f;
+        }
         public ActividadesFisicas(string idActividadFisica, Usuario usuario)
         {
             this.idActividadFisica = idActividadFisica;
@@ -48,15 +52,15 @@ namespace Logica.ModeladoDatos
             float mbr = 0;
             if(sexo == "MUJER")
             {
-                mbr = (10 * peso) + (6.25f *altura) -( 5 * edad) - 161; 
+                mbr = (10 * peso) + (6.25f * usuario.AlturaCentimetros()) -( 5 * edad) - 161; 
             }
             else if (sexo == "HOMBRE")
             {
-                mbr = (10 * peso) + (6.25f * altura) - (5 * edad) + 5;
+                mbr = (10 * peso) + (6.25f * usuario.AlturaCentimetros()) - (5 * edad) + 5;
             }
             else
             {
-                mbr = (((10 * peso) + (6.25f * altura) - (5 * edad) - 161 ) + ((10 * peso) + (6.25f * altura) - (5 * edad) + 5)) / 2;
+                mbr = (((10 * peso) + (6.25f * usuario.AlturaCentimetros()) - (5 * edad) - 161 ) + ((10 * peso) + (6.25f * usuario.AlturaCentimetros()) - (5 * edad) + 5)) / 2;
             }
             return mbr;
 
@@ -65,17 +69,18 @@ namespace Logica.ModeladoDatos
         public float CalcularCalorias(Usuario usuario)
         {
             float peso = usuario.Peso;
-            calorias = met * peso * duracion;
+            calorias = met * peso * PasarAHoras(duracion);
+                
             return calorias;
         }
 
         public String NombreActividad { get { return this.nombreActividadFisica; } set { this.nombreActividadFisica = value; } }
-        public int Duracion { get { return this.duracion; } set { this.duracion = value; } }
+        public float Duracion { get { return this.duracion; } set { this.duracion = PasarAHoras( value); } }
 
         public String Descripcion { get { return this.descripcion; } set { this.descripcion = value; } }
         public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }
 
-        public float Met{ get { return this.duracion; } }
+        public float Met{ get { return 10 * PasarAHoras(duracion); } }
 
         public override bool Equals(object obj)
         {
