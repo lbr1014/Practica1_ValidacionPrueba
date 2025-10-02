@@ -63,7 +63,7 @@ namespace Practica1.ModeladoDatos.Tests
 
             float caloriasCalculadas1 = actividad.CalcularCalorias(usuario1);
             //Problema calculo met
-            float caloriasEsperadas1 = (10f* 0.5f) * usuario1.Peso * (30/60.0f);
+            float caloriasEsperadas1 = (10.0f* 0.5f) * usuario1.Peso * (30/60.0f);
 
             Assert.IsTrue(Math.Abs(caloriasCalculadas1 - caloriasEsperadas1) == 0, $" Calculadas :{caloriasCalculadas1} , Esperadas: {caloriasEsperadas1}");
 
