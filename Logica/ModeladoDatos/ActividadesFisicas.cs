@@ -27,8 +27,16 @@ namespace Logica.ModeladoDatos
             this.duracion = PasarAHoras(duracion);
             this.descripcion = descripcion;
             this.usuario = usuario;
-            calorias = CalcularCalorias(usuario);
-            metabolismoBasal = CalcularMetabolismobasal(usuario);
+            if (usuario != null)
+                this.calorias = CalcularCalorias(usuario);
+
+            else
+                this.calorias = 0;
+            if (usuario != null)
+                 this.metabolismoBasal = CalcularMetabolismobasal(usuario);
+            else
+                this.metabolismoBasal= 0;
+
             this.met = calculaMet(duracion);
 
         }
