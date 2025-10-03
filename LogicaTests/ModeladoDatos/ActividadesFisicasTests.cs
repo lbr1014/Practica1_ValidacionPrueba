@@ -38,7 +38,7 @@ namespace Practica1.ModeladoDatos.Tests
             var usuario = CrearUsuarioCorrecto2();
             var actividad = CrearActividadCorrecta2("AF-001", usuario);
             Assert.AreEqual(usuario, actividad.Usuario);
-
+            Assert.AreEqual("AF-001", actividad.IdActividad);
 
         }
 
@@ -48,9 +48,9 @@ namespace Practica1.ModeladoDatos.Tests
         {
             var usuario = CrearUsuarioCorrecto1();
             var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio",usuario );
-        
 
-        Assert.AreEqual("Correr", actividad.NombreActividad);
+            Assert.AreEqual("AF-001", actividad.IdActividad);
+            Assert.AreEqual("Correr", actividad.NombreActividad);
             actividad.NombreActividad = "Nadar";
             Assert.AreEqual("Nadar", actividad.NombreActividad);
 

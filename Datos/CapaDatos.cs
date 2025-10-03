@@ -83,5 +83,53 @@ namespace Datos
 
             return usuario.ComprobarContraseña(password);
         }
+
+        public bool ActualizaUsuario(Usuario usuario)
+        {
+            var existente = UsuariosLista.FirstOrDefault(u => u.Email == usuario.Email);
+            if (existente == null) return false;
+
+            UsuariosLista.Remove(existente);
+            UsuariosLista.Add(usuario);
+            return true;
+        }
+
+        public bool ActualizaActividad(ActividadesFisicas actividad)
+        {
+            var existente = ActividadesFisicasLista.FirstOrDefault(a => a.IdActividad == actividad.IdActividad);
+            if (existente == null) return false;
+
+            ActividadesFisicasLista.Remove(existente);
+            ActividadesFisicasLista.Add(actividad);
+            return true;
+        }
+
+        public bool EliminaUsuario(string email)
+        {
+            var usuario = UsuariosLista.FirstOrDefault(u => u.Email == email);
+            if (usuario == null) return false;
+
+            UsuariosLista.Remove(usuario);
+            return true;
+        }
+
+        public bool EliminaActividad(string idActividad)
+        {
+            var actividad = ActividadesFisicasLista
+        .FirstOrDefault(a => a.IdActividad == idActividad);
+
+            if (actividad == null) return false;
+
+            ActividadesFisicasLista.Remove(actividad);
+            return true;
+        }
+
+        public List<ActividadesFisicas> ObtenerActividadesUsuario(string idUsuario)
+        {
+            return ActividadesFisicasLista
+                .Where(a => a.Usuario != null && a.Usuario.IdUsuario == idUsuario)
+                .ToList();
+        }
+
     }
 }

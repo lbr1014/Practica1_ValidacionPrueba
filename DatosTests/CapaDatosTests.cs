@@ -155,6 +155,29 @@ namespace Datos.Tests
             Assert.AreEqual(2, totalUsuario1);
         }
 
+        [TestMethod]
+        public void LeeActividadConIdValido()
+        {
+            var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 0, "NORMAL");
+            var actividad1_Usuario1 = new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
+            capaDatos.GuardaActividad(actividad1_Usuario1);
+
+            var lecturaActividad = capaDatos.LeeActividad(0);
+            Assert.IsNotNull(lecturaActividad, "La actividad no debería ser nula.");
+            Assert.AreEqual("Correr", lecturaActividad.NombreActividad);
+
+
+        }
+
+        [TestMethod]
+        public void LeeActividadConIdInvalido()
+        {
+            var actividadSuperior = capaDatos.LeeActividad(99);
+            var actividadInferior = capaDatos.LeeActividad(-2);
+
+            Assert.IsNull(actividadSuperior, "Se esperaba null para un índice fuera de rango.");
+            Assert.IsNull(actividadInferior, "Se esperaba null para un índice fuera de rango.");
+        }
 
 
     }

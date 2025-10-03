@@ -87,6 +87,7 @@ namespace Logica.ModeladoDatos
 
         public float MET { get { return this.met; } set { this.met = calculaMet(value); } }
 
+        public String IdActividad { get { return this.idActividadFisica;  } set { this.idActividadFisica = value; } }
 
         public override bool Equals(object obj)
         {
