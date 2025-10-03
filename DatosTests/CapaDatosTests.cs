@@ -140,19 +140,26 @@ namespace Datos.Tests
         {
             var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 0, "NORMAL");
             var usuario2 = new Usuario("a-003", "María", "Pérez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, 0, "NORMAL");
-           
+            var usuarioSinActvidades = new Usuario("a-010", "Claudia", "Sanchez", "claudia2@gmail.com", "ConMasDe12Caracteres!", "MUJER", 65, 1.67f, 23, 0, "NORMAL");
+
 
             var actividad1_Usuario1 = new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio",usuario1 ); 
             var actividad2_Usuario1 = new ActividadesFisicas("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario1); 
             var actividad1_Usuario2 = new ActividadesFisicas("AF-003", "Pesas", 50, "Ir al gimnasio y levantar pesas",usuario2);
 
+            capaDatos.GuardaUsuario(usuarioSinActvidades);
             capaDatos.GuardaActividad(actividad1_Usuario1);
             capaDatos.GuardaActividad(actividad2_Usuario1);
             capaDatos.GuardaActividad(actividad1_Usuario2);
-
             var totalUsuario1 = capaDatos.NumActividades("a-002");
+            var totalUsuarioSinActividades = capaDatos.NumActividades("a - 010");
+            int numActividades = capaDatos.NumActividades("no-existe");
+            int numActividadesUsuarioNulo = capaDatos.NumActividades(null);
 
+            Assert.AreEqual(0, numActividadesUsuarioNulo);
+            Assert.AreEqual(0, numActividades);
             Assert.AreEqual(2, totalUsuario1);
+            Assert.AreEqual(0, totalUsuarioSinActividades);
         }
 
         [TestMethod]
@@ -179,7 +186,84 @@ namespace Datos.Tests
             Assert.IsNull(actividadInferior, "Se esperaba null para un índice fuera de rango.");
         }
 
+        [TestMethod]
+        public void LeeUsuarioIdValido()
+        {
+            var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 0, "NORMAL");
+            capaDatos.GuardaUsuario(usuario1);
 
+            var usuarioLeido = capaDatos.LeeUsuario("balondeoro@gmail.com");
+            Assert.IsNotNull(usuarioLeido, "El usuario no debería ser nulo.");
+            Assert.AreEqual("Alexia", usuarioLeido.Nombre);
+        }
+
+        [TestMethod]
+        public void LeeUsuarioIdInvalido()
+        {
+            
+            var usuarioLeido = capaDatos.LeeUsuario("NoSeMereceElBalonAitana@gmail.com");
+            Assert.IsNull(usuarioLeido, "El usuario no debería existir no ese email");
+        }
+
+        [TestMethod]
+        public void ValidaUsuario()
+        {
+
+            var resultadoCorrecto = capaDatos.ValidaUsuario("balondeoro3@gmail.com", "ConMasDe12Caracteres!");
+            Assert.IsTrue(resultadoCorrecto);
+
+            var resultadoIncorrecto = capaDatos.ValidaUsuario("balondeoro3@gmail.com", "ConMasDe12Caracters!");
+            Assert.IsFalse(resultadoIncorrecto);
+
+            var resultadoNulo = capaDatos.ValidaUsuario(null, "ConMasDe12Caracters!");
+            Assert.IsFalse(resultadoNulo);
+        }
+
+
+        [TestMethod]
+        public void ActualizaUsuario()
+        {
+           
+            var usuarioSinActualizar = new Usuario("a-033", "Max", "Verstappen", "max@f1.com", "COntraseña456!", "HOMBRE", 72, 1.80f, 26, 1, "NORMAL");
+            capaDatos.GuardaUsuario(usuarioSinActualizar);
+
+            var usuarioActualizado = new Usuario("a-033", "Max", "Verstappen", "max@f1.com", "COntraseñad476!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
+            var resultadoCorrecto = capaDatos.ActualizaUsuario(usuarioActualizado);
+
+            Assert.IsTrue(resultadoCorrecto, "La actualización debería ser exitosa.");
+
+            var usuarioLeido = capaDatos.LeeUsuario("max@f1.com");
+            Assert.AreEqual("PREMIUM", usuarioLeido.ObtenerTipoUsuario(usuarioLeido));
+
+            var usuarioFalso = new Usuario("a-999", "Paco", "Mer", "Pacorreo@correo.com", "PaSsjkfsgfdksj123!", "HOMBRE", 80, 1.80f, 40, 1, "NORMAL");
+            var resultadoFalso = capaDatos.ActualizaUsuario(usuarioFalso);
+
+            Assert.IsFalse(resultadoFalso);
+
+        }
+
+        [TestMethod]
+        public void ActualizaActividad()
+        {
+            var usuario = new Usuario("a-034", "Maximilian", "Verstappen", "max@f1.com", "COntraseñad476!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
+            var actividadSinActualizar = new ActividadesFisicas("AF-015", "Correr", 56, "Carrera larga", usuario);
+
+
+            var actividadActualizada = new ActividadesFisicas("AF-001", "Correr", 45, "Carrera larga", usuario);
+
+            var resultadoVerdadero = capaDatos.ActualizaActividad(actividadActualizada);
+
+            Assert.IsTrue(resultadoVerdadero);
+            var actividad = capaDatos.LeeActividad(2);
+            Assert.AreEqual(45/60.0f, actividad.Duracion);
+
+            var actividadFalsa = new ActividadesFisicas("AF-999", "Boxeo", 60, "Entrenamiento duro", usuario);
+
+            var resultadoFalsa = capaDatos.ActualizaActividad(actividadFalsa);
+
+            Assert.IsFalse(resultadoFalsa);
+
+        }
     }
 
 }
