@@ -50,7 +50,10 @@
     <Compile Include="utils\Validar.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Documentacion\ClassDiagram1.cd" />
+    <None Include="Documentacion\UtilidadesDiagrama.cd" />
+    <None Include="Documentacion\UsuarioDiagrama.cd" />
+    <None Include="Documentacion\ValidarDiagrama.cd" />
+    <None Include="Documentacion\ActividadesDiagrama.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

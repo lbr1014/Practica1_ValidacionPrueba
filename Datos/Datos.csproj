@@ -53,5 +53,9 @@
       <Name>Logica</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Documentacion\CapaDatosDiagrama.cd" />
+    <None Include="Documentacion\ICapaDatosDiagrama.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
