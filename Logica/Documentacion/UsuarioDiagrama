@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Practica1.ModeladoDatos.Usuario">
+    <Position X="3.5" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>gAAACEQEQCXEAAAlkEEkgAAAIAAEAsACCAIAAgAAAAg=</HashCode>
+      <FileName>ModeladoDatos\Usuarios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
