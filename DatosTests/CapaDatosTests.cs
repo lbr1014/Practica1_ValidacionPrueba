@@ -136,7 +136,7 @@ namespace Datos.Tests
         }
 
         [TestMethod]
-        public void NumActividades_CompruebaTodosLosEscenarios()
+        public void NumActividades()
         {
           
             var usuario1 = new Usuario("a-055", "Carlos", "Sainz", "carlos@f1.com", "PaSssword123!", "HOMBRE", 70, 1.75f, 29, 1, "NORMAL");
@@ -310,12 +310,28 @@ namespace Datos.Tests
             var actividadesCorrecto = capaDatos.ObtenerActividadesUsuario("a-005");
 
             Assert.IsNotNull(actividadesCorrecto, "La lista no debería ser nula.");
-            Assert.AreEqual(2, actividadesCorrecto.Count, "Se esperaba 1 actividad para el usuario.");
+            Assert.AreEqual(2, actividadesCorrecto.Count, "Se esperaba 2 actividad para el usuario.");
 
             var actividadesIncorrecto = capaDatos.ObtenerActividadesUsuario("a-999");
 
-            Assert.IsNotNull(actividadesIncorrecto, "La lista no debería ser nula.");
+
+            Assert.IsNotNull(actividadesIncorrecto);
             Assert.AreEqual(0, actividadesIncorrecto.Count, "La lista debería estar vacía.");
+
+            var actividadNulo = capaDatos.ObtenerActividadesUsuario(null);
+            var actividadSinUsuario = new ActividadesFisicas("AF-999", "Boxeo", 60, "Entrenamiento sin usuario", null);
+            capaDatos.GuardaActividad(actividadSinUsuario);
+
+            Assert.IsNotNull(actividadNulo);
+            Assert.AreEqual(0, actividadNulo.Count, "La lista debería estar vacía.");
+
+            var actividadesConUsuarioSinactcividad = capaDatos.ObtenerActividadesUsuario("a-016");
+
+            Assert.IsNotNull(actividadesConUsuarioSinactcividad, "La lista no debería ser nula.");
+            Assert.AreEqual(0, actividadesConUsuarioSinactcividad.Count, "Se esperaba 2 actividad para el usuario.");
+
+            
+
 
         }
 
