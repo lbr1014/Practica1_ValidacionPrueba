@@ -131,12 +131,6 @@ namespace Datos
                 .ToList();
         }
 
-        public void CambiarUltimoInicioSesion(string idUsuario)
-        {
-            var usuario = UsuariosLista.FirstOrDefault(u => u.IdUsuario == idUsuario);
-            usuario.CambioUltimoInicioSesion();
-            ActualizaUsuario(usuario);
-        }
 
     }
 }
