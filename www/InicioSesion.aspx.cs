@@ -19,6 +19,7 @@ namespace www
             if (datos == null)
             {
                 datos = new CapaDatos();
+                Application["Conexión"] = datos;
             }
             usuarioAutenticado = null;
         }
@@ -28,6 +29,13 @@ namespace www
             usuarioAutenticado = datos.LeeUsuario(tbxUsuario.Text);
             if (usuarioAutenticado != null && usuarioAutenticado.ComprobarContraseña(tbxPassword.Text))
             {
+
+                // 2) Actualizar el inicio actual a ahora
+                usuarioAutenticado.InicioSesionActual = DateTime.Now;
+
+                // 3) Persistir cambios
+                datos.ActualizaUsuario(usuarioAutenticado);
+
                 Session["usuarioAutenticado"] = usuarioAutenticado;
                 Server.Transfer("PaginaPrincipal.aspx", true);
             }
@@ -35,6 +43,11 @@ namespace www
             {
                 lblError.Visible = true;
             }
+        }
+
+        protected void btnRegistro_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("Registro.aspx", true);
         }
     }
 }

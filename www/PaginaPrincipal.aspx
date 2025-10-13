@@ -29,12 +29,13 @@
                 <td>&nbsp;</td>
                 <td class="auto-style1">
                     <asp:Label ID="lblUsuario" runat="server" Text="Nombre Usuario"></asp:Label>
-                </td>
+                &nbsp; (<asp:Label ID="lblUltimoInicioSesion" runat="server" Text="UltimoInicioSesion"></asp:Label>
+                    )</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td class="auto-style2">
                     <asp:Button ID="btnIdiomaEspañol" runat="server" Text="IDIOMA" />
-                    <asp:Button ID="btnCerrarSesion" runat="server" Text="CERRAR SESIÓN" />
+                    <asp:Button ID="btnCerrarSesion" runat="server" Text="CERRAR SESIÓN" OnClick="btnCerrarSesion_Click" />
                 </td>
             </tr>
         </table>

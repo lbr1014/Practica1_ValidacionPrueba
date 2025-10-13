@@ -15,41 +15,6 @@
             height: 28px;
             width: 214px;
         }
-        .nuevoEstilo1 {
-            border-style: solid solid none solid;
-            border-width: thin;
-            border-color: #000000;
-        }
-        .nuevoEstilo2 {
-            border-top-style: hidden;
-            border-right-style: hidden;
-            border-left-style: solid;
-            border-width: thin;
-            border-color: #000000;
-        }
-        .nuevoEstilo3 {
-            border-left-style: solid;
-            border-width: thin;
-            border-color: #000000;
-        }
-        .nuevoEstilo4 {
-            border-right-style: solid;
-            border-bottom-style: solid;
-            border-left-style: solid;
-            border-width: thin;
-            border-color: #000000;
-        }
-        .nuevoEstilo5 {
-            border-right-style: solid;
-            border-width: thin;
-            border-color: #000000;
-        }
-        .nuevoEstilo6 {
-            border-right-style: solid;
-            border-left-style: solid;
-            border-width: thin;
-            border-color: #000000;
-        }
         .auto-style18 {
             height: 58px;
             width: 214px;
@@ -57,17 +22,6 @@
         .auto-style19 {
             height: 58px;
             width: 112px;
-        }
-        .nuevoEstilo7 {
-            border: thin solid #000000;
-        }
-        .nuevoEstilo8 {
-            border-style: hidden;
-        }
-        .nuevoEstilo9 {
-            border-right-style: solid;
-            border-left-style: solid;
-            border-width: thin;
         }
         .auto-style34 {
             height: 28px;
@@ -77,42 +31,29 @@
             width: 242px;
             height: 58px;
         }
-        .nuevoEstilo10 {
-            color: #FFFFFF;
-            background-color: #AF8C70;
-            background-repeat: repeat;
-        }
         .auto-style38 {
             color: #FFFFFF;
             background-color: #AF8C70;
             background-repeat: repeat;
             text-align: center;
         }
-        .nuevoEstilo11 {
-            background-color: #E0CDC0;
-        }
         .auto-style39 {
             background-color: #E0CDC0;
             height: 36px;
             text-align: center;
+            border-color: #73533C;
             border-left-style: solid;
             border-right-style: solid;
         }
         .auto-style41 {
             text-align: center;
         }
-        .nuevoEstilo12 {
-            background-color: #AF8C70;
-            color: #FFFFFF;
-            border: thin solid #73533C;
-        }
-        .nuevoEstilo13 {
-        }
         .auto-style44 {
             padding: 0;
             background-color: #E0CDC0;
             text-align: center;
             height: 54px;
+            border-color: #73533C;
             border-right-style: solid;
         }
         .auto-style46 {
@@ -120,6 +61,7 @@
             height: 28px;
             text-align: center;
             font-weight: bold;
+            border-color: #73533C;
             border-left-style: solid;
             border-right-style: solid;
             border-bottom-style: solid;
@@ -134,6 +76,7 @@
             text-align: center;
             height: 51px;
             width: 134px;
+            border-color: #73533C;
             border-left-style: solid;
         }
         .auto-style50 {
@@ -143,6 +86,7 @@
             font-weight: bold;
             text-align: center;
             width: 134px;
+            border-color: #73533C;
             border-left-style: solid;
         }
         .auto-style51 {
@@ -151,6 +95,7 @@
             font-weight: bold;
             text-align: center;
             height: 51px;
+            border-color: #73533C;
             border-right-style: solid;
         }
         .auto-style52 {
@@ -158,6 +103,7 @@
             background-color: #E0CDC0;
             text-align: center;
             height: 35px;
+            border-color: #73533C;
             border-left-style: solid;
         }
         .auto-style53 {
@@ -167,6 +113,10 @@
             text-align: center;
             border-left-style: solid;
             border-right-style: solid;
+            border-left-color: #73533C;
+            border-right-color: #73533C;
+            border-top-style: solid;
+            border-top-color: #73533C;
         }
         .auto-style64 {
             width: 214px;
@@ -195,7 +145,7 @@
         .auto-style77 {
             font-weight: bold;
             color: #FFFFFF;
-            border-color: #FFFFFF;
+            border-color: #73533C;
             margin-left: 32px;
             background-color: #AF8C70;
         }
@@ -229,6 +179,7 @@
             text-align: center;
             height: 35px;
             width: 135px;
+            border-color: #73533C;
             border-right-style: solid;
         }
         .auto-style91 {
@@ -238,6 +189,9 @@
             top: 37px;
             left: 10px;
             z-index: 1;
+            border-color: #73533C;
+            border-collapse: collapse;
+            border-spacing: 0;
         }
         .auto-style92 {
             width: 214px;
@@ -300,16 +254,20 @@
         }
         .auto-style117 {
             border-style: hidden;
+            border-color: #73533C;
             width: 135px;
             height: 22px;
             text-align: center;
         }
         .auto-style118 {
             border-style: solid;
+            border-color: #73533C;
             background-color: #AF8C70;
             color: #FFFFFF;
             text-align: center;
             height: 58px;
+            border: solid #73533C;
+
         }
         .auto-style119 {
             height: 35px;
@@ -346,6 +304,13 @@
             height: 22px;
             text-align: center;
         }
+        .auto-style126 {
+            width: 135px;
+            height: 22px;
+            text-align: center;
+            border-color: #73533C;
+            border-bottom-style: solid;
+        }
     </style>
 </head>
 <body>
@@ -376,7 +341,7 @@
                 <td class="auto-style93">&nbsp;</td>
                 <td class="auto-style115">&nbsp;</td>
                 <td class="auto-style124" colspan="2">&nbsp;</td>
-                <td class="auto-style117">&nbsp;</td>
+                <td class="auto-style126">&nbsp;</td>
                 <td class="auto-style123">&nbsp;</td>
                 <td class="auto-style113">&nbsp;</td>
             </tr>
@@ -432,8 +397,12 @@
                 <td class="auto-style107"></td>
                 <td class="auto-style108"></td>
                 <td class="auto-style52"></td>
-                <td class="auto-style89"></td>
-                <td class="auto-style90"></td>
+                <td class="auto-style89">
+                    <asp:Button ID="btnRegistro" runat="server" OnClick="btnRegistro_Click" Text="Registrarse" CssClass="auto-style77" Height="36px" Width="108px" />
+                </td>
+                <td class="auto-style89">
+                    <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" CssClass="auto-style77" Height="36px" Width="108px" />
+                </td>
                 <td class="auto-style90"></td>
                 <td class="auto-style109"></td>
                 <td class="auto-style114"></td>
@@ -442,8 +411,7 @@
                 <td class="auto-style103"></td>
                 <td class="auto-style104"></td>
                 <td class="auto-style39" colspan="4">
-                    <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" CssClass="auto-style77" Height="36px" Width="108px" />
-                </td>
+                    &nbsp;</td>
                 <td class="auto-style105"></td>
                 <td class="auto-style106"></td>
             </tr>

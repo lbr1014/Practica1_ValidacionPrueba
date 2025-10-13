@@ -68,13 +68,13 @@ namespace Logica.utils.Tests
         public void UltimoInicioSesionTest()
         {
             DateTime inicioSesion = new DateTime(2025, 3, 14);
-            Assert.IsTrue(Validar.UltimoInicioSesion(inicioSesion));
+            Assert.IsTrue(Validar.ComprobarFecha(inicioSesion));
 
             DateTime inicioSesionIncorrectoAño = new DateTime(2026, 3, 14);
-            Assert.IsFalse(Validar.UltimoInicioSesion(inicioSesionIncorrectoAño));
+            Assert.IsFalse(Validar.ComprobarFecha(inicioSesionIncorrectoAño));
 
             DateTime inicioSesionIncorrectoMes = new DateTime(2025, 12, 14);
-            Assert.IsFalse(Validar.UltimoInicioSesion(inicioSesionIncorrectoMes));
+            Assert.IsFalse(Validar.ComprobarFecha(inicioSesionIncorrectoMes));
 
         }
 

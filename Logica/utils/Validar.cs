@@ -141,7 +141,7 @@ namespace Logica.utils
 
         }
 
-        public static bool UltimoInicioSesion(DateTime ultimoInicioSesion)
+        public static bool ComprobarFecha(DateTime ultimoInicioSesion)
         {
             if (ultimoInicioSesion > DateTime.Now)
             {

@@ -23,13 +23,14 @@ namespace Practica1.ModeladoDatos
         private float altura;
         private int edad;
 
+        private DateTime inicioSesionActual;
         private DateTime ultimoInicioSesion;
         private int contador = 0;
 
         
 
         //Constructor
-        public Usuario(string idUsuario, string name, string apellidos, string email, string password, string sexo, float peso, float altura, int edad, int estado = 1, string tipoUsuario = "NORMAL",  DateTime? ultimoInicioSesion = null)
+        public Usuario(string idUsuario, string name, string apellidos, string email, string password, string sexo, float peso, float altura, int edad, int estado = 1, string tipoUsuario = "NORMAL")
         {
             this.idUsuario = idUsuario;
             this.name = name;
@@ -73,11 +74,7 @@ namespace Practica1.ModeladoDatos
                 throw new ArgumentException("La edad debe estar entre 1 y 120 años.");
             this.edad = edad;
 
-            DateTime posiblefecha = ultimoInicioSesion ?? DateTime.Now;
-            if (!Validar.UltimoInicioSesion(posiblefecha))
-                throw new ArgumentException("La fecha de último inicio de sesión no puede ser futura.");
-            this.UltimoInicioSesion = posiblefecha;
-
+            
         }
 
         public Usuario(string idUsuario) {
@@ -85,8 +82,6 @@ namespace Practica1.ModeladoDatos
         }
 
        
-
-
         public string obtenerEstado(Usuario usuario)
 
         {   estado= usuario.estado;
@@ -194,6 +189,10 @@ namespace Practica1.ModeladoDatos
             return altura * 100f;;
         }
 
+        public void CambioUltimoInicioSesion()
+        {
+            this.ultimoInicioSesion = this.inicioSesionActual;
+        }
 
 
         public String Nombre { get { return this.name; } set { this.name = value; } }
@@ -291,12 +290,23 @@ namespace Practica1.ModeladoDatos
             }
         }
 
+        public DateTime InicioSesionActual
+        {
+            get { return this.inicioSesionActual; }
+            set
+            {
+                if (!Validar.ComprobarFecha(value))
+                    throw new ArgumentException("La fecha de último inicio de sesión no puede ser futura.");
+                this.inicioSesionActual = value;
+            }
+        }
+
         public DateTime UltimoInicioSesion
         { 
             get { return this.ultimoInicioSesion; } 
             set 
             {
-                if (!Validar.UltimoInicioSesion(value))
+                if (!Validar.ComprobarFecha(value))
                     throw new ArgumentException("La fecha de último inicio de sesión no puede ser futura.");
                 this.ultimoInicioSesion = value;
             }
