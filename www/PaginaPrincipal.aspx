@@ -33,8 +33,8 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td class="auto-style2">
-                    <asp:Button ID="btnIdiomaEspañol" runat="server" Text="ES" />
-                    <asp:Button ID="btnIdiomaIngles" runat="server" Text="EN" />
+                    <asp:Button ID="btnIdiomaEspañol" runat="server" Text="IDIOMA" />
+                    <asp:Button ID="btnCerrarSesion" runat="server" Text="CERRAR SESIÓN" />
                 </td>
             </tr>
         </table>

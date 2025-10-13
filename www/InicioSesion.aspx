@@ -7,36 +7,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
-        .auto-style3 {
-            width: 498px;
-        }
         .auto-style4 {
-            height: 26px;
-        }
-        .auto-style6 {
-            text-align: right;
-            width: 495px;
-        }
-        .auto-style7 {
-            width: 230px;
+            height: 28px;
+            width: 112px;
         }
         .auto-style8 {
-            height: 26px;
-            width: 230px;
-        }
-        .auto-style9 {
-            width: 76px;
-        }
-        .auto-style10 {
-            width: 230px;
-            height: 33px;
-        }
-        .auto-style12 {
-            width: 76px;
-            height: 33px;
-        }
-        .auto-style14 {
-            height: 33px;
+            height: 28px;
+            width: 214px;
         }
         .nuevoEstilo1 {
             border-style: solid solid none solid;
@@ -49,14 +26,6 @@
             border-left-style: solid;
             border-width: thin;
             border-color: #000000;
-        }
-        .auto-style16 {
-            border-left: thin solid #000000;
-            border-right: thin hidden #000000;
-            border-top: thin hidden #000000;
-            text-align: right;
-            border-bottom-color: #000000;
-            border-bottom-width: thin;
         }
         .nuevoEstilo3 {
             border-left-style: solid;
@@ -81,20 +50,13 @@
             border-width: thin;
             border-color: #000000;
         }
-        .auto-style17 {
-            border-left: thin solid #000000;
-            border-right: thin solid #000000;
-            border-bottom: thin solid #000000;
-            text-align: center;
-            border-top-color: #000000;
-            border-top-width: thin;
-        }
         .auto-style18 {
-            height: 25px;
-            width: 230px;
+            height: 58px;
+            width: 214px;
         }
         .auto-style19 {
-            height: 25px;
+            height: 58px;
+            width: 112px;
         }
         .nuevoEstilo7 {
             border: thin solid #000000;
@@ -102,7 +64,286 @@
         .nuevoEstilo8 {
             border-style: hidden;
         }
-        .auto-style20 {
+        .nuevoEstilo9 {
+            border-right-style: solid;
+            border-left-style: solid;
+            border-width: thin;
+        }
+        .auto-style34 {
+            height: 28px;
+            width: 242px;
+        }
+        .auto-style36 {
+            width: 242px;
+            height: 58px;
+        }
+        .nuevoEstilo10 {
+            color: #FFFFFF;
+            background-color: #AF8C70;
+            background-repeat: repeat;
+        }
+        .auto-style38 {
+            color: #FFFFFF;
+            background-color: #AF8C70;
+            background-repeat: repeat;
+            text-align: center;
+        }
+        .nuevoEstilo11 {
+            background-color: #E0CDC0;
+        }
+        .auto-style39 {
+            background-color: #E0CDC0;
+            height: 36px;
+            text-align: center;
+            border-left-style: solid;
+            border-right-style: solid;
+        }
+        .auto-style41 {
+            text-align: center;
+        }
+        .nuevoEstilo12 {
+            background-color: #AF8C70;
+            color: #FFFFFF;
+            border: thin solid #73533C;
+        }
+        .nuevoEstilo13 {
+        }
+        .auto-style44 {
+            padding: 0;
+            background-color: #E0CDC0;
+            text-align: center;
+            height: 54px;
+            border-right-style: solid;
+        }
+        .auto-style46 {
+            background-color: #E0CDC0;
+            height: 28px;
+            text-align: center;
+            font-weight: bold;
+            border-left-style: solid;
+            border-right-style: solid;
+            border-bottom-style: solid;
+        }
+        .auto-style47 {
+            font-weight: bold;
+        }
+        .auto-style49 {
+            padding: 0;
+            background-color: #E0CDC0;
+            font-weight: bold;
+            text-align: center;
+            height: 51px;
+            width: 134px;
+            border-left-style: solid;
+        }
+        .auto-style50 {
+            padding: 0;
+            background-color: #E0CDC0;
+            height: 54px;
+            font-weight: bold;
+            text-align: center;
+            width: 134px;
+            border-left-style: solid;
+        }
+        .auto-style51 {
+            padding: 0;
+            background-color: #E0CDC0;
+            font-weight: bold;
+            text-align: center;
+            height: 51px;
+            border-right-style: solid;
+        }
+        .auto-style52 {
+            padding: 0;
+            background-color: #E0CDC0;
+            text-align: center;
+            height: 35px;
+            border-left-style: solid;
+        }
+        .auto-style53 {
+            padding: 0;
+            background-color: #E0CDC0;
+            font-weight: bold;
+            text-align: center;
+            border-left-style: solid;
+            border-right-style: solid;
+        }
+        .auto-style64 {
+            width: 214px;
+            height: 54px;
+        }
+        .auto-style65 {
+            width: 242px;
+            height: 54px;
+        }
+        .auto-style66 {
+            height: 54px;
+            width: 112px;
+        }
+        .auto-style74 {
+            width: 214px;
+            height: 51px;
+        }
+        .auto-style75 {
+            width: 242px;
+            height: 51px;
+        }
+        .auto-style76 {
+            height: 51px;
+            width: 112px;
+        }
+        .auto-style77 {
+            font-weight: bold;
+            color: #FFFFFF;
+            border-color: #FFFFFF;
+            margin-left: 32px;
+            background-color: #AF8C70;
+        }
+        .auto-style78 {
+            width: 135px;
+            height: 22px;
+        }
+        .auto-style80 {
+            height: 58px;
+            width: 367px;
+        }
+        .auto-style82 {
+            width: 367px;
+            height: 54px;
+        }
+        .auto-style83 {
+            width: 367px;
+            height: 51px;
+        }
+        .auto-style85 {
+            height: 28px;
+            width: 367px;
+        }
+        .auto-style89 {
+            background-color: #E0CDC0;
+            height: 35px;
+            width: 134px;
+        }
+        .auto-style90 {
+            background-color: #E0CDC0;
+            text-align: center;
+            height: 35px;
+            width: 135px;
+            border-right-style: solid;
+        }
+        .auto-style91 {
+            width: 1491px;
+            position: absolute;
+            height: 421px;
+            top: 37px;
+            left: 10px;
+            z-index: 1;
+        }
+        .auto-style92 {
+            width: 214px;
+            height: 22px;
+        }
+        .auto-style93 {
+            width: 242px;
+            height: 22px;
+            text-align: center;
+        }
+        .auto-style97 {
+            width: 367px;
+            height: 22px;
+        }
+        .auto-style103 {
+            height: 36px;
+            width: 214px;
+        }
+        .auto-style104 {
+            height: 36px;
+            width: 242px;
+        }
+        .auto-style105 {
+            height: 36px;
+            width: 367px;
+        }
+        .auto-style106 {
+            height: 36px;
+            width: 112px;
+        }
+        .auto-style107 {
+            width: 214px;
+            height: 35px;
+        }
+        .auto-style108 {
+            width: 242px;
+            height: 35px;
+        }
+        .auto-style109 {
+            width: 367px;
+            height: 35px;
+        }
+        .auto-style113 {
+            height: 22px;
+            width: 112px;
+            text-align: center;
+        }
+        .auto-style114 {
+            height: 35px;
+            width: 112px;
+        }
+        .auto-style115 {
+            text-align: center;
+            width: 134px;
+            height: 22px;
+        }
+        .auto-style116 {
+            width: 122px;
+            height: 22px;
+        }
+        .auto-style117 {
+            border-style: hidden;
+            width: 135px;
+            height: 22px;
+            text-align: center;
+        }
+        .auto-style118 {
+            border-style: solid;
+            background-color: #AF8C70;
+            color: #FFFFFF;
+            text-align: center;
+            height: 58px;
+        }
+        .auto-style119 {
+            height: 35px;
+            width: 112px;
+            text-align: center;
+        }
+        .auto-style120 {
+            width: 367px;
+            height: 35px;
+            text-align: center;
+        }
+        .auto-style121 {
+            width: 242px;
+            height: 35px;
+            text-align: center;
+        }
+        .auto-style122 {
+            width: 214px;
+            height: 35px;
+            text-align: center;
+        }
+        .auto-style123 {
+            width: 367px;
+            height: 22px;
+            text-align: center;
+        }
+        .auto-style124 {
+            width: 122px;
+            height: 22px;
+            text-align: center;
+        }
+        .auto-style125 {
+            width: 214px;
+            height: 22px;
             text-align: center;
         }
     </style>
@@ -111,97 +352,118 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <table style="width:100%;">
+        <table class="auto-style91">
             <tr>
-                <td class="auto-style7">&nbsp;</td>
-                <td class="auto-style6">&nbsp;</td>
-                <td class="auto-style9">&nbsp;</td>
-                <td class="nuevoEstilo8">&nbsp;</td>
-                <td>&nbsp;</td>
+                <td class="auto-style125">&nbsp;</td>
+                <td class="auto-style93">&nbsp;</td>
+                <td class="auto-style115">&nbsp;</td>
+                <td class="auto-style124" colspan="2">&nbsp;</td>
+                <td class="auto-style117">&nbsp;</td>
+                <td class="auto-style123">&nbsp;</td>
+                <td class="auto-style113">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style125">&nbsp;</td>
+                <td class="auto-style93">&nbsp;</td>
+                <td class="auto-style115">&nbsp;</td>
+                <td class="auto-style124" colspan="2">&nbsp;</td>
+                <td class="auto-style117">&nbsp;</td>
+                <td class="auto-style123">&nbsp;</td>
+                <td class="auto-style113">&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style125">&nbsp;</td>
+                <td class="auto-style93">&nbsp;</td>
+                <td class="auto-style115">&nbsp;</td>
+                <td class="auto-style124" colspan="2">&nbsp;</td>
+                <td class="auto-style117">&nbsp;</td>
+                <td class="auto-style123">&nbsp;</td>
+                <td class="auto-style113">&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style18"></td>
-                <td class="nuevoEstilo7" colspan="3">
-                    <h2 class="auto-style20">
+                <td class="auto-style36"></td>
+                <td class="auto-style118" colspan="4">
+                    <h2 class="auto-style38">
                         <asp:Label ID="lblTitulo" runat="server" Text="Inicio de Sesión"></asp:Label>
                     </h2>
                 </td>
+                <td class="auto-style80"></td>
                 <td class="auto-style19"></td>
             </tr>
             <tr>
-                <td class="auto-style7">&nbsp;</td>
-                <td class="auto-style16">&nbsp;</td>
-                <td class="auto-style9">&nbsp;</td>
-                <td id="tdxPassword" class="nuevoEstilo5">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style7">&nbsp;</td>
-                <td class="auto-style16">
+                <td class="auto-style64"></td>
+                <td class="auto-style65"></td>
+                <td class="auto-style50">
                     <h3>
-                        <asp:Label ID="lblUsuario" runat="server" Text="Identificador de Usuario"></asp:Label>
-                    </h3>
+                        Email</h3>
                 </td>
-                <td class="auto-style9">&nbsp;</td>
-                <td id="tdxPassword" class="nuevoEstilo5">
-                    <asp:TextBox ID="tbxUsuario" runat="server"></asp:TextBox>
+                <td class="auto-style44" colspan="3">
+                    <asp:TextBox ID="tbxUsuario" runat="server" CssClass="auto-style47" Width="240px"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style82"></td>
+                <td class="auto-style66"></td>
             </tr>
             <tr>
-                <td class="auto-style7">&nbsp;</td>
-                <td class="auto-style16">&nbsp;</td>
-                <td class="auto-style9">&nbsp;</td>
-                <td class="nuevoEstilo5">&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style7">&nbsp;</td>
-                <td class="auto-style16">
-                    <h3>
+                <td class="auto-style74"></td>
+                <td class="auto-style75"></td>
+                <td class="auto-style49">
+                    <h3 class="auto-style41">
                         <asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label>
                     </h3>
                 </td>
-                <td class="auto-style9">&nbsp;</td>
-                <td class="nuevoEstilo5">
-                    <asp:TextBox ID="tbxPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <td class="auto-style51" colspan="3">
+                    <asp:TextBox ID="tbxPassword" runat="server" TextMode="Password" CssClass="auto-style47" Width="247px"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td class="auto-style83">
+                    <p>
+                    </p>
+                </td>
+                <td class="auto-style76"></td>
             </tr>
             <tr>
-                <td class="auto-style10">&nbsp;</td>
-                <td class="auto-style16">&nbsp;</td>
-                <td class="auto-style12">&nbsp;</td>
-                <td class="nuevoEstilo5">&nbsp;</td>
-                <td class="auto-style14">&nbsp;</td>
+                <td class="auto-style122">&nbsp;</td>
+                <td class="auto-style121">&nbsp;</td>
+                <td class="auto-style53" colspan="4">&nbsp;</td>
+                <td class="auto-style120">&nbsp;</td>
+                <td class="auto-style119">&nbsp;</td>
             </tr>
             <tr>
-                <td class="auto-style10"></td>
-                <td class="nuevoEstilo3"></td>
-                <td class="auto-style12">
-                    <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
+                <td class="auto-style107"></td>
+                <td class="auto-style108"></td>
+                <td class="auto-style52"></td>
+                <td class="auto-style89"></td>
+                <td class="auto-style90"></td>
+                <td class="auto-style90"></td>
+                <td class="auto-style109"></td>
+                <td class="auto-style114"></td>
+            </tr>
+            <tr>
+                <td class="auto-style103"></td>
+                <td class="auto-style104"></td>
+                <td class="auto-style39" colspan="4">
+                    <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" CssClass="auto-style77" Height="36px" Width="108px" />
                 </td>
-                <td class="nuevoEstilo5">&nbsp;</td>
-                <td class="auto-style14"></td>
+                <td class="auto-style105"></td>
+                <td class="auto-style106"></td>
             </tr>
             <tr>
                 <td class="auto-style8"></td>
-                <td class="nuevoEstilo6" colspan="3"></td>
+                <td class="auto-style34"></td>
+                <td class="auto-style46" colspan="4">
+                    <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Usuario y/o contraseña incorrecta" Visible="False"></asp:Label>
+                </td>
+                <td class="auto-style85"></td>
                 <td class="auto-style4"></td>
             </tr>
             <tr>
-                <td class="auto-style7">&nbsp;</td>
-                <td class="auto-style17" colspan="3">
-                    <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Usuario y/o contraseña incorrecta" Visible="False"></asp:Label>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style7"></td>
-                <td class="auto-style6">&nbsp;</td>
-                <td class="auto-style9"></td>
-                <td class="auto-style3"></td>
-                <td></td>
+                <td class="auto-style92"></td>
+                <td class="auto-style93">&nbsp;</td>
+                <td class="auto-style115">&nbsp;</td>
+                <td class="auto-style116" colspan="2"></td>
+                <td class="auto-style78"></td>
+                <td class="auto-style97"></td>
+                <td class="auto-style113">&nbsp;</td>
             </tr>
         </table>
     </form>

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Datos;
+using Practica1.ModeladoDatos;
 
 namespace www
 {
@@ -12,7 +13,15 @@ namespace www
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Usuario usuario = Session["usuarioAutenticado"] as Usuario;
+            lblUsuario.Text= usuario.Nombre;
+
+        }
+        protected void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("InicioSesion.aspx");
 
         }
     }
