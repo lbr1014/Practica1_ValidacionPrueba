@@ -37,5 +37,10 @@ namespace www
             Response.Redirect("InicioSesion.aspx", false);
             Context.ApplicationInstance.CompleteRequest();
         }
+
+        protected void btnIdiomaEspañol_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

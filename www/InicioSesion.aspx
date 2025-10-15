@@ -419,7 +419,7 @@
                 <td class="auto-style8"></td>
                 <td class="auto-style34"></td>
                 <td class="auto-style46" colspan="4">
-                    <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Usuario y/o contraseña incorrecta" Visible="False"></asp:Label>
+                    <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Mensaje Error" Visible="False"></asp:Label>
                 </td>
                 <td class="auto-style85"></td>
                 <td class="auto-style4"></td>

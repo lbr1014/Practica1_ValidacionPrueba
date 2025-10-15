@@ -13,5 +13,15 @@ namespace www
         {
 
         }
+
+        protected void lblUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

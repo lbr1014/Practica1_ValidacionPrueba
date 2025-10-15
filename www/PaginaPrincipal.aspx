@@ -34,7 +34,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td class="auto-style2">
-                    <asp:Button ID="btnIdiomaEspañol" runat="server" Text="IDIOMA" />
+                    <asp:Button ID="btnIdiomaEspañol" runat="server" Text="CONFIGURACIÓN" OnClick="btnIdiomaEspañol_Click" />
                     <asp:Button ID="btnCerrarSesion" runat="server" Text="CERRAR SESIÓN" OnClick="btnCerrarSesion_Click" />
                 </td>
             </tr>

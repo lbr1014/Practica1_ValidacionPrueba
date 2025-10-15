@@ -30,17 +30,17 @@ namespace www
             if (usuarioAutenticado != null && usuarioAutenticado.ComprobarContraseña(tbxPassword.Text))
             {
 
-                // 2) Actualizar el inicio actual a ahora
                 usuarioAutenticado.InicioSesionActual = DateTime.Now;
 
-                // 3) Persistir cambios
                 datos.ActualizaUsuario(usuarioAutenticado);
 
                 Session["usuarioAutenticado"] = usuarioAutenticado;
+                lblError.Text = string.Empty;
                 Server.Transfer("PaginaPrincipal.aspx", true);
             }
             else
             {
+                lblError.Text = "Usuario y/o contraseña incorectos";
                 lblError.Visible = true;
             }
         }
