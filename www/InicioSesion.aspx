@@ -53,7 +53,7 @@
                     <tr>
                         <td>
                             <label for="txtUsuario" class="form-label">Usuario</label>
-                            <div class="input-box">$1<\/div>
+                            <div class="input-box">$1 </div>
                             <asp:RequiredFieldValidator ID="rfvUsuario" runat="server"
                                 ControlToValidate="txtUsuario" Display="Dynamic"
                                 ErrorMessage="El usuario es obligatorio" ForeColor="#dc2626"></asp:RequiredFieldValidator>
@@ -62,7 +62,7 @@
                     <tr>
                         <td>
                             <label for="txtPassword" class="form-label">Contraseña</label>
-                            <div class="input-box">$1<\/div>
+                            <div class="input-box">$1</div>
                             <asp:RequiredFieldValidator ID="rfvPassword" runat="server"
                                 ControlToValidate="txtPassword" Display="Dynamic"
                                 ErrorMessage="La contraseña es obligatoria" ForeColor="#dc2626"></asp:RequiredFieldValidator>
