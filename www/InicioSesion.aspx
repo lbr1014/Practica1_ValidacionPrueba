@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="InicioSesion.aspx.cs" Inherits="InicioSesion" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InicioSesion.aspx.cs" Inherits="www.InicioSesion" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head runat="server">
@@ -53,7 +54,7 @@
                     <tr>
                         <td>
                             <label for="txtUsuario" class="form-label">Usuario</label>
-                            <div class="input-box">$1 </div>
+                            <div class="input-box">$1</div>
                             <asp:RequiredFieldValidator ID="rfvUsuario" runat="server"
                                 ControlToValidate="txtUsuario" Display="Dynamic"
                                 ErrorMessage="El usuario es obligatorio" ForeColor="#dc2626"></asp:RequiredFieldValidator>
@@ -92,3 +93,4 @@
     </form>
 </body>
 </html>
+
