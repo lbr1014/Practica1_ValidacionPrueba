@@ -32,13 +32,10 @@
             height: 58px;
         }
         .auto-style38 {
-            color: #FFFFFF;
-            background-color: #AF8C70;
             background-repeat: repeat;
             text-align: center;
         }
         .auto-style39 {
-            background-color: #E0CDC0;
             height: 36px;
             text-align: center;
         }
@@ -47,12 +44,10 @@
         }
         .auto-style44 {
             padding: 0;
-            background-color: #E0CDC0;
             text-align: center;
             height: 54px;
         }
         .auto-style46 {
-            background-color: #E0CDC0;
             height: 28px;
             text-align: center;
             font-weight: bold;
@@ -62,7 +57,6 @@
         }
         .auto-style49 {
             padding: 0;
-            background-color: #E0CDC0;
             font-weight: bold;
             text-align: center;
             height: 51px;
@@ -70,7 +64,6 @@
         }
         .auto-style50 {
             padding: 0;
-            background-color: #E0CDC0;
             height: 54px;
             font-weight: bold;
             text-align: center;
@@ -78,20 +71,17 @@
         }
         .auto-style51 {
             padding: 0;
-            background-color: #E0CDC0;
             font-weight: bold;
             text-align: center;
             height: 51px;
         }
         .auto-style52 {
             padding: 0;
-            background-color: #E0CDC0;
             text-align: center;
             height: 35px;
         }
         .auto-style53 {
             padding: 0;
-            background-color: #E0CDC0;
             font-weight: bold;
             text-align: center;
         }
@@ -121,9 +111,7 @@
         }
         .auto-style77 {
             font-weight: bold;
-            color: #FFFFFF;
             margin-left: 32px;
-            background-color: #AF8C70;
         }
         .auto-style78 {
             width: 135px;
@@ -146,12 +134,10 @@
             width: 367px;
         }
         .auto-style89 {
-            background-color: #E0CDC0;
             height: 35px;
             width: 134px;
         }
         .auto-style90 {
-            background-color: #E0CDC0;
             text-align: center;
             height: 35px;
             width: 135px;
