@@ -52,7 +52,14 @@
                 <td >
                     <asp:Label ID="lblSexo" runat="server" Text="SEXO"></asp:Label>
                 </td>
-                <td> </td>
+                <td> 
+                    <asp:DropDownList ID="ddlSexo" runat="server">
+                        <asp:ListItem Text="Selecciona una opción" Value="" />
+                        <asp:ListItem Text="Femenino" Value="Femenino" />
+                        <asp:ListItem Text="Masculino" Value="Masculino" />
+                        <asp:ListItem Text="Otro" Value="Otro" />
+                    </asp:DropDownList>
+                </td>
                 <td> </td>
             </tr>
             <tr>
