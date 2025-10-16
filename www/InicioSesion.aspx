@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Inicio de sesión</title>
-    <link rel="stylesheet" href="Estilos/Registro.css" />
+    <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
 </head>
 <body>
     <div class="form-container">
@@ -30,7 +30,7 @@
                 <td >&nbsp;</td>
                 <td >&nbsp;</td>
                 <td >
-                    <asp:Label ID="lblEmail" runat="server" Text="EMAIL"></asp:Label>
+                    <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
 
                 </td>
                 <td  >

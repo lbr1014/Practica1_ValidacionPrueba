@@ -1,109 +1,81 @@
-﻿/* ====== Tema morado tipo “card” grande ====== */
-:root {
-    --panel: #cdb4ff; /* morado del panel */
-    --panel-dark: #1f1147; /* texto oscuro sobresaliente */
-}
-
+﻿/* Fondo general */
 body {
-    background: radial-gradient(1000px 400px at 20% 0%, #e9ddff 0%, #f6f1ff 40%, #f6f1ff 100%);
+    background-color: #E6E6FA; /* Morado claro */
+    font-family: Arial, sans-serif;
 }
 
-/* Contenedor centrado (se mantiene tu estructura actual) */
-.login-wrapper {
-    padding: 32px;
+/* Contenedor principal del formulario */
+.form-container {
+    width: 400px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Panel morado */
-.login-card {
-    max-width: 720px;
-    background: var(--panel);
-    border: 0;
-    border-radius: 22px;
-    padding: 36px 40px;
-    box-shadow: 0 14px 40px rgba(31,17,71,.18);
+/* Título del formulario */
+h2 {
+    text-align: center;
+    background-color: #6A0DAD; /* Morado oscuro */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
-    /* Título centrado y en mayúsculas */
-    .login-card .card-title,
-    .login-card h1,
-    .login-card h2 {
-        margin: 0 0 22px 0;
-        text-align: center;
-        font-weight: 800;
-        font-size: 28px;
-        letter-spacing: .06em;
-        color: var(--panel-dark);
-        text-transform: uppercase;
+/* Etiquetas */
+asp\:Label {
+    display: block;
+    margin-top: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Campos de entrada */
+asp\:TextBox,
+asp\:DropDownList {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #6A0DAD;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Checkbox */
+asp\:CheckBox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* Contenedor de los botones */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+/* Estilos de los botones */
+.boton-registro,
+.boton-inicio {
+    width: 48%;
+    padding: 12px;
+    background-color: #CBA3FF; /* Morado claro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+    /* Efecto hover en botones */
+    .boton-registro:hover,
+    .boton-inicio:hover {
+        background-color: #B266FF;
     }
-
-    /* Línea divisoria como en la imagen */
-    .login-card .divider {
-        height: 3px;
-        width: 100%;
-        background: rgba(31,17,71,.65);
-        border-radius: 3px;
-        margin: 18px 0 22px;
-    }
-
-/* Etiquetas en blanco y más marcadas */
-.form-label {
-    color: #fff !important;
-    font-weight: 700;
-    font-size: 15px;
-    margin: 18px 0 8px;
-}
-
-/* Campos blancos con borde oscuro y radios amplios */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-.text-input {
-    height: 46px;
-    background: #fff;
-    color: #111827;
-    border: 2px solid #111827;
-    border-radius: 14px;
-    padding: 0 14px;
-}
-
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="password"]:focus,
-    .text-input:focus {
-        border-color: #111827;
-        box-shadow: 0 0 0 4px rgba(17,24,39,.12);
-    }
-
-/* Acciones inferiores como enlaces centrados */
-.aux-links {
-    margin-top: 18px;
-    justify-content: center;
-    font-weight: 600;
-}
-
-    .aux-links .link {
-        color: #fff;
-        text-decoration: none;
-    }
-
-        .aux-links .link:hover {
-            text-decoration: underline;
-        }
-
-    .aux-links .separator {
-        color: #fff;
-        opacity: .6;
-        padding: 0 6px;
-    }
-
-/* Si mantienes un botón de envío, que no robe protagonismo */
-.btn-primary,
-input[type="submit"],
-button[type="submit"] {
-    width: auto;
-    min-width: 180px;
-    height: 42px;
-    margin-top: 6px;
-    border-radius: 14px;
-    background: #1f1147;
-}
