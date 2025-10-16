@@ -12,7 +12,7 @@
      <div class="form-container">
         <h2>                   
             <asp:Label ID="lblRegistro" runat="server" Text="REGISTRO"></asp:Label>
-</h2>
+        </h2>
              <form id="form1" runat="server">
         <div>
             </div>
