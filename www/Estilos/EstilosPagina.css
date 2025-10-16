@@ -1,8 +1,4 @@
-﻿:root {
-    --color-primario: #0d6efd;
-    --texto: #1f2937;
-}
-
+﻿/* ====== Reset y tipografía mínimos ====== */
 * {
     box-sizing: border-box;
 }
@@ -16,25 +12,6 @@ body {
     font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
     background: #f8fafc;
     color: #0f172a;
-}
-
-header {
-    padding: 1rem 2rem;
-    background: var(--color-primario);
-    color: white;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 1.5rem;
-}
-
-/* Responsive básico */
-@media (max-width: 768px) {
-    .container {
-        padding: 1rem;
-    }
 }
 
 /* ====== Layout centrado ====== */
@@ -59,14 +36,14 @@ header {
 /* ====== Tabla del formulario ====== */
 table.login-table {
     width: 100%;
-    margin: 0 auto; /* centra por si sola si hiciera falta */
+    margin: 0 auto; /* por si la tabla se renderiza fuera de su contenedor */
     border-collapse: separate;
     border-spacing: 0 12px; /* espacio vertical entre “filas” lógicas */
 }
 
     /* Apilamos celdas para que etiqueta quede encima del input */
     table.login-table td {
-        display: block; /* ¡truco! cada <td> se hace bloque y apila */
+        display: block; /* cada <td> se apila verticalmente */
         padding: 0;
     }
 
@@ -124,3 +101,24 @@ button[type="submit"] {
 .form-actions {
     margin-top: 8px;
 }
+
+.aux-links {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+    .aux-links .separator {
+        opacity: .5;
+    }
+
+.link {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+    .link:hover {
+        text-decoration: underline;
+    }
