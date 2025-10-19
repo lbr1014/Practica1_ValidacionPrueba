@@ -40,10 +40,10 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td class="auto-style2">
-                    <!-- Desplegable de opciones del usuario -->
-                    <asp:DropDownList ID="ddlOpcionesUsuario" runat="server" CssClass="ddl-usuario">
+                    <!-- Desplegable de opciones del usuario con AutoPostBack -->
+                    <asp:DropDownList ID="ddlOpcionesUsuario" runat="server" CssClass="ddl-usuario"
+                        AutoPostBack="true" OnSelectedIndexChanged="ddlOpcionesUsuario_SelectedIndexChanged">
                     </asp:DropDownList>
-                    <asp:Button ID="btnEjecutarOpcion" runat="server" Text="Ir" OnClick="btnEjecutarOpcion_Click" />
                     &nbsp;
                     <asp:Button ID="btnCerrarSesion" runat="server" Text="CERRAR SESIÓN" OnClick="btnCerrarSesion_Click" />
                 </td>
@@ -52,4 +52,5 @@
     </form>
 </body>
 </html>
+
 
