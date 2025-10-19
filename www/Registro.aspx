@@ -120,6 +120,7 @@
                 <td >&nbsp;</td>
                 <td >
                     <asp:Button ID="btnRegistro" runat="server" Text="REGISTRO" />
+                    <asp:Button ID="btnInicioSesion" runat="server" Text="INICIO SESIÓN" />
                 </td>
                 <td >&nbsp;</td>
             </tr>
