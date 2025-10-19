@@ -33,6 +33,15 @@ namespace www
         protected global::System.Web.UI.WebControls.Label lblUsuario;
 
         /// <summary>
+        /// Control lblTipoUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoUsuario;
+
+        /// <summary>
         /// Control lblUltimoInicioSesion.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,22 @@ namespace www
         protected global::System.Web.UI.WebControls.Label lblUltimoInicioSesion;
 
         /// <summary>
-        /// Control btnIdiomaEspañol.
+        /// Control ddlOpcionesUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIdiomaEspañol;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOpcionesUsuario;
+
+        /// <summary>
+        /// Control btnEjecutarOpcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEjecutarOpcion;
 
         /// <summary>
         /// Control btnCerrarSesion.

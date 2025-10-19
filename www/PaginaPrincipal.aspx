@@ -5,10 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Página Principal</title>
     <style type="text/css">
         .auto-style1 {
-            width: 811px;
+            width: 600px;
         }
         .auto-style2 {
             text-align: right;
@@ -18,23 +18,33 @@
             border-width: medium;
             border-color: #000000;
         }
+        .ddl-usuario {
+            width: 200px;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-        </div>
         <table class="nuevoEstilo1" style="width:100%;">
             <tr>
                 <td>&nbsp;</td>
                 <td class="auto-style1">
+                    <!-- Nombre del usuario y tipo al lado -->
                     <asp:Label ID="lblUsuario" runat="server" Text="Nombre Usuario"></asp:Label>
-                &nbsp; (<asp:Label ID="lblUltimoInicioSesion" runat="server" Text="UltimoInicioSesion"></asp:Label>
-                    )</td>
+                    &nbsp;-&nbsp;
+                    <asp:Label ID="lblTipoUsuario" runat="server" Text=""></asp:Label>
+                    &nbsp;(
+                    <asp:Label ID="lblUltimoInicioSesion" runat="server" Text="UltimoInicioSesion"></asp:Label>
+                    )
+                </td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td class="auto-style2">
-                    <asp:Button ID="btnIdiomaEspañol" runat="server" Text="CONFIGURACIÓN" OnClick="btnIdiomaEspañol_Click" />
+                    <!-- Desplegable de opciones del usuario -->
+                    <asp:DropDownList ID="ddlOpcionesUsuario" runat="server" CssClass="ddl-usuario">
+                    </asp:DropDownList>
+                    <asp:Button ID="btnEjecutarOpcion" runat="server" Text="Ir" OnClick="btnEjecutarOpcion_Click" />
+                    &nbsp;
                     <asp:Button ID="btnCerrarSesion" runat="server" Text="CERRAR SESIÓN" OnClick="btnCerrarSesion_Click" />
                 </td>
             </tr>
@@ -42,3 +52,4 @@
     </form>
 </body>
 </html>
+
