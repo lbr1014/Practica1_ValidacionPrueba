@@ -95,13 +95,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AñadirActividad.aspx" />
+    <Content Include="EditarPerfil.aspx" />
     <Content Include="Estilos\EstilosPagina.css" />
+    <Content Include="GestionarEstados.aspx" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="PaginaPrincipal.aspx" />
     <Content Include="Registro.aspx" />
+    <Content Include="VerActividades.aspx" />
+    <Content Include="VerUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AñadirActividad.aspx.cs">
+      <DependentUpon>AñadirActividad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AñadirActividad.aspx.designer.cs">
+      <DependentUpon>AñadirActividad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarPerfil.aspx.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarPerfil.aspx.designer.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestionarEstados.aspx.cs">
+      <DependentUpon>GestionarEstados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestionarEstados.aspx.designer.cs">
+      <DependentUpon>GestionarEstados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InicioSesion.aspx.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +149,20 @@
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerActividades.aspx.cs">
+      <DependentUpon>VerActividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerActividades.aspx.designer.cs">
+      <DependentUpon>VerActividades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerUsuarios.aspx.cs">
+      <DependentUpon>VerUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerUsuarios.aspx.designer.cs">
+      <DependentUpon>VerUsuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
