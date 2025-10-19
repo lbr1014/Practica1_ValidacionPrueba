@@ -19,7 +19,7 @@ namespace Datos
         public CapaDatos() 
         {
             
-            var usuario1 = new Usuario("a-005", "Alexia", "Putellas", "balondeoro3@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 1, "NORMAL");
+            var usuario1 = new Usuario("a-005", "Alexia", "Putellas", "balondeoro3@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 1, "PREMIUM");
             var usuario2 = new Usuario("a-004", "Lando", "Norris", "norris@gmail.com", "ConMasDe12Caracteres!","HOMBRE", 68, 1.75f, 25,  1, "NORMAL");
             var usuarioAdmin = new Usuario("a-029", "Lydia Beatriz ", "Blanco Llorente", "lbbl@gmail.com", "ConMasDe12Caracteres!", "MUJER", 68, 1.75f, 25, 1, "ADMIN");
 
@@ -27,10 +27,16 @@ namespace Datos
             GuardaUsuario(usuario2);
             GuardaUsuario(usuarioAdmin);
 
-            GuardaActividad(new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1));
-            GuardaActividad(new ActividadesFisicas("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario1));
-            GuardaActividad(new ActividadesFisicas("AF-003", "Pesas", 50, "Ir al gimnasio y levantar pesas", usuario2));
            
+            if (!ActividadesFisicasLista.Any())
+            {
+                
+
+                GuardaActividad(new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1));
+                GuardaActividad(new ActividadesFisicas("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario1));
+                GuardaActividad(new ActividadesFisicas("AF-003", "Pesas", 50, "Ir al gimnasio y levantar pesas", usuario2));
+            }
+
 
         }  
 
