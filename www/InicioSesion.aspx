@@ -24,12 +24,16 @@
             <!-- Ejemplo de controles (ajusta a tus IDs reales) -->
             <asp:Label ID="lblEmail" runat="server" Text="Usuario"></asp:Label>
             
-                <asp:TextBox ID="tbxUsuario" runat="server"></asp:TextBox>
+                <br />
+            
+                <asp:TextBox ID="tbxUsuario" runat="server" Width="388px"></asp:TextBox>
             
             <br />
                 <asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label>
             
-                <asp:TextBox ID="tbxPassword" TextMode="Password" runat="server"></asp:TextBox>
+                <br />
+            
+                <asp:TextBox ID="tbxPassword" TextMode="Password" runat="server" Width="382px"></asp:TextBox>
             
             <br />
                 <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Mensaje Error" Visible="False"></asp:Label>
