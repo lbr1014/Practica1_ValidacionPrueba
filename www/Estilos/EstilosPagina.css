@@ -20,8 +20,8 @@
     }
 
 /* ===== Botones (registro / inicio) ===== */
-.boton-registro,
-.boton-inicio {
+.btnAceptar,
+.btnRegistro {
     width: 48%;
     padding: 12px 16px;
     background-color: #6A0DAD; /* Morado sólido */
