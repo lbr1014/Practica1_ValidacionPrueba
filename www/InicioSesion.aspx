@@ -27,12 +27,14 @@
                 <asp:TextBox ID="tbxUsuario" runat="server"></asp:TextBox>
             </td >
             <td >
+                <br />
                 <asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label>
                 <asp:TextBox ID="tbxPassword" TextMode="Password" runat="server"></asp:TextBox>
+            <br />
             </td >
 
             <td >
-                <asp:Label ID="Label1" runat="server" ForeColor="Red" Text="Mensaje Error" Visible="False"></asp:Label>
+                <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Mensaje Error" Visible="False"></asp:Label>
             </td >
 
             <div class="button-container">
