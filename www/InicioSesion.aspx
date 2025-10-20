@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Inicio de sesión</title>
-    <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
+    <link runat="server" rel="stylesheet" href="~/Estilos/EstilosPagina.css" />
     <style type="text/css">
         .auto-style1 {
             width: 210px;
@@ -14,6 +14,7 @@
         }
     </style>
 </head>
+    
 
 <body>
     <form id="form2" runat="server">
@@ -21,7 +22,7 @@
         <!-- CABECERA -->
         <header class="site-header">
           <div class="header-inner">
-            <img src="img/logoValkiria.png" alt="VALKIRIA"class="header-inner" />
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
             <div class="brand">VALKIRIA</div>
           </div>
         </header>

@@ -1,4 +1,4 @@
-﻿/* Da layout a la cabecera */
+﻿/* CABECERA */
 .site-header {
     width: 100%;
     background: #6A0DAD;
@@ -10,7 +10,6 @@
     z-index: 1000;
 }
 
-    /* Contenedor interno con flex */
     .site-header .header-inner {
         max-width: 1100px;
         margin: 0 auto;
@@ -19,14 +18,12 @@
         gap: 12px;
     }
 
-        /* Logo limitado en altura */
         .site-header .header-inner img {
-            height: 44px; /* ajusta 40–48px a gusto */
+            height: 44px;
             width: auto;
             display: block;
         }
 
-    /* Título centrado y ocupando el resto */
     .site-header .brand {
         flex: 1;
         text-align: center;
@@ -36,77 +33,25 @@
         margin: 0;
     }
 
-
-
-/* ===== Botones (registro / inicio) ===== */
-.boton-registro,
-.boton-inicio {
-    width: 48%;
-    padding: 12px 16px;
-    background-color: #6A0DAD; /* Morado sólido */
-    color: #fff;
-    border: 2px solid #6A0DAD;
-    border-radius: 9999px; /* Súper redondeado */
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    transition: transform .05s ease, background-color .2s ease, box-shadow .2s ease;
-}
-
-    .boton-registro:hover,
-    .boton-inicio:hover {
-        background-color: #5b0a99; /* Morado un poco más oscuro al pasar el ratón */
-        box-shadow: 0 6px 14px rgba(106, 13, 173, 0.28);
-    }
-
-    .boton-registro:active,
-    .boton-inicio:active {
-        transform: translateY(1px);
-    }
-
-/* (Opcional) por si usas <asp:Button> sin clase */
-asp\:Button,
-input[type="submit"],
-button[type="submit"] {
-    background-color: #6A0DAD;
-    color: #fff;
-    border: 2px solid #6A0DAD;
-    border-radius: 9999px;
-    padding: 12px 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-    asp\:Button:hover,
-    input[type="submit"]:hover,
-    button[type="submit"]:hover {
-        background-color: #5b0a99;
-    }
-
-
-/* Fondo general */
+/* FONDO GENERAL */
 body {
-    background-color: #E6E6FA; /* Morado claro */
+    background-color: #E6E6FA;
     font-family: Arial, sans-serif;
 }
 
-/* Contenedor principal del formulario */
+/* FORMULARIO */
 .form-container {
     width: 400px;
     margin: 50px auto;
     background-color: #ffffff;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Título del formulario */
 h2 {
     text-align: center;
-    background-color: #6A0DAD; /* Morado oscuro */
+    background-color: #6A0DAD;
     color: white;
     padding: 15px;
     border-radius: 8px;
@@ -114,17 +59,16 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Etiquetas */
-asp\:Label {
+/* LABELS */
+.form-label {
     display: block;
     margin-top: 15px;
     color: #333;
     font-weight: bold;
 }
 
-/* Campos de entrada */
-asp\:TextBox,
-asp\:DropDownList {
+/* TEXTBOX */
+.form-input {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -133,38 +77,29 @@ asp\:DropDownList {
     box-sizing: border-box;
 }
 
-/* Checkbox */
-asp\:CheckBox {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: inline-block;
+/* BOTONES */
+.boton-registro,
+.boton-inicio {
+    width: 48%;
+    padding: 12px;
+    background-color: #CBA3FF;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-/* Contenedor de los botones */
+    .boton-registro:hover,
+    .boton-inicio:hover {
+        background-color: #B266FF;
+    }
+
+/* CONTENEDOR DE BOTONES */
 .button-container {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
 }
-
-/* Estilos de los botones */
-.boton-registro,
-.boton-inicio {
-    width: 48%;
-    padding: 12px;
-    background-color: #CBA3FF; /* Morado claro */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-}
-
-    /* Efecto hover en botones */
-    .boton-registro:hover,
-    .boton-inicio:hover {
-        background-color: #B266FF;
-    }
