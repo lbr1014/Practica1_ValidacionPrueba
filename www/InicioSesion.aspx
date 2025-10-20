@@ -36,8 +36,8 @@
 
             <div class="button-container">
                 <!-- Añade las clases para que cojan el estilo morado y redondeado -->
-                <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar"  />
                 <asp:Button ID="btnRegistro" runat="server" OnClick="btnRegistro_Click" Text="Registrarse" />
+                <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar"  />
             </div>
         </div>
 
