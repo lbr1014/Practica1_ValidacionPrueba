@@ -22,6 +22,7 @@
             width: 200px;
         }
     </style>
+    <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
 </head>
 <body>
     <form id="form1" runat="server">
