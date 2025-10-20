@@ -7,6 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Inicio de sesión</title>
     <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 210px;
+            height: 199px;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +21,8 @@
         <!-- CABECERA -->
         <header class="site-header">
             <div class="brand">VALKIRIA</div>
-        </header>
+            <img src="img/logoValkiria.png", alt="VALKIRIA" class="auto-style1" />
+            </header>
 
         <!-- CONTENIDO EXISTENTE -->
         <div class="form-container">
@@ -33,7 +40,7 @@
             
                 <br />
             
-                <asp:TextBox ID="tbxPassword" TextMode="Password" runat="server" Width="382px"></asp:TextBox>
+                <asp:TextBox ID="tbxPassword" TextMode="Password" runat="server" Width="386px"></asp:TextBox>
             
             <br />
                 <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Mensaje Error" Visible="False"></asp:Label>
