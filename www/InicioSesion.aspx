@@ -22,20 +22,13 @@
             <h2>Inicio de sesión</h2>
 
             <!-- Ejemplo de controles (ajusta a tus IDs reales) -->
-            <td >
-                <asp:Label ID="lblEmail" runat="server" Text="Usuario"></asp:Label>
-                <asp:TextBox ID="tbxUsuario" runat="server"></asp:TextBox>
-            </td >
-            <td >
-                <br />
+            <asp:Label ID="lblEmail" runat="server" Text="Usuario"></asp:Label>
+            <asp:TextBox ID="tbxUsuario" runat="server"></asp:TextBox>
+            <br />
                 <asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label>
                 <asp:TextBox ID="tbxPassword" TextMode="Password" runat="server"></asp:TextBox>
             <br />
-            </td >
-
-            <td >
                 <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Mensaje Error" Visible="False"></asp:Label>
-            </td >
 
             <div class="button-container">
                 <!-- Añade las clases para que cojan el estilo morado y redondeado -->
