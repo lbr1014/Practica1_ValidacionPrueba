@@ -26,6 +26,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!-- CABECERA -->
+        <header class="site-header">
+          <div class="header-inner">
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
+            <div class="brand">VALKIRIA</div>
+          </div>
+        </header>
+
         <table class="nuevoEstilo1" style="width:100%;">
             <tr>
                 <td>&nbsp;</td>
