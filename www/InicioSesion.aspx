@@ -20,11 +20,12 @@
 
         <!-- CABECERA -->
         <header class="site-header">
-          <div class="site-header header-inner">
+          <div class="header-inner">
             <img src="img/logoValkiria.png" alt="VALKIRIA" />
             <div class="brand">VALKIRIA</div>
           </div>
         </header>
+
 
 
         <!-- CONTENIDO EXISTENTE -->
