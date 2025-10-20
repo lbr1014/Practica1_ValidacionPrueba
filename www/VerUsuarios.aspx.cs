@@ -83,5 +83,16 @@ namespace www
         {
             Response.Redirect("PaginaPrincipal.aspx");
         }
+        protected void btnEditarUsuario_Click(object sender, EventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+            {
+                string email = btn.CommandArgument;
+                // Redirige a EditarPerfil pasando el email como QueryString
+                Response.Redirect("EditarPerfil.aspx?email=" + Server.UrlEncode(email));
+            }
+        }
+
     }
 }

@@ -22,7 +22,7 @@
             width: 200px;
         }
     </style>
-    <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
+    <link runat="server" rel="stylesheet" href="~/Estilos/EstilosPagina.css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -58,6 +58,51 @@
                 </td>
             </tr>
         </table>
+        <!-- PANEL DE BIENVENIDA -->
+        <div class="welcome-panel">
+            <h2>Bienvenid@, <asp:Label ID="lblUsuarioCentral" runat="server" Text="Usuario"></asp:Label>!</h2>
+            
+        </div>
+
+        <!-- RESUMEN DE ACTIVIDADES -->
+        <div class="resumen-actividades">
+            <h3 id="lblTituloActividades" runat="server">Mis Actividades</h3>
+            <asp:Label ID="lblNumActividades" runat="server" Text="Tienes X actividades registradas."></asp:Label>
+            <br /><br />
+            <asp:Button ID="btnAñadirActividad" runat="server" Text="Añadir Nueva Actividad" OnClick="btnAñadirActividad_Click" />
+            <asp:Button ID="btnAñadirUsuario" runat="server" Text="Añadir Nuevo Usuario" OnClick="btnAñadirUsuario_Click" Visible="false" />
+
+        </div>
+
+
+        <!-- GRID DE ÚLTIMAS ACTIVIDADES -->
+        <div class="gridview-container">
+                    <asp:GridView ID="GridViewUltimas" runat="server" AutoGenerateColumns="False"
+                        EmptyDataText="No hay actividades registradas.">
+                        <Columns>
+                            <asp:BoundField DataField="Nombre" HeaderText="Actividad" />
+                            <asp:TemplateField HeaderText="Duración (min)">
+                                <ItemTemplate>
+                                  <%# ((int)(Convert.ToDouble(Eval("Duracion")) * 60)) %> 
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
+                        </Columns>
+                    </asp:GridView>
+                </div>
+
+        <!-- PANEL DE CONSEJOS -->
+          <asp:Panel ID="pnlConsejos" runat="server">
+            
+            <div class="panel-tips">
+                <h3>Consejo del día 💡</h3>
+                <p>Mantén una rutina de ejercicios constante y bebe al menos 2 litros de agua diarios.</p>
+                <p>Recuerda que descansar bien también es parte del entrenamiento.</p>
+            </div>
+        </asp:Panel>
+
+
+       
     </form>
 </body>
 </html>

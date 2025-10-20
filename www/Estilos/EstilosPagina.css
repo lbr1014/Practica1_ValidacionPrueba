@@ -103,3 +103,152 @@ h2 {
     justify-content: space-between;
     margin-top: 30px;
 }
+
+* --- ESTILOS DE LA PÁGINA PRINCIPAL --- */
+/* CONTENIDO CENTRAL */
+.contenido-principal {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* PANEL DE BIENVENIDA */
+.welcome-panel h2 {
+    color: white;
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* TITULOS */
+.resumen-actividades h3,
+.panel-tips h3 {
+    color: #6A0DAD;
+    border-bottom: 2px solid #6A0DAD;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* RESUMEN */
+
+.resumen-actividades {
+    text-align: center; /* centra todo el contenido dentro del div */
+    margin-bottom: 25px;
+}
+
+    .resumen-actividades h3 {
+        margin-bottom: 10px; /* un poquito de espacio entre título y subtítulo */
+    }
+
+    .resumen-actividades #lblNumActividades {
+        display: block; /* hace que ocupe toda la línea y se centre */
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+/* GRIDVIEW */
+.gridview-container {
+    margin: 20px auto;
+    width: 90%;
+}
+
+    .gridview-container table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #f9f9ff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .gridview-container th {
+        background-color: #6A0DAD;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .gridview-container td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    .gridview-container tr:nth-child(even) {
+        background-color: #f3e8ff;
+    }
+
+/* PANEL DE CONSEJOS */
+.panel-tips {
+    margin-top: 30px;
+    background-color: #f4ecff;
+    border-left: 6px solid #6A0DAD;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+    .panel-tips p {
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+
+
+    
+
+/* BOTÓN AÑADIR ACTIVIDAD */
+#btnAñadirActividad, #btnAñadirUsuario {
+    background-color: #CBA3FF;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    #btnAñadirActividad:hover {
+        background-color: #B266FF;
+    }
+
+    #btnAñadirUsuario:hover {
+        background-color: #B266FF;
+    }
+/* BOTÓN CERRAR SESION */
+#btnCerrarSesion {
+    background-color: #CBA3FF;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    #btnCerrarSesion:hover {
+        background-color: #B266FF;
+    }
+/* BOTÓN volver */
+#btnVolver {
+    background-color: #CBA3FF;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    #btnVolver:hover {
+        background-color: #B266FF;
+    }
+
+
+
+
+

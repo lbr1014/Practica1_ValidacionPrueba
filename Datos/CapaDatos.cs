@@ -140,6 +140,16 @@ namespace Datos
                 .ToList();
         }
 
+        public List<Usuario> ObtenerUsuarios()
+        {
+            return UsuariosLista.ToList();
+        }
+        public List<ActividadesFisicas> ObtenerActividades()
+        {
+            return ActividadesFisicasLista.ToList();
+        }
+
+
 
     }
 }
