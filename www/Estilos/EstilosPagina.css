@@ -37,16 +37,16 @@
     transition: transform .05s ease, background-color .2s ease, box-shadow .2s ease;
 }
 
-    .boton-registro:hover,
-    .boton-inicio:hover {
-        background-color: #5b0a99; /* Morado un poco más oscuro al pasar el ratón */
-        box-shadow: 0 6px 14px rgba(106, 13, 173, 0.28);
-    }
+.boton-registro:hover,
+.boton-inicio:hover {
+    background-color: #5b0a99; /* Morado un poco más oscuro al pasar el ratón */
+    box-shadow: 0 6px 14px rgba(106, 13, 173, 0.28);
+}
 
-    .boton-registro:active,
-    .boton-inicio:active {
-        transform: translateY(1px);
-    }
+.boton-registro:active,
+.boton-inicio:active {
+    transform: translateY(1px);
+}
 
 /* (Opcional) por si usas <asp:Button> sin clase */
 asp\:Button,
@@ -61,11 +61,11 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-    asp\:Button:hover,
-    input[type="submit"]:hover,
-    button[type="submit"]:hover {
-        background-color: #5b0a99;
-    }
+asp\:Button:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: #5b0a99;
+}
 
 
 /* Fondo general */
@@ -126,4 +126,26 @@ asp\:CheckBox {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
+}
+
+/* Estilos de los botones */
+.boton-registro,
+.boton-inicio {
+    width: 48%;
+    padding: 12px;
+    background-color: #CBA3FF; /* Morado claro */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Efecto hover en botones */
+.boton-registro:hover,
+.boton-inicio:hover {
+    background-color: #B266FF;
 }
