@@ -1,60 +1,21 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VerUsuarios.aspx.cs" Inherits="www.VerUsuarios" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta htt<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="VerUsuarios.aspx.cs" Inherits="www.VerUsuarios" %>
-
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Gestión de Usuarios</title>
     <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            width: 90%;
-            margin: 30px auto;
-        }
-
-        .title {
-            font-size: 24px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .top-buttons {
-            text-align: right;
-            margin-bottom: 15px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            border: 1px solid #000;
-            padding: 8px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        .btnAccion {
-            margin-right: 5px;
-        }
-
-        .gridview-container {
-            overflow-x: auto;
-        }
+        body { font-family: Arial, sans-serif; }
+        .container { width: 90%; margin: 30px auto; }
+        .title { font-size: 24px; text-align: center; margin-bottom: 20px; }
+        .top-buttons { text-align: right; margin-bottom: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #000; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .btnAccion { margin-right: 5px; }
+        .gridview-container { overflow-x: auto; }
     </style>
 </head>
 <body>
@@ -93,5 +54,4 @@
     </form>
 </body>
 </html>
-
 
