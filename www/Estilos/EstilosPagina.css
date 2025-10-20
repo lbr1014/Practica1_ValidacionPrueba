@@ -8,46 +8,34 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* NUEVO: flex para alinear logo + título */
-    display: flex;
-    align-items: center;
-    gap: 12px;
 }
 
-/* El logo: limita la altura para que no “estire” el header */
-.site-header img {
-    height: 44px; /* ajusta a gusto (40–48px suele ir bien) */
-    width: auto;
-    display: block;
-}
+    /* Contenedor interno con flex */
+    .site-header .header-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
 
-/* El título centrado ocupando el resto del ancho */
-.site-header.brand {
-    flex: 1; /* ocupa el espacio restante */
-    text-align: center; /* centra el texto */
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin: 0; /* evita márgenes inesperados */
-}
-.site-header .header-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
+        /* Logo limitado en altura */
+        .site-header .header-inner img {
+            height: 44px; /* ajusta 40–48px a gusto */
+            width: auto;
+            display: block;
+        }
 
-.site-header .header-inner img {
-    height: 44px;
-    width: auto;
-    display: block;
-}
+    /* Título centrado y ocupando el resto */
+    .site-header .brand {
+        flex: 1;
+        text-align: center;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        margin: 0;
+    }
 
-.site-header .header-inner .brand {
-    flex: 1;
-    text-align: center;
-}
 
 
 /* ===== Botones (registro / inicio) ===== */
@@ -68,16 +56,16 @@
     transition: transform .05s ease, background-color .2s ease, box-shadow .2s ease;
 }
 
-.boton-registro:hover,
-.boton-inicio:hover {
-    background-color: #5b0a99; /* Morado un poco más oscuro al pasar el ratón */
-    box-shadow: 0 6px 14px rgba(106, 13, 173, 0.28);
-}
+    .boton-registro:hover,
+    .boton-inicio:hover {
+        background-color: #5b0a99; /* Morado un poco más oscuro al pasar el ratón */
+        box-shadow: 0 6px 14px rgba(106, 13, 173, 0.28);
+    }
 
-.boton-registro:active,
-.boton-inicio:active {
-    transform: translateY(1px);
-}
+    .boton-registro:active,
+    .boton-inicio:active {
+        transform: translateY(1px);
+    }
 
 /* (Opcional) por si usas <asp:Button> sin clase */
 asp\:Button,
@@ -92,11 +80,11 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-asp\:Button:hover,
-input[type="submit"]:hover,
-button[type="submit"]:hover {
-    background-color: #5b0a99;
-}
+    asp\:Button:hover,
+    input[type="submit"]:hover,
+    button[type="submit"]:hover {
+        background-color: #5b0a99;
+    }
 
 
 /* Fondo general */
@@ -175,8 +163,8 @@ asp\:CheckBox {
     cursor: pointer;
 }
 
-/* Efecto hover en botones */
-.boton-registro:hover,
-.boton-inicio:hover {
-    background-color: #B266FF;
-}
+    /* Efecto hover en botones */
+    .boton-registro:hover,
+    .boton-inicio:hover {
+        background-color: #B266FF;
+    }
