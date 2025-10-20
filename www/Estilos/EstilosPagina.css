@@ -1,4 +1,74 @@
-﻿/* Fondo general */
+﻿/* ===== Cabecera de la página ===== */
+.site-header {
+    width: 100%;
+    background: #6A0DAD; /* Morado principal */
+    color: #fff;
+    padding: 16px 24px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    position: sticky; /* Se queda arriba al hacer scroll (opcional) */
+    top: 0;
+    z-index: 1000;
+}
+
+    .site-header .brand {
+        max-width: 1100px;
+        margin: 0 auto;
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-align: center;
+    }
+
+/* ===== Botones (registro / inicio) ===== */
+.boton-registro,
+.boton-inicio {
+    width: 48%;
+    padding: 12px 16px;
+    background-color: #6A0DAD; /* Morado sólido */
+    color: #fff;
+    border: 2px solid #6A0DAD;
+    border-radius: 9999px; /* Súper redondeado */
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform .05s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+    .boton-registro:hover,
+    .boton-inicio:hover {
+        background-color: #5b0a99; /* Morado un poco más oscuro al pasar el ratón */
+        box-shadow: 0 6px 14px rgba(106, 13, 173, 0.28);
+    }
+
+    .boton-registro:active,
+    .boton-inicio:active {
+        transform: translateY(1px);
+    }
+
+/* (Opcional) por si usas <asp:Button> sin clase */
+asp\:Button,
+input[type="submit"],
+button[type="submit"] {
+    background-color: #6A0DAD;
+    color: #fff;
+    border: 2px solid #6A0DAD;
+    border-radius: 9999px;
+    padding: 12px 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    asp\:Button:hover,
+    input[type="submit"]:hover,
+    button[type="submit"]:hover {
+        background-color: #5b0a99;
+    }
+
+
+/* Fondo general */
 body {
     background-color: #E6E6FA; /* Morado claro */
     font-family: Arial, sans-serif;
@@ -57,25 +127,3 @@ asp\:CheckBox {
     justify-content: space-between;
     margin-top: 30px;
 }
-
-/* Estilos de los botones */
-.boton-registro,
-.boton-inicio {
-    width: 48%;
-    padding: 12px;
-    background-color: #CBA3FF; /* Morado claro */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-}
-
-    /* Efecto hover en botones */
-    .boton-registro:hover,
-    .boton-inicio:hover {
-        background-color: #B266FF;
-    }
