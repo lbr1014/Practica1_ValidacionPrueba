@@ -65,6 +65,10 @@
                     <td><asp:TextBox ID="txtNombre" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
+                    <td><asp:Label ID="lblApellidos" runat="server" Text="Apellidos"></asp:Label></td>
+                    <td><asp:TextBox ID="txtApellidos" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
                     <td><asp:Label ID="lblEdad" runat="server" Text="Edad"></asp:Label></td>
                     <td><asp:TextBox ID="txtEdad" runat="server"></asp:TextBox></td>
                 </tr>

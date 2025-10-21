@@ -82,8 +82,7 @@ h2 {
 
 /* BOTONES */
 .boton-registro,
-.boton-inicio,
-.btnCambiarEstado {
+.boton-inicio {
     width: 48%;
     padding: 12px;
     background-color: #12B4C9; /* turquesa */
@@ -97,8 +96,7 @@ h2 {
 }
 
     .boton-registro:hover,
-    .boton-inicio:hover,
-    .btnCambiarEstado :hover{
+    .boton-inicio:hover {
         background-color: #0FA2B4; /* turquesa más oscuro */
     }
 
@@ -240,6 +238,21 @@ h2 {
 
 /* BOTÓN volver */
 #btnVolver {
+    background-color: #12B4C9; /* turquesa */
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    #btnVolver:hover {
+        background-color: #0FA2B4; /* turquesa más oscuro */
+    }
+
+/* BOTÓN cambiar estado*/
+#btnCambiarEstado {
     background-color: #12B4C9; /* turquesa */
     color: white;
     border: none;

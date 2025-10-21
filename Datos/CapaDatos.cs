@@ -11,10 +11,10 @@ namespace Datos
     public class CapaDatos : ICapaDatos
     {
         //ATRIBUTOS
-        List<Usuario> UsuariosLista = new List<Usuario>();
+        static List<Usuario> UsuariosLista = new List<Usuario>();
         
 
-        List<ActividadesFisicas> ActividadesFisicasLista = new List<ActividadesFisicas>();
+        static List<ActividadesFisicas> ActividadesFisicasLista = new List<ActividadesFisicas>();
         
 
         //CONSTRUCTOR
@@ -149,6 +149,12 @@ namespace Datos
         public List<ActividadesFisicas> ObtenerActividades()
         {
             return ActividadesFisicasLista.ToList();
+        }
+
+        public static void ResetDatos()
+        {
+            UsuariosLista.Clear();
+            ActividadesFisicasLista.Clear();
         }
 
 

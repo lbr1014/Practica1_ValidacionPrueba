@@ -29,6 +29,7 @@ namespace www
 
                 // Mostrar los valores actuales en los campos
                 txtNombre.Text = usuario.Nombre;
+                txtApellidos.Text = usuario.Apellidos;
                 txtEdad.Text = usuario.Edad.ToString();
                 txtPeso.Text = usuario.Peso.ToString();
                 txtAltura.Text = usuario.Altura.ToString();
@@ -53,6 +54,13 @@ namespace www
                 if (string.IsNullOrEmpty(nombre))
                 {
                     lblMensaje.Text = "El nombre no puede estar vacío.";
+                    lblMensaje.ForeColor = System.Drawing.Color.Red;
+                    return;
+                }
+                string apellidos = txtApellidos.Text.Trim();
+                if (string.IsNullOrEmpty(apellidos))
+                {
+                    lblMensaje.Text = "El Apellido no puede estar vacío.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
@@ -88,6 +96,7 @@ namespace www
 
                 // Actualizar usuario
                 usuario.Nombre = nombre;
+                usuario.Apellidos =apellidos;
                 usuario.Edad = edad;
                 usuario.Peso = peso;
                 usuario.Altura = altura;
