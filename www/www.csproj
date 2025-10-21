@@ -97,6 +97,7 @@
   <ItemGroup>
     <Content Include="AñadirActividad.aspx" />
     <Content Include="AñadirUsuario.aspx" />
+    <Content Include="EditarActividad.aspx" />
     <Content Include="EditarPerfil.aspx" />
     <Content Include="Estilos\EstilosPagina.css" />
     <Content Include="GestionarEstados.aspx" />
@@ -121,6 +122,13 @@
     </Compile>
     <Compile Include="AñadirUsuario.aspx.designer.cs">
       <DependentUpon>AñadirUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarActividad.aspx.cs">
+      <DependentUpon>EditarActividad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarActividad.aspx.designer.cs">
+      <DependentUpon>EditarActividad.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarPerfil.aspx.cs">
       <DependentUpon>EditarPerfil.aspx</DependentUpon>

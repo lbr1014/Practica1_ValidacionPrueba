@@ -60,7 +60,7 @@ namespace www
             {
                 string idActividad = btn.CommandArgument;
                 // Redirigir a la página de edición pasando el ID
-                Response.Redirect("EditarActividad.aspx?id=" + idActividad);
+                Response.Redirect("EditarActividad.aspx?id=" + HttpUtility.UrlEncode(idActividad));
             }
         }
 
@@ -73,6 +73,15 @@ namespace www
                 capaDatos.EliminaActividad(idActividad);
                 //CargarActividades(); Recargar lista
             }
+            // Re-cargar el grid con el usuario actual
+            var usuario = Session["usuarioAutenticado"] as Usuario;
+            if (usuario == null)
+            {
+                Response.Redirect("InicioSesion.aspx");
+                return;
+            }
+
+            CargarActividades(usuario);
         }
 
         protected void btnAñadirActividad_Click(object sender, EventArgs e)

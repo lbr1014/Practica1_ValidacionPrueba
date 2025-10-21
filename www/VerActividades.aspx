@@ -81,10 +81,10 @@
                             <ItemTemplate>
                                 <div class="action-buttons">
                                     <asp:Button ID="btnEditar" runat="server" Text="Editar"
-                                        CommandArgument='<%# Eval("IdActividad") %>' OnClick="btnEditar_Click" />
+                                        CommandArgument='<%# Eval("IdActividad") %>' OnClick="btnEditar_Click" CssClass="boton"/>
                                     <asp:Button ID="btnEliminar" runat="server" Text="Eliminar"
                                         CommandArgument='<%# Eval("IdActividad") %>' OnClick="btnEliminar_Click"
-                                        OnClientClick="return confirm('¿Seguro que quieres eliminar esta actividad?');" />
+                                        OnClientClick="return confirm('¿Seguro que quieres eliminar esta actividad?');" CssClass="boton" />
                                 </div>
                             </ItemTemplate>
                         </asp:TemplateField>
