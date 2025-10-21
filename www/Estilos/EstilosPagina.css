@@ -1,13 +1,47 @@
-﻿/* CABECERA */
+﻿
+:root {
+    /* Colores principales (tomados del logo) */
+    --vk-bg-900: #0b1013; /* casi negro con tinte azul */
+    --vk-bg-800: #0f1a1f;
+    --vk-teal-700: #0f3f46; /* petróleo oscuro */
+    --vk-teal-500: #135a63; /* petróleo medio */
+    --vk-teal-300: #4ac1c8; /* turquesa brillante (glow) */
+    --vk-teal-200: #93e5e8; /* turquesa claro */
+    --vk-ink: #e9f8fa; /* texto claro */
+    --vk-ink-dim: #b9d6d9; /* texto atenuado */
+    --vk-gold: #e3b341; /* acento dorado (diadema) */
+
+    --radius: 12px;
+    --shadow-soft: 0 6px 24px rgba(0,0,0,.25);
+    --shadow-glow: 0 0 20px rgba(74,193,200,.35);
+}
+
+/* =======================
+   FONDO GENERAL
+   ======================= */
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--vk-ink);
+    background: radial-gradient(60% 50% at 50% 25%, rgba(19,90,99,.35), transparent 70%), radial-gradient(40% 35% at 80% 10%, rgba(74,193,200,.13), transparent 70%), linear-gradient(180deg, var(--vk-bg-900), var(--vk-bg-800));
+}
+
+/* =======================
+   CABECERA
+   ======================= */
 .site-header {
     width: 100%;
-    background: #6A0DAD;
-    color: #fff;
-    padding: 12px 16px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.08);
     position: sticky;
     top: 0;
     z-index: 1000;
+    color: var(--vk-ink);
+    backdrop-filter: saturate(140%) blur(6px);
+    background: linear-gradient(180deg, rgba(15,58,67,.85), rgba(11,16,19,.85));
+    box-shadow: 0 2px 14px rgba(0,0,0,.4), var(--shadow-glow);
 }
 
     .site-header .header-inner {
@@ -16,12 +50,14 @@
         display: flex;
         align-items: center;
         gap: 12px;
+        padding: 12px 16px;
     }
 
         .site-header .header-inner img {
             height: 44px;
             width: auto;
             display: block;
+            filter: drop-shadow(0 0 6px rgba(74,193,200,.35));
         }
 
     .site-header .brand {
@@ -29,129 +65,169 @@
         text-align: center;
         font-size: 28px;
         font-weight: 800;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
         margin: 0;
+        color: var(--vk-teal-200);
+        text-shadow: 0 0 8px rgba(74,193,200,.45);
     }
 
-/* FONDO GENERAL */
-body {
-    background-color: #E6E6FA;
-    font-family: Arial, sans-serif;
+    .site-header .actions {
+        display: flex;
+        gap: 8px;
+    }
+
+/* =======================
+   TARJETAS / CONTENEDORES
+   ======================= */
+.form-container,
+.contenido-principal {
+    max-width: 900px;
+    margin: 32px auto;
+    background: linear-gradient(180deg, rgba(15,31,36,.9), rgba(11,16,19,.92));
+    border: 1px solid rgba(147,229,232,.18);
+    padding: 28px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
 }
 
-/* FORMULARIO */
-.form-container {
-    width: 400px;
-    margin: 50px auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
+/* TITULARES */
 h2 {
     text-align: center;
-    background-color: #6A0DAD;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 20px;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+    font-size: 22px;
+    color: var(--vk-teal-200);
+    background: linear-gradient(90deg, rgba(19,90,99,.35), rgba(19,90,99,0));
+    padding: 14px 16px;
+    border-radius: calc(var(--radius) - 2px);
+    border: 1px solid rgba(74,193,200,.25);
+    text-shadow: 0 0 10px rgba(74,193,200,.35);
 }
 
 /* LABELS */
 .form-label {
     display: block;
-    margin-top: 15px;
-    color: #333;
-    font-weight: bold;
+    margin-top: 14px;
+    color: var(--vk-ink-dim);
+    font-weight: 700;
 }
 
-/* TEXTBOX */
+/* INPUTS */
 .form-input {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 2px solid #6A0DAD;
-    border-radius: 5px;
-    box-sizing: border-box;
+    padding: 11px 12px;
+    margin-top: 6px;
+    color: var(--vk-ink);
+    background: rgba(10,16,19,.6);
+    border: 1.5px solid rgba(74,193,200,.35);
+    border-radius: 10px;
+    outline: none;
+    transition: box-shadow .2s ease, border-color .2s ease, background .2s ease;
 }
 
-/* BOTONES */
+    .form-input:focus {
+        border-color: var(--vk-teal-200);
+        box-shadow: 0 0 0 3px rgba(74,193,200,.25), var(--shadow-glow);
+        background: rgba(10,16,19,.75);
+    }
+
+/* =======================
+   BOTONES
+   ======================= */
 .boton-registro,
-.boton-inicio {
+.boton-inicio,
+#btnAñadirActividad,
+#btnAñadirUsuario,
+#btnCerrarSesion,
+#btnVolver {
     width: 48%;
-    padding: 12px;
-    background-color: #CBA3FF;
-    color: white;
+    padding: 12px 18px;
     border: none;
     border-radius: 9999px;
     font-size: 16px;
-    text-align: center;
+    color: #071013;
     cursor: pointer;
-    transition: all 0.2s ease;
+    background: linear-gradient(180deg, var(--vk-teal-200), var(--vk-teal-300));
+    box-shadow: 0 6px 18px rgba(74,193,200,.28);
+    transition: transform .12s ease, box-shadow .2s ease, filter .2s ease;
 }
 
     .boton-registro:hover,
-    .boton-inicio:hover {
-        background-color: #B266FF;
+    .boton-inicio:hover,
+    #btnAñadirActividad:hover,
+    #btnAñadirUsuario:hover,
+    #btnCerrarSesion:hover,
+    #btnVolver:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 26px rgba(74,193,200,.35);
+        filter: saturate(110%);
     }
+
+    .boton-registro:active,
+    .boton-inicio:active,
+    #btnAñadirActividad:active,
+    #btnAñadirUsuario:active,
+    #btnCerrarSesion:active,
+    #btnVolver:active {
+        transform: translateY(0);
+    }
+
+/* Variante dorada (opcional) para acciones destacadas */
+.button-gold {
+    background: linear-gradient(180deg, #f3ce67, var(--vk-gold));
+    color: #0b1013;
+    box-shadow: 0 6px 18px rgba(227,179,65,.28);
+}
 
 /* CONTENEDOR DE BOTONES */
 .button-container {
     display: flex;
     justify-content: space-between;
+    gap: 12px;
     margin-top: 30px;
 }
 
-* --- ESTILOS DE LA PÁGINA PRINCIPAL --- */
-/* CONTENIDO CENTRAL */
+/* =======================
+   PÁGINA PRINCIPAL
+   ======================= */
+/* Comentario corregido: --- ESTILOS DE LA PÁGINA PRINCIPAL --- */
+
 .contenido-principal {
-    max-width: 900px;
-    margin: 30px auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     text-align: center;
 }
 
-/* PANEL DE BIENVENIDA */
 .welcome-panel h2 {
-    color: white;
+    color: var(--vk-teal-200);
     font-size: 26px;
     margin-bottom: 20px;
 }
 
-/* TITULOS */
+/* TÍTULOS secundarios */
 .resumen-actividades h3,
 .panel-tips h3 {
-    color: #6A0DAD;
-    border-bottom: 2px solid #6A0DAD;
+    color: var(--vk-teal-200);
+    border-bottom: 2px solid rgba(74,193,200,.35);
     display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
+    padding-bottom: 6px;
+    margin-bottom: 14px;
 }
 
 /* RESUMEN */
-
 .resumen-actividades {
-    text-align: center; /* centra todo el contenido dentro del div */
-    margin-bottom: 25px;
+    text-align: center;
+    margin-bottom: 24px;
 }
 
-    .resumen-actividades h3 {
-        margin-bottom: 10px; /* un poquito de espacio entre título y subtítulo */
-    }
-
     .resumen-actividades #lblNumActividades {
-        display: block; /* hace que ocupe toda la línea y se centre */
-        margin-bottom: 15px;
+        display: block;
+        margin-bottom: 14px;
         font-weight: bold;
         font-size: 16px;
+        color: var(--vk-ink);
     }
 
-/* GRIDVIEW */
+/* =======================
+   GRIDVIEW / TABLAS
+   ======================= */
 .gridview-container {
     margin: 20px auto;
     width: 90%;
@@ -160,95 +236,66 @@ h2 {
     .gridview-container table {
         width: 100%;
         border-collapse: collapse;
-        background-color: #f9f9ff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        background: rgba(13,22,26,.75);
+        border: 1px solid rgba(147,229,232,.18);
+        box-shadow: var(--shadow-soft);
     }
 
     .gridview-container th {
-        background-color: #6A0DAD;
-        color: white;
+        background: linear-gradient(180deg, var(--vk-teal-700), var(--vk-teal-500));
+        color: var(--vk-ink);
         padding: 10px;
         text-align: center;
+        letter-spacing: .5px;
     }
 
     .gridview-container td {
-        border: 1px solid #ddd;
-        padding: 8px;
+        border: 1px solid rgba(147,229,232,.12);
+        padding: 9px 8px;
         text-align: center;
+        color: var(--vk-ink-dim);
     }
 
     .gridview-container tr:nth-child(even) {
-        background-color: #f3e8ff;
+        background: rgba(15,31,36,.55);
     }
 
-/* PANEL DE CONSEJOS */
+    .gridview-container tr:hover {
+        background: rgba(19,90,99,.22);
+    }
+
+/* =======================
+   PANEL DE CONSEJOS
+   ======================= */
 .panel-tips {
     margin-top: 30px;
-    background-color: #f4ecff;
-    border-left: 6px solid #6A0DAD;
+    background: linear-gradient(180deg, rgba(15,31,36,.9), rgba(11,16,19,.95));
+    border-left: 6px solid var(--vk-teal-500);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: var(--radius);
     text-align: left;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: var(--shadow-soft);
 }
 
     .panel-tips p {
-        color: #333;
+        color: var(--vk-ink-dim);
         margin-bottom: 8px;
     }
 
-
-
-    
-
-/* BOTÓN AÑADIR ACTIVIDAD */
-#btnAñadirActividad, #btnAñadirUsuario {
-    background-color: #CBA3FF;
-    color: white;
+/* =======================
+   UTILIDADES
+   ======================= */
+.hr-glow {
+    height: 1px;
     border: none;
-    border-radius: 9999px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    background: linear-gradient(90deg, transparent, rgba(74,193,200,.5), transparent);
 }
 
-    #btnAñadirActividad:hover {
-        background-color: #B266FF;
-    }
-
-    #btnAñadirUsuario:hover {
-        background-color: #B266FF;
-    }
-/* BOTÓN CERRAR SESION */
-#btnCerrarSesion {
-    background-color: #CBA3FF;
-    color: white;
-    border: none;
-    border-radius: 9999px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+a {
+    color: var(--vk-teal-200);
+    text-decoration: none;
 }
 
-    #btnCerrarSesion:hover {
-        background-color: #B266FF;
+    a:hover {
+        text-decoration: underline;
     }
-/* BOTÓN volver */
-#btnVolver {
-    background-color: #CBA3FF;
-    color: white;
-    border: none;
-    border-radius: 9999px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-    #btnVolver:hover {
-        background-color: #B266FF;
-    }
-
-
-
-
-
