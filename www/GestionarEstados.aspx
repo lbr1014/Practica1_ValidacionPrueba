@@ -5,7 +5,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Gestionar Estados de Usuarios</title>
-    <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
+    <link runat="server" rel="stylesheet" href="~/Estilos/EstilosPagina.css" />
     <style>
         .gridview-container {
             width: 80%;
@@ -30,8 +30,8 @@
                             <asp:Button ID="btnCambiarEstado" runat="server" 
                                 CommandArgument='<%# Eval("Email") %>'
                                 Text="Cambiar Estado"
-                                CssClass="btnCambiarEstado"
-                                OnClick="btnCambiarEstado_Click" />
+                                OnClick="btnCambiarEstado_Click"
+                                CssClass="btnCambiarEstado"/>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
