@@ -54,10 +54,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!-- CABECERA -->
+        <header class="site-header">
+          <div class="header-inner">
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
+            <div class="brand">VALKIRIA</div>
+          </div>
+        </header>
         <div class="form-container">
-            <!-- Botón volver arriba a la derecha -->
-            <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" 
-                        CssClass="btn-top-right" OnClick="btnVolver_Click" />
 
             <h2>Añadir Actividad</h2>
 
@@ -76,13 +80,20 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="btn-container">
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar Actividad" OnClick="btnGuardar_Click" />
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar Actividad" OnClick="btnGuardar_Click" CssClass="boton"/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" class="btn-container">
                         <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                     </td>
+                                    <tr>
+                    <td colspan="2" class="btnVolver">
+                        <!-- Botón volver arriba a la derecha -->
+                        <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
+
+                    </td>
+
                 </tr>
             </table>
         </div>

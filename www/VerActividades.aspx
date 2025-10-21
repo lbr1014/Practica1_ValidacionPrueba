@@ -54,6 +54,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!-- CABECERA -->
+        <header class="site-header">
+          <div class="header-inner">
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
+            <div class="brand">VALKIRIA</div>
+          </div>
+        </header>
+
         <div class="container">
             <div class="top-buttons">
                 <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />

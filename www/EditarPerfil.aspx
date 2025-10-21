@@ -30,8 +30,8 @@
 
         .btn-top-right {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 430px;
+            right: 155px;
         }
 
         .btn-container {
@@ -53,9 +53,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <!-- CABECERA -->
+        <header class="site-header">
+          <div class="header-inner">
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
+            <div class="brand">VALKIRIA</div>
+          </div>
+        </header>
         <div class="form-container">
-            <!-- Botón volver a la página principal -->
-            <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" CssClass="btn-top-right" OnClick="btnVolver_Click" />
 
             <h2>Editar Perfil</h2>
 
@@ -93,7 +98,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="btn-container">
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" />
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" CssClass="boton"/>
                     </td>
                 </tr>
                 <tr>
@@ -101,7 +106,14 @@
                         <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2" class="btnVolver">
+                        <!-- Botón volver a la página principal -->
+                        <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
+                    </td>
+                </tr>
             </table>
+
         </div>
     </form>
 </body>
