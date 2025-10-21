@@ -11,8 +11,10 @@ namespace Datos
     public class CapaDatos : ICapaDatos
     {
         //ATRIBUTOS
-         List<Usuario> UsuariosLista = new List<Usuario>();
-         List<ActividadesFisicas> ActividadesFisicasLista = new List<ActividadesFisicas>();
+        List<Usuario> UsuariosLista = new List<Usuario>();
+        
+
+        List<ActividadesFisicas> ActividadesFisicasLista = new List<ActividadesFisicas>();
         
 
         //CONSTRUCTOR
