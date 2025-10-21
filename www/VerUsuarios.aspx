@@ -40,25 +40,31 @@
                         <asp:BoundField DataField="TipoUsuario" HeaderText="Tipo" />
                         <asp:BoundField DataField="EstadoTexto" HeaderText="Estado" />
 
+                       
                         <asp:TemplateField HeaderText="Acciones">
                             <ItemTemplate>
-                                <asp:Button ID="btnCambiarEstado" runat="server" 
-                                    Text='<%# Eval("EstadoTexto") %>'
+                                
+                                <asp:Button ID="btnEliminarUsuario" runat="server" 
+                                    Text="Eliminar" 
                                     CommandArgument='<%# Eval("Email") %>' 
-                                    OnClick="btnCambiarEstado_Click" />
+                                    CssClass="btnAccion"
+                                    OnClick="btnEliminarUsuario_Click"
+                                    OnClientClick="return confirm('¿Seguro que deseas eliminar este usuario?');" />
 
+                                
                                 <asp:Button ID="btnEditarUsuario" runat="server" 
                                     Text="Editar" 
-                                    CommandArgument='<%# Eval("Email") %>'
+                                    CommandArgument='<%# Eval("Email") %>' 
+                                    CssClass="btnAccion"
                                     OnClick="btnEditarUsuario_Click" />
                             </ItemTemplate>
-        </asp:TemplateField>
-    </Columns>
-</asp:GridView>
-
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
             </div>
         </div>
     </form>
 </body>
 </html>
+
 

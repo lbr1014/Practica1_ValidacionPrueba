@@ -77,16 +77,28 @@
                     <td><asp:TextBox ID="txtEmail" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td><asp:Label ID="lblEdad" runat="server" Text="Edad"></asp:Label></td>
-                    <td><asp:TextBox ID="txtEdad" runat="server"></asp:TextBox></td>
+                    <td><asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label></td>
+                    <td><asp:TextBox ID="txtContraseña" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td><asp:Label ID="lblPeso" runat="server" Text="Peso (kg)"></asp:Label></td>
-                    <td><asp:TextBox ID="txtPeso" runat="server"></asp:TextBox></td>
+                    <td><asp:Label ID="lblEstado" runat="server" Text="Estado"></asp:Label></td>
+                    <td>
+                        <asp:DropDownList ID="ddlEstado" runat="server">
+                            <asp:ListItem Text="Selecciona una opción" Value="" />
+                            <asp:ListItem Text="INACTIVO" Value="0" />
+                            <asp:ListItem Text="ACTIVO" Value="1" />
+                        </asp:DropDownList>
+                    </td>
                 </tr>
                 <tr>
-                    <td><asp:Label ID="lblAltura" runat="server" Text="Altura (m)"></asp:Label></td>
-                    <td><asp:TextBox ID="txtAltura" runat="server"></asp:TextBox></td>
+                    <td><asp:Label ID="lblTipoUsuario" runat="server" Text="Tipo Usuario"></asp:Label></td>
+                    <td>
+                        <asp:DropDownList ID="ddlTipoUsuario" runat="server">
+                            <asp:ListItem Text="Selecciona una opción" Value="" />
+                            <asp:ListItem Text="NORMAL" Value="NORMAL" />
+                            <asp:ListItem Text="PREMIUM" Value="PREMIUM" />
+                        </asp:DropDownList>
+                    </td>
                 </tr>
                 <tr>
                     <td><asp:Label ID="lblSexo" runat="server" Text="Sexo"></asp:Label></td>
@@ -98,6 +110,18 @@
                             <asp:ListItem Text="OTRO" Value="OTRO" />
                         </asp:DropDownList>
                     </td>
+                </tr>
+                <tr>
+                    <td><asp:Label ID="lblAltura" runat="server" Text="Altura (m)"></asp:Label></td>
+                    <td><asp:TextBox ID="txtAltura" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Label ID="lblPeso" runat="server" Text="Peso (kg)"></asp:Label></td>
+                    <td><asp:TextBox ID="txtPeso" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Label ID="lblEdad" runat="server" Text="Edad"></asp:Label></td>
+                    <td><asp:TextBox ID="txtEdad" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="btn-container">

@@ -41,26 +41,22 @@ namespace www
             GridViewUsuarios.DataBind();
         }
 
-        protected void btnCambiarEstado_Click(object sender, EventArgs e)
+        protected void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
-            var btn = sender as Button;
-            if (btn != null)
-            {
-                string email = btn.CommandArgument;
-                var usuario = datos.ObtenerUsuarios().FirstOrDefault(u => u.Email == email);
-                if (usuario != null)
-                {
-                    // Cambiar entre ACTIVO e INACTIVO
-                    if (usuario.obtenerEstado(usuario) == "ACTIVO")
-                        usuario.Estado = 0;
-                    else if (usuario.obtenerEstado(usuario) == "INACTIVO")
-                        usuario.Estado = 1;
+            Button btn = (Button)sender;
+            string email = btn.CommandArgument;
 
-                    datos.ActualizaUsuario(usuario);
-                    CargarUsuarios();
-                }
+            var capa = new Datos.CapaDatos();
+            bool eliminado = capa.EliminaUsuario(email);
+
+            if (eliminado)
+            {
+                // Recargar la lista de usuarios actualizada
+                GridViewUsuarios.DataSource = capa.ObtenerUsuarios();
+                GridViewUsuarios.DataBind();
             }
         }
+
 
         protected void btnEditarUsuario_Click(object sender, EventArgs e)
         {
