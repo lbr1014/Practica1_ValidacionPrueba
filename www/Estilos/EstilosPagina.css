@@ -6,7 +6,7 @@
     z-index: 1000;
     color: white;
     backdrop-filter: saturate(140%) blur(6px);
-    background: #135a63;
+    background: #0B6E79; /* turquesa oscuro */
     padding: 12px 16px;
 }
 
@@ -38,7 +38,7 @@
 
 /* FONDO GENERAL */
 body {
-    background-color: #E6E6FA;
+    background-color: #E9FCFF; /* turquesa muy claro */
     font-family: Arial, sans-serif;
 }
 
@@ -54,7 +54,7 @@ body {
 
 h2 {
     text-align: center;
-    background-color: #6A0DAD;
+    background-color: #12A4AE; /* turquesa medio */
     color: white;
     padding: 15px;
     border-radius: 8px;
@@ -75,7 +75,7 @@ h2 {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 2px solid #6A0DAD;
+    border: 2px solid #12A4AE; /* turquesa medio */
     border-radius: 5px;
     box-sizing: border-box;
 }
@@ -85,7 +85,7 @@ h2 {
 .boton-inicio {
     width: 48%;
     padding: 12px;
-    background-color: #CBA3FF;
+    background-color: #12B4C9; /* turquesa */
     color: white;
     border: none;
     border-radius: 9999px;
@@ -97,7 +97,7 @@ h2 {
 
     .boton-registro:hover,
     .boton-inicio:hover {
-        background-color: #B266FF;
+        background-color: #0FA2B4; /* turquesa más oscuro */
     }
 
 /* CONTENEDOR DE BOTONES */
@@ -129,8 +129,8 @@ h2 {
 /* TITULOS */
 .resumen-actividades h3,
 .panel-tips h3 {
-    color: #6A0DAD;
-    border-bottom: 2px solid #6A0DAD;
+    color: #12A4AE; /* turquesa medio */
+    border-bottom: 2px solid #12A4AE;
     display: inline-block;
     padding-bottom: 5px;
     margin-bottom: 15px;
@@ -163,12 +163,12 @@ h2 {
     .gridview-container table {
         width: 100%;
         border-collapse: collapse;
-        background-color: #f9f9ff;
+        background-color: #F5FEFF; /* blanco-agua */
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .gridview-container th {
-        background-color: #6A0DAD;
+        background-color: #0FA2B4; /* turquesa más oscuro */
         color: white;
         padding: 10px;
         text-align: center;
@@ -181,14 +181,14 @@ h2 {
     }
 
     .gridview-container tr:nth-child(even) {
-        background-color: #f3e8ff;
+        background-color: #DFF7FA; /* fila alterna aqua muy clara */
     }
 
 /* PANEL DE CONSEJOS */
 .panel-tips {
     margin-top: 30px;
-    background-color: #f4ecff;
-    border-left: 6px solid #6A0DAD;
+    background-color: #E9FCFF; /* fondo aqua muy claro */
+    border-left: 6px solid #12A4AE; /* turquesa medio */
     padding: 20px;
     border-radius: 8px;
     text-align: left;
@@ -202,11 +202,9 @@ h2 {
 
 
 
-    
-
 /* BOTÓN AÑADIR ACTIVIDAD */
 #btnAñadirActividad, #btnAñadirUsuario {
-    background-color: #CBA3FF;
+    background-color: #12B4C9; /* turquesa */
     color: white;
     border: none;
     border-radius: 9999px;
@@ -216,15 +214,16 @@ h2 {
 }
 
     #btnAñadirActividad:hover {
-        background-color: #B266FF;
+        background-color: #0FA2B4; /* turquesa más oscuro */
     }
 
     #btnAñadirUsuario:hover {
-        background-color: #B266FF;
+        background-color: #0FA2B4; /* turquesa más oscuro */
     }
+
 /* BOTÓN CERRAR SESION */
 #btnCerrarSesion {
-    background-color: #CBA3FF;
+    background-color: #12B4C9; /* turquesa */
     color: white;
     border: none;
     border-radius: 9999px;
@@ -234,11 +233,12 @@ h2 {
 }
 
     #btnCerrarSesion:hover {
-        background-color: #B266FF;
+        background-color: #0FA2B4; /* turquesa más oscuro */
     }
+
 /* BOTÓN volver */
 #btnVolver {
-    background-color: #CBA3FF;
+    background-color: #12B4C9; /* turquesa */
     color: white;
     border: none;
     border-radius: 9999px;
@@ -248,10 +248,5 @@ h2 {
 }
 
     #btnVolver:hover {
-        background-color: #B266FF;
+        background-color: #0FA2B4; /* turquesa más oscuro */
     }
-
-
-
-
-
