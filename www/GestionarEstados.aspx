@@ -12,18 +12,6 @@
             margin: 20px auto;
         }
 
-        .btn-cambiar-estado {
-            padding: 5px 10px;
-            background-color: #6A0DAD;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .btn-cambiar-estado:hover {
-            background-color: #B266FF;
-        }
     </style>
 </head>
 <body>
@@ -42,7 +30,7 @@
                             <asp:Button ID="btnCambiarEstado" runat="server" 
                                 CommandArgument='<%# Eval("Email") %>'
                                 Text="Cambiar Estado"
-                                CssClass="btn-cambiar-estado"
+                                CssClass="btnCambiarEstado"
                                 OnClick="btnCambiarEstado_Click" />
                         </ItemTemplate>
                     </asp:TemplateField>

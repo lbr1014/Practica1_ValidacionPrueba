@@ -250,3 +250,19 @@ h2 {
     #btnVolver:hover {
         background-color: #0FA2B4; /* turquesa más oscuro */
     }
+
+/* BOTÓN cambiar estado*/
+#btnCambiarEstado {
+    background-color: #12B4C9; /* turquesa */
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    #btnVolver:hover {
+        background-color: #0FA2B4; /* turquesa más oscuro */
+    }
+
