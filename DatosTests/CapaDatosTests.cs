@@ -26,7 +26,7 @@ namespace Datos.Tests
         [TestMethod]
         public void CapaDatosTest()
         {
-            Assert.AreEqual(2, capaDatos.NumUsuarios());
+            Assert.AreEqual(3, capaDatos.NumUsuarios());
             Assert.AreEqual(2, capaDatos.NumActividades("a-005"));
             Assert.AreEqual(1, capaDatos.NumActividades("a-004"));
 
@@ -70,7 +70,7 @@ namespace Datos.Tests
         [TestMethod]
         public void NumUsuariosVacio()
         {
-            Assert.AreEqual(2, capaDatos.NumUsuarios());
+            Assert.AreEqual(3, capaDatos.NumUsuarios());
         }
 
         [TestMethod]
@@ -78,7 +78,7 @@ namespace Datos.Tests
         {
             capaDatos.GuardaUsuario(new Usuario("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, 1, "NORMAL"));
             capaDatos.GuardaUsuario(new Usuario("a-002", "María", "Pérez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, 1, "ADMIN"));
-            Assert.AreEqual(4, capaDatos.NumUsuarios());
+            Assert.AreEqual(5, capaDatos.NumUsuarios());
         }
 
         [TestMethod]
@@ -120,7 +120,7 @@ namespace Datos.Tests
 
             var count = capaDatos.NumUsuariosActivos();
 
-            Assert.AreEqual(4, count);
+            Assert.AreEqual(5, count);
         }
 
         [TestMethod]
@@ -132,7 +132,7 @@ namespace Datos.Tests
             capaDatos.GuardaUsuario(inactivo);
             capaDatos.GuardaUsuario(inactivo1);
 
-            Assert.AreEqual(2, capaDatos.NumUsuariosActivos());
+            Assert.AreEqual(3, capaDatos.NumUsuariosActivos());
         }
 
         [TestMethod]

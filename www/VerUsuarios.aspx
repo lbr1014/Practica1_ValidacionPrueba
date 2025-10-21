@@ -30,25 +30,32 @@
             <div class="gridview-container">
                 <asp:GridView ID="GridViewUsuarios" runat="server" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:BoundField DataField="IdUsuario" HeaderText="ID Usuario" />
                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
                         <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" />
-                        <asp:BoundField DataField="Email" HeaderText="Correo Electrónico" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" />
                         <asp:BoundField DataField="Sexo" HeaderText="Sexo" />
                         <asp:BoundField DataField="Edad" HeaderText="Edad" />
-                        <asp:BoundField DataField="Peso" HeaderText="Peso (kg)" />
-                        <asp:BoundField DataField="Altura" HeaderText="Altura (m)" />
-                        <asp:BoundField DataField="TipoUsuario" HeaderText="Tipo de Usuario" />
+                        <asp:BoundField DataField="Peso" HeaderText="Peso" />
+                        <asp:BoundField DataField="Altura" HeaderText="Altura" />
+                        <asp:BoundField DataField="TipoUsuario" HeaderText="Tipo" />
                         <asp:BoundField DataField="EstadoTexto" HeaderText="Estado" />
+
                         <asp:TemplateField HeaderText="Acciones">
                             <ItemTemplate>
-                                <asp:Button ID="btnCambiarEstado" runat="server" Text="Cambiar Estado"
-                                    CommandArgument='<%# Eval("Email") %>' OnClick="btnCambiarEstado_Click"
-                                    CssClass="btnAccion" />
+                                <asp:Button ID="btnCambiarEstado" runat="server" 
+                                    Text='<%# Eval("EstadoTexto") %>'
+                                    CommandArgument='<%# Eval("Email") %>' 
+                                    OnClick="btnCambiarEstado_Click" />
+
+                                <asp:Button ID="btnEditarUsuario" runat="server" 
+                                    Text="Editar" 
+                                    CommandArgument='<%# Eval("Email") %>'
+                                    OnClick="btnEditarUsuario_Click" />
                             </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
+        </asp:TemplateField>
+    </Columns>
+</asp:GridView>
+
             </div>
         </div>
     </form>

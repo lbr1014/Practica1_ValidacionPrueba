@@ -52,12 +52,17 @@ namespace www
                     lblTituloActividades.InnerText = "Actividades";
                     lblNumActividades.Text = $"Hay {capaDatos.ObtenerActividades().Count} actividad(es) registradas en total.";
                     btnAñadirUsuario.Visible = true;
+                    lblNumUsuarios.Visible = true;
+                    lblTituloUsuarios.Visible=true;
                 }
                 else
                 {
                     lblTituloActividades.InnerText = "Mis Actividades";
                     lblNumActividades.Text = $"Tienes {capaDatos.ObtenerActividadesUsuario(usuario.IdUsuario).Count} actividad(es) registradas.";
                     btnAñadirUsuario.Visible = false;
+                    lblNumUsuarios.Visible = false;
+                    lblTituloUsuarios.Visible = false;
+
                 }
             }
         }
@@ -87,10 +92,30 @@ namespace www
                     Duracion = (int)(a.Duracion * 60),
                     Descripcion = a.Descripcion
                 }).ToList();
+                
 
                 GridViewUltimas.DataSource = listaAdmin;
                 GridViewUltimas.DataBind();
                 lblNumActividades.Text = $"Hay {listaAdmin.Count} actividad(es) registradas en total.";
+
+                var usuarios = capaDatos.ObtenerUsuarios()
+                .Select(u => new
+                {
+                    u.IdUsuario,
+                    u.Nombre,
+                    u.Apellidos,
+                    u.Email,
+                    Sexo = u.obtenerSexo(u),
+                    u.Edad,
+                    u.Peso,
+                    u.Altura,
+                    TipoUsuario = u.ObtenerTipoUsuario(u),
+                    EstadoTexto = u.obtenerEstado(u)
+                })
+                .ToList();
+
+                
+                lblNumUsuarios.Text = $"Hay {usuarios.Count} usuarios registrados en total.";
             }
             else
             {

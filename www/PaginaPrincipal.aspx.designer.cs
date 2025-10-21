@@ -96,6 +96,24 @@ namespace www
         protected global::System.Web.UI.WebControls.Label lblNumActividades;
 
         /// <summary>
+        /// Control lblTituloUsuarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTituloUsuarios;
+
+        /// <summary>
+        /// Control lblNumUsuarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNumUsuarios;
+
+        /// <summary>
         /// Control btnAñadirActividad.
         /// </summary>
         /// <remarks>

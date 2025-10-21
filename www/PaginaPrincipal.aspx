@@ -68,6 +68,10 @@
         <div class="resumen-actividades">
             <h3 id="lblTituloActividades" runat="server">Mis Actividades</h3>
             <asp:Label ID="lblNumActividades" runat="server" Text="Tienes X actividades registradas."></asp:Label>
+            <h3 id="lblTituloUsuarios" runat="server" Visible= "false ">Numero de Usuarios </h3>
+            <br /><br />
+            <asp:Label ID="lblNumUsuarios" runat="server" Text="Tienes X usuarios registrados." Visible= "false "></asp:Label>
+
             <br /><br />
             <asp:Button ID="btnAñadirActividad" runat="server" Text="Añadir Nueva Actividad" OnClick="btnAñadirActividad_Click" />
             <asp:Button ID="btnAñadirUsuario" runat="server" Text="Añadir Nuevo Usuario" OnClick="btnAñadirUsuario_Click" Visible="false" />
