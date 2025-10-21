@@ -4,7 +4,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
-    color: #ffffff;
+    color: white;
     backdrop-filter: saturate(140%) blur(6px);
     background: #135a63;
     padding: 12px 16px;
@@ -31,7 +31,7 @@
         font-weight: 800;
         letter-spacing: 3px;
         margin: 0;
-        color: #93e5e8;
+        color: white;
     }
 
 
