@@ -18,7 +18,9 @@ namespace wwwTests
         public void TestInicioSesionTest()
         {
             IWebDriver driver;
+
             driver = new ChromeDriver();
+
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             driver.FindElement(By.Id("tbxUsuario")).Click();
             driver.FindElement(By.Id("tbxUsuario")).Clear();

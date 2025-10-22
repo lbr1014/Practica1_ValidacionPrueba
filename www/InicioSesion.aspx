@@ -22,7 +22,7 @@
         <!-- CABECERA -->
         <header class="site-header">
           <div class="header-inner">
-            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="img" />
             <div class="brand">VALKIRIA</div>
           </div>
         </header>

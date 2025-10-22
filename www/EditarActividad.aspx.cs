@@ -45,7 +45,9 @@ namespace www
                 }
 
                 txtNombre.Text = actividad.NombreActividad;
-                txtDuracion.Text = actividad.Duracion.ToString(); 
+                float duracion = actividad.Duracion;
+                duracion = duracion * 60;
+                txtDuracion.Text =duracion.ToString();
                 txtDescripcion.Text = actividad.Descripcion;
 
                 

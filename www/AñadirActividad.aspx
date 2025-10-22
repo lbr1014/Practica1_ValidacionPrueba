@@ -28,6 +28,11 @@
             padding: 5px;
         }
 
+        .btn-container-volver {
+            text-align: center;
+            margin-top: 5px;
+        }
+
         .error {
             color: red;
             font-weight: bold;
@@ -54,10 +59,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <!-- CABECERA -->
         <header class="site-header">
           <div class="header-inner">
-            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="img" />
             <div class="brand">VALKIRIA</div>
           </div>
         </header>
@@ -87,15 +91,14 @@
                     <td colspan="2" class="btn-container">
                         <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                     </td>
-                                    <tr>
-                    <td colspan="2" class="btnVolver">
-                        <!-- Botón volver arriba a la derecha -->
-                        <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
-
-                    </td>
-
-                </tr>
+                 
             </table>
+        </div>
+        <div class="btn-container-volver">
+            <td colspan="2" ">
+                <!-- Botón volver a la página principal -->
+                <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" class="btnVolver"/>
+            </td>
         </div>
     </form>
 </body>

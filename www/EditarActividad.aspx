@@ -14,6 +14,10 @@
             text-align: center;
             margin-top: 20px;
         }
+        .btn-container-volver {
+            text-align: center;
+            margin-top: 5px;
+        }
 
     </style>
     <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
@@ -21,12 +25,12 @@
 <body>
     <form id="form1" runat="server">
          <!-- CABECERA -->
-         <header class="site-header">
-           <div class="header-inner">
-             <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
-             <div class="brand">VALKIRIA</div>
-           </div>
-         </header>
+         <<header class="site-header">
+            <div class="header-inner">
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="img" />
+            <div class="brand">VALKIRIA</div>
+            </div>
+        </header>
          <div class="form-container">
 
             <h2>Editar Perfil</h2>
@@ -42,7 +46,7 @@
                 </tr>
                 <tr>
                     <td><asp:Label ID="lblDescripcion" runat="server" Text="Descripción"></asp:Label></td>
-                    <td><asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="btn-container">
@@ -54,15 +58,18 @@
                         <asp:Label ID="lblMensaje" runat="server"></asp:Label>
                     </td>
                 </tr>
-                <tr>
-                    <td colspan="2" class="btnVolver">
-                        <!-- Botón volver a la página principal -->
-                        <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
-                    </td>
-                </tr>
+
             </table>
 
         </div>
+        <div class="btn-container-volver">
+            <tr>
+                <td colspan="2" class="btnVolver">
+                    <!-- Botón volver a la página principal -->
+                    <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
+                </td>
+            </tr>
+         </div>
     </form>
 </body>
 </html>

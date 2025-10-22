@@ -10,6 +10,12 @@
 <body>
     <!-- El formulario DEBE envolver todo -->
     <form id="form1" runat="server">
+        <header class="site-header">
+          <div class="header-inner">
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="img" />
+            <div class="brand">VALKIRIA</div>
+          </div>
+        </header>
         <div class="form-container">
             <h2>
                 <asp:Label ID="lblRegistro" runat="server" Text="REGISTRO"></asp:Label>

@@ -16,6 +16,12 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <header class="site-header">
+          <div class="header-inner">
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="img" />
+            <div class="brand">VALKIRIA</div>
+          </div>
+        </header>
         <div class="gridview-container">
             <h2>Usuarios y Estados</h2>
             <asp:GridView ID="GridViewUsuarios" runat="server" AutoGenerateColumns="False" 

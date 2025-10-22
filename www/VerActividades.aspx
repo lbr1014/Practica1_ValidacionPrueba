@@ -57,14 +57,13 @@
         <!-- CABECERA -->
         <header class="site-header">
           <div class="header-inner">
-            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="header-inner" />
+            <img runat="server" src="~/img/logoValkiria.png" alt="VALKIRIA" class="img" />
             <div class="brand">VALKIRIA</div>
           </div>
         </header>
 
         <div class="container">
             <div class="top-buttons">
-                <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
                 <asp:Button ID="btnAñadirActividad" runat="server" Text="Añadir Actividad" OnClick="btnAñadirActividad_Click" />
             </div>
 
@@ -91,7 +90,12 @@
                     </Columns>
                 </asp:GridView>
             </div>
+                <td colspan="2" class="btnVolver">
+                    <!-- Botón volver a la página principal -->
+                    <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
+                </td>
         </div>
+
     </form>
 </body>
 </html>
