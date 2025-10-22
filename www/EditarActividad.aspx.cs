@@ -45,11 +45,10 @@ namespace www
                 }
 
                 txtNombre.Text = actividad.NombreActividad;
-                txtDuracion.Text = actividad.Duracion.ToString(); // tu modelo está en minutos
+                txtDuracion.Text = actividad.Duracion.ToString(); 
                 txtDescripcion.Text = actividad.Descripcion;
 
-                // Guardamos el usuario de la actividad por si difiere del logueado
-                ViewState["UsuarioActividad"] = actividad.Usuario;
+                
 
             }
         }

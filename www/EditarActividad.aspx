@@ -6,6 +6,16 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Esditar Actividad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
     <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
 </head>
 <body>
@@ -36,7 +46,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="btn-container">
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" CssClass="boton"/>
+                        &nbsp;<asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" CssClass="boton"/>
                     </td>
                 </tr>
                 <tr>
