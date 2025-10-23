@@ -68,7 +68,7 @@
         <div class="resumen-actividades">
             <h3 id="lblTituloActividades" runat="server">Mis Actividades</h3>
             <asp:Label ID="lblNumActividades" runat="server" Text="Tienes X actividades registradas."></asp:Label>
-            <h3 
+            <h3> 
                 <asp:Label ID="lblTituloUsuarios" runat="server" Text="Numero de Usuarios" Visible= "false " ></asp:Label>
             </h3>
             <br /><br />
@@ -91,6 +91,7 @@
                                   <%# ((int)(Convert.ToDouble(Eval("Duracion")) * 60)) %> 
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:BoundField DataField="Fecha" HeaderText="Fecha (dia/mes/año)" />
                             <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
                         </Columns>
                     </asp:GridView>

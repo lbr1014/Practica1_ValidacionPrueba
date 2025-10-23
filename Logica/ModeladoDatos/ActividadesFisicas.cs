@@ -1,6 +1,9 @@
-﻿using Practica1.ModeladoDatos;
+﻿using Logica.utils;
+using Microsoft.SqlServer.Server;
+using Practica1.ModeladoDatos;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +15,7 @@ namespace Logica.ModeladoDatos
         private string idActividadFisica;
         private string nombreActividadFisica;
         private float duracion;
+        private DateTime fecha;
         private string descripcion;
         private float calorias;
         private float metabolismoBasal;
@@ -20,11 +24,16 @@ namespace Logica.ModeladoDatos
         private Usuario usuario;
         
 
-        public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, float duracion, string descripcion, Usuario usuario)
+        public ActividadesFisicas(string idActividadFisica, string nombreActividadFisica, float duracion, DateTime fecha, string descripcion, Usuario usuario)
         {
             this.idActividadFisica = idActividadFisica;
             this.nombreActividadFisica = nombreActividadFisica;
             this.duracion = PasarAHoras(duracion);
+
+            if (!Validar.ComprobarFecha(fecha))
+                throw new ArgumentException("La fecha de la actividad no puede ser futura.");
+            this.fecha = fecha;
+
             this.descripcion = descripcion;
             this.usuario = usuario;
             if (usuario != null)
@@ -50,6 +59,27 @@ namespace Logica.ModeladoDatos
         {
             return duracion / 60.0f;
         }
+
+        public static DateTime ConvertirFecha(string fechaTexto)
+        {
+            string[] formatos = { "d/M/yyyy", "dd/M/yyyy", "d/MM/yyyy", "dd/MM/yyyy" };
+
+            if (string.IsNullOrWhiteSpace(fechaTexto))
+                throw new ArgumentException("La fecha no puede estar vacía.", nameof(fechaTexto));
+
+            if (!Validar.FormatoFechaValido(fechaTexto, formatos))
+                throw new FormatException("Fecha inválida. Usa el formato día/mes/año (ej.: 19/09/2025).");
+            
+
+            // Parseo definitivo (sin Try) porque ya validamos el formato.
+            return DateTime.ParseExact(
+                fechaTexto.Trim(),
+                formatos,
+                CultureInfo.GetCultureInfo("es-ES"),
+                DateTimeStyles.None
+            ).Date;
+        }
+        
         public ActividadesFisicas(string idActividadFisica, Usuario usuario)
         {
             this.idActividadFisica = idActividadFisica;
@@ -89,6 +119,19 @@ namespace Logica.ModeladoDatos
 
         public String NombreActividad { get { return this.nombreActividadFisica; } set { this.nombreActividadFisica = value; } }
         public float Duracion { get { return this.duracion; } set { this.duracion = PasarAHoras( value); } }
+
+        public DateTime Fecha
+        {
+            get { return this.fecha; }
+            set
+            {
+                if (!Validar.ComprobarFecha(value))
+                    throw new ArgumentException("La fecha de último inicio de sesión no puede ser futura.");
+                this.fecha = value;
+            }
+        }
+
+
 
         public String Descripcion { get { return this.descripcion; } set { this.descripcion = value; } }
         public Usuario Usuario { get { return this.usuario; } set { this.usuario = value; } }

@@ -42,6 +42,8 @@ namespace www
 
                 // Validar campos
                 string nombre = txtNombre.Text.Trim();
+                string fechatexto = txtFecha.Text.Trim();
+                DateTime fecha = ActividadesFisicas.ConvertirFecha(fechatexto);
                 string descripcion = txtDescripcion.Text.Trim();
                 if (string.IsNullOrEmpty(nombre))
                 {
@@ -65,6 +67,7 @@ namespace www
                     idActividad,
                     nombre,
                     duracion,
+                    fecha,
                     descripcion,
                     usuario
                 );

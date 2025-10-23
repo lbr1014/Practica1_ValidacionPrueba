@@ -34,9 +34,9 @@ namespace Datos
 
 
 
-                GuardaActividad(new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1));
-                GuardaActividad(new ActividadesFisicas("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario1));
-                GuardaActividad(new ActividadesFisicas("AF-003", "Pesas", 50, "Ir al gimnasio y levantar pesas", usuario2));
+                GuardaActividad(new ActividadesFisicas("AF-001", "Correr", 30, new DateTime(2025,9,19), "Correr en el gimnasio", usuario1));
+                GuardaActividad(new ActividadesFisicas("AF-002", "Nadar", 40, new DateTime(2025, 8, 22), "Hacer largos en una piscina olimpica", usuario1));
+                GuardaActividad(new ActividadesFisicas("AF-003", "Pesas", 50, new DateTime(2025, 7, 9), "Ir al gimnasio y levantar pesas", usuario2));
 
             }
 

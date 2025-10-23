@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -181,6 +183,19 @@ namespace Logica.utils
         public static bool Edad(int años)
         {
             return años > 0 && años <= 120f;
+        }
+
+        public static bool FormatoFechaValido(string fechaTexto, string[] formatos)
+        {
+            if (string.IsNullOrWhiteSpace(fechaTexto))
+                return false;
+
+            return DateTime.TryParseExact(
+                fechaTexto.Trim(),
+                formatos,
+                CultureInfo.GetCultureInfo("es-ES"),
+                DateTimeStyles.None,
+                out _);
         }
 
 

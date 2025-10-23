@@ -38,6 +38,7 @@ namespace www
                 IdActividad = a.IdActividad,
                 NombreActividad = a.NombreActividad,
                 Duracion = (a.Duracion * 60).ToString("0"),
+                Fecha = a.Fecha.ToString("dd/MM/yyyy"),
                 Descripcion = a.Descripcion,
                 Calorias = usuario.ObtenerTipoUsuario(usuario) == "PREMIUM" ? a.CalcularCalorias(usuario) : (float?)null,
                 MET = usuario.ObtenerTipoUsuario(usuario) == "PREMIUM" ? a.MET : (float?)null

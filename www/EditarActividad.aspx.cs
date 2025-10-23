@@ -48,6 +48,8 @@ namespace www
                 float duracion = actividad.Duracion;
                 duracion = duracion * 60;
                 txtDuracion.Text =duracion.ToString();
+                DateTime fecha = actividad.Fecha;
+                txtFecha.Text = fecha.ToString("dd/MM/yyyy");
                 txtDescripcion.Text = actividad.Descripcion;
 
                 
@@ -93,6 +95,9 @@ namespace www
                     return;
                 }
 
+                string fechatexto = txtFecha.Text.Trim();
+                DateTime fecha = ActividadesFisicas.ConvertirFecha(fechatexto);
+
                 string descripcion = txtDescripcion.Text.Trim();
 
                 // 4) Usuario dueño de la actividad (puede venir de ViewState)
@@ -103,6 +108,7 @@ namespace www
                     id,             // mismo IdActividad
                     nombre,         // NombreActividad
                     duracion,       // Duración en minutos (según tu modelo)
+                    fecha,
                     descripcion,    // Descripción
                     usuarioActividad
                 );

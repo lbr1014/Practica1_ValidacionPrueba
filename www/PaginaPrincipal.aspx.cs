@@ -78,11 +78,11 @@ namespace www
                 // Mostrar todas las actividades
                 actividades = capaDatos.ObtenerActividades();
 
-                // Ejemplo: puedes agregar columnas extra si quieres
                 GridViewUltimas.Columns.Clear();
                 GridViewUltimas.Columns.Add(new BoundField { DataField = "NombreActividad", HeaderText = "Actividad" });
                 GridViewUltimas.Columns.Add(new BoundField { DataField = "UsuarioNombre", HeaderText = "Usuario" });
                 GridViewUltimas.Columns.Add(new BoundField { DataField = "Duracion", HeaderText = "Duración (min)", DataFormatString = "{0:N0}" });
+                GridViewUltimas.Columns.Add(new BoundField { DataField = "Fecha", HeaderText = "Fecha (día/mes/año)" });
                 GridViewUltimas.Columns.Add(new BoundField { DataField = "Descripcion", HeaderText = "Descripción" });
 
                 var listaAdmin = actividades.Select(a => new
@@ -90,6 +90,7 @@ namespace www
                     NombreActividad = a.NombreActividad,
                     UsuarioNombre = a.Usuario.Nombre,
                     Duracion = (int)(a.Duracion * 60),
+                    Fecha = a.Fecha.ToString("dd/MM/yyyy"),
                     Descripcion = a.Descripcion
                 }).ToList();
                 
@@ -125,12 +126,14 @@ namespace www
                 GridViewUltimas.Columns.Clear();
                 GridViewUltimas.Columns.Add(new BoundField { DataField = "NombreActividad", HeaderText = "Actividad" });
                 GridViewUltimas.Columns.Add(new BoundField { DataField = "Duracion", HeaderText = "Duración (min)" });
+                GridViewUltimas.Columns.Add(new BoundField { DataField = "Fecha", HeaderText = "Fecha (día/mes/año)" });
                 GridViewUltimas.Columns.Add(new BoundField { DataField = "Descripcion", HeaderText = "Descripción" });
 
                 var listaUsuario = actividades.Select(a => new
                 {
                     NombreActividad = a.NombreActividad,
                     Duracion = (int)(a.Duracion * 60),
+                    Fecha = a.Fecha.ToString("dd/MM/yyyy"),
                     Descripcion = a.Descripcion
                 }).ToList();
 

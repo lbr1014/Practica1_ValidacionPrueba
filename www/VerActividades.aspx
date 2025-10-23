@@ -73,6 +73,7 @@
                     <Columns>
                         <asp:BoundField DataField="NombreActividad" HeaderText="Actividad" />
                         <asp:BoundField DataField="Duracion" HeaderText="Duración (min)" />
+                        <asp:BoundField DataField="Fecha" HeaderText="Fecha" />
                         <asp:BoundField DataField="Descripcion" HeaderText="Descripción" />
                         <asp:BoundField DataField="Calorias" HeaderText="Calorías" />
                         <asp:BoundField DataField="MET" HeaderText="MET" />
@@ -90,10 +91,10 @@
                     </Columns>
                 </asp:GridView>
             </div>
-                <td colspan="2" class="btnVolver">
-                    <!-- Botón volver a la página principal -->
-                    <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
-                </td>
+            <div class="btnVolver" >
+                <!-- Botón volver a la página principal -->
+                <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" />
+            </div>
         </div>
 
     </form>
