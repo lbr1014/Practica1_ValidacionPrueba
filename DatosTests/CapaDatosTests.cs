@@ -241,7 +241,7 @@ namespace Datos.Tests
         [TestMethod]
         public void EliminaUsuario()
         {
-            var usuario = new Usuario("a-034", "Max", "Verstappen", "max@f1.com", "Contraseña123!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
+            var usuario = new Usuario("a-034", "Max", "Verstappen", "max@f1.com", "CContraseña123!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
             capaDatos.GuardaUsuario(usuario);
 
             var resultadoCorrecto = capaDatos.EliminaUsuario("max@f1.com");
@@ -275,15 +275,15 @@ namespace Datos.Tests
             var actividadesCorrecto = capaDatos.ObtenerActividadesUsuario("a-005");
 
             Assert.IsNotNull(actividadesCorrecto);
-            Assert.AreEqual(2, actividadesCorrecto.Count);
+            Assert.HasCount(2, actividadesCorrecto);
 
             var actividadesIncorrecto = capaDatos.ObtenerActividadesUsuario("a-999");
             Assert.IsNotNull(actividadesIncorrecto);
-            Assert.AreEqual(0, actividadesIncorrecto.Count);
+            Assert.IsEmpty(actividadesIncorrecto);
 
             var actividadNulo = capaDatos.ObtenerActividadesUsuario(null);
             Assert.IsNotNull(actividadNulo);
-            Assert.AreEqual(0, actividadNulo.Count);
+            Assert.IsEmpty(actividadNulo);
         }
     }
 }

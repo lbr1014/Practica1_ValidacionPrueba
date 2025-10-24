@@ -65,7 +65,7 @@ namespace Practica1.ModeladoDatos.Tests
 
             Assert.IsNotNull(actividad.CalcularCalorias(usuario));
             Assert.IsNotNull(actividad.CalcularMetabolismobasal(usuario));
-            Assert.IsNotNull(actividad.MET);
+            Assert.AreNotEqual(0,actividad.MET);
 
         }
 
@@ -85,7 +85,7 @@ namespace Practica1.ModeladoDatos.Tests
 
             
 
-            Assert.IsTrue(Math.Abs(caloriasCalculadas1 - caloriasEsperadas1) == 0, $" Calculadas :{caloriasCalculadas1} , Esperadas: {caloriasEsperadas1}");
+            Assert.AreEqual(0, Math.Abs(caloriasCalculadas1 - caloriasEsperadas1), $" Calculadas :{caloriasCalculadas1} , Esperadas: {caloriasEsperadas1}");
           
 
 
@@ -111,11 +111,11 @@ namespace Practica1.ModeladoDatos.Tests
             float mbrEsperadoOtro = (((10 * usuario3.Peso) + (6.25f * usuario3.AlturaCentimetros()) - (5 * usuario3.Edad) - 161) + ((10 * usuario3.Peso) + (6.25f * usuario3.AlturaCentimetros()) - (5 * usuario3.Edad) + 5)) / 2;
 
 
-            Assert.IsTrue(Math.Abs(mbrHombre - mbrEsperadoHombre) == 0, $" CalculadasH :{mbrHombre} , EsperadasH: {mbrEsperadoHombre}");
+            Assert.AreEqual(0, Math.Abs(mbrHombre - mbrEsperadoHombre), $" CalculadasH :{mbrHombre} , EsperadasH: {mbrEsperadoHombre}");
 
-            Assert.IsTrue(Math.Abs(mbrMujer - mbrEsperadoMujer) == 0, $" CalculadasM :{mbrMujer} , EsperadasM: {mbrEsperadoMujer}");
+            Assert.AreEqual(0, Math.Abs(mbrMujer - mbrEsperadoMujer), $" CalculadasM :{mbrMujer} , EsperadasM: {mbrEsperadoMujer}");
 
-            Assert.IsTrue(Math.Abs(mbrOtro - mbrEsperadoOtro) == 0, $" CalculadasO :{mbrOtro} , EsperadasO: {mbrEsperadoOtro}");
+            Assert.AreEqual(0, Math.Abs(mbrOtro - mbrEsperadoOtro), $" CalculadasO :{mbrOtro} , EsperadasO: {mbrEsperadoOtro}");
 
         }
 

@@ -50,7 +50,7 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.AreEqual("INACTIVO", usuarioInactivo.obtenerEstado(usuarioInactivo));
             Assert.AreEqual("BLOQUEADO", usuarioBloqueado.obtenerEstado(usuarioBloqueado));
 
-            Assert.ThrowsException<ArgumentException>(() =>
+            Assert.Throws<ArgumentException>(() =>
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, 5, "ADMIN"));
 
             var usuarioID = CrearUsuariodCorrecto2("a-004");
@@ -63,7 +63,7 @@ namespace Practica1.ModeladoDatos.Tests
         [TestMethod()]
         public void UsuarioTestEmailIncorrecto()
         {
-            Assert.ThrowsException<ArgumentException>(() =>
+            Assert.Throws<ArgumentException>(() =>
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "noemail", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "ADMIN"));
         }
 
@@ -71,42 +71,42 @@ namespace Practica1.ModeladoDatos.Tests
         [TestMethod()]
         public void UsuarioTestContraseñaIncorrecto()
         {
-            Assert.ThrowsException<ArgumentException>(() =>
+            Assert.Throws<ArgumentException>(() =>
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "mala!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "ADMIN"));
         }
 
         [TestMethod()]
         public void UsuarioTestTipoIncorrecto()
         {
-            Assert.ThrowsException<ArgumentException>(() =>
+            Assert.Throws<ArgumentException>(() =>
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 23, ACTIVO, "MALO"));
         }
 
         [TestMethod()]
         public void UsuarioTestPesoIncorre()
         {
-            Assert.ThrowsException<ArgumentException>(() =>
+            Assert.Throws<ArgumentException>(() =>
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 6700, 1.83f, 23, ACTIVO, "NORMAL"));
         }
 
         [TestMethod()]
         public void UsuarioTestAlturaIncorre()
         {
-            Assert.ThrowsException<ArgumentException>(() =>
+            Assert.Throws<ArgumentException>(() =>
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 183.0f, 23, ACTIVO, "NORMAL"));
         }
 
         [TestMethod()]
         public void UsuarioTestEdadIncorre()
         {
-            Assert.ThrowsException<ArgumentException>(() =>
+            Assert.Throws<ArgumentException>(() =>
                 CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "HOMBRE", 67, 1.83f, 200, ACTIVO, "NORMAL"));
         }
 
         [TestMethod()]
         public void UsuarioTestCamposVacios()
         {
-            Assert.ThrowsException<ArgumentException>(() =>
+            Assert.Throws<ArgumentException>(() =>
                 CrearUsuarioCorrecto(" ", " ", " ", " ", " ", "", 0,0f,0, ACTIVO, " "));
 
         }
@@ -115,15 +115,15 @@ namespace Practica1.ModeladoDatos.Tests
         public void SetTest()
         {
             var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "DESCONOCIDO", 67, 1.83f, 23, ACTIVO, "NORMAL");
-            Assert.ThrowsException<ArgumentException>(() => usuario.Email = "sin-arroba");
+            Assert.Throws<ArgumentException>(() => usuario.Email = "sin-arroba");
             Assert.AreEqual("garcia44@gmail.com",usuario.Email = "garcia44@gmail.com");
 
-            Assert.ThrowsException<ArgumentException>(() => usuario.Password = "corta");
+            Assert.Throws<ArgumentException>(() => usuario.Password = "corta");
 
-            Assert.ThrowsException<ArgumentException>(() => usuario.Estado = 5);
+            Assert.Throws<ArgumentException>(() => usuario.Estado = 5);
 
             Assert.AreEqual("NORMAL", usuario.ObtenerTipoUsuario(usuario));
-            Assert.ThrowsException<ArgumentException>(() => usuario.TipoUsuario = "Cualquiera");
+            Assert.Throws<ArgumentException>(() => usuario.TipoUsuario = "Cualquiera");
             Assert.AreEqual("NORMAL", usuario.ObtenerTipoUsuario(usuario));
 
             Assert.AreEqual("OTRO", usuario.obtenerSexo(usuario));
@@ -136,18 +136,18 @@ namespace Practica1.ModeladoDatos.Tests
             usuario.Sexo = "NO BINARIO";
             Assert.AreEqual("OTRO", usuario.obtenerSexo(usuario));
 
-            Assert.ThrowsException<ArgumentException>(() => usuario.Peso = 0f);
-            Assert.ThrowsException<ArgumentException>(() => usuario.Peso = 999f);
+            Assert.Throws<ArgumentException>(() => usuario.Peso = 0f);
+            Assert.Throws<ArgumentException>(() => usuario.Peso = 999f);
             Assert.AreEqual(72, usuario.Peso = 72);
 
-            Assert.ThrowsException<ArgumentException>(() => usuario.Altura = 0f);
-            Assert.ThrowsException<ArgumentException>(() => usuario.Altura = 3.5f);
+            Assert.Throws<ArgumentException>(() => usuario.Altura = 0f);
+            Assert.Throws<ArgumentException>(() => usuario.Altura = 3.5f);
             Assert.AreEqual(183f, usuario.AlturaCentimetros(), 0.001);
 
             Assert.AreEqual(1.72f, usuario.Altura = 1.72f);
 
-            Assert.ThrowsException<ArgumentException>(() => usuario.Edad = 0);
-            Assert.ThrowsException<ArgumentException>(() => usuario.Edad = 121);
+            Assert.Throws<ArgumentException>(() => usuario.Edad = 0);
+            Assert.Throws<ArgumentException>(() => usuario.Edad = 121);
             Assert.AreEqual(32, usuario.Edad = 32);
 
             /*
@@ -178,7 +178,7 @@ namespace Practica1.ModeladoDatos.Tests
             usuarioAdmin.TipoUsuario = "NORMAL";
             Assert.AreEqual("NORMAL", usuarioAdmin.ObtenerTipoUsuario(usuarioAdmin));
 
-            Assert.ThrowsException<ArgumentException>(() => usuarioAdmin.TipoUsuario = "Cualquiera");
+            Assert.Throws<ArgumentException>(() => usuarioAdmin.TipoUsuario = "Cualquiera");
 
         }
 
