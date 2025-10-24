@@ -49,6 +49,8 @@ namespace www
                         usuario.Estado = 0; // INACTIVO
                     else if (usuario.obtenerEstado(usuario) == "INACTIVO")
                         usuario.Estado = 1; // ACTIVO
+                    else if (usuario.obtenerEstado(usuario) == "BLOQUEADO")
+                        usuario.Estado = 1; // ACTIVO
 
                     datos.ActualizaUsuario(usuario);
                 }

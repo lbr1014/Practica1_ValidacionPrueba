@@ -67,7 +67,7 @@
         </header>
         <div class="form-container">
 
-            <h2>Editar Perfil</h2>
+            <h2><asp:Label ID="lblTitulo" runat="server" Text="Editar Perfil"></asp:Label></h2>
 
             <table>
                 <tr>

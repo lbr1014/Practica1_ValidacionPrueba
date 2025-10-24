@@ -46,15 +46,10 @@ namespace www
             Button btn = (Button)sender;
             string email = btn.CommandArgument;
 
-            var capa = new Datos.CapaDatos();
-            bool eliminado = capa.EliminaUsuario(email);
+            datos.EliminaUsuario(email);
 
-            if (eliminado)
-            {
-                // Recargar la lista de usuarios actualizada
-                GridViewUsuarios.DataSource = capa.ObtenerUsuarios();
-                GridViewUsuarios.DataBind();
-            }
+
+            CargarUsuarios();
         }
 
 

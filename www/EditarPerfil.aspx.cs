@@ -20,6 +20,16 @@ namespace www
                 // Obtener el usuario de la sesión
                 Usuario usuario = Session["usuarioAutenticado"] as Usuario;
 
+                var emailParam = Request.QueryString["email"];
+                if (!string.IsNullOrWhiteSpace(emailParam))
+                {
+                    lblTitulo.Text = "Perfil Usuario";
+                    var email = Server.UrlDecode(emailParam);
+                    usuario = capaDatos.LeeUsuario(email);
+
+                }
+
+
                 if (usuario == null)
                 {
                     // Si no hay usuario en sesión, redirigir a inicio de sesión

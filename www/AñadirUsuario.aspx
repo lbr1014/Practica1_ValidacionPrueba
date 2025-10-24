@@ -48,6 +48,11 @@
             color: green;
             font-weight: bold;
         }
+        .btn-container-volver {
+            text-align: center;
+            margin-top: 5px;
+        }
+
     </style>
     <link rel="stylesheet" href="Estilos/EstilosPagina.css" />
 </head>
@@ -62,8 +67,6 @@
           </div>
         </header>
         <div class="form-container">
-            <!-- Botón volver a la página principal -->
-            <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" CssClass="btn-top-right" OnClick="btnVolver_Click" />
 
             <h2>Añadir Usuario</h2>
 
@@ -143,6 +146,10 @@
                 </tr>
             </table>
         </div>
+        <div class="btn-container-volver">
+            <!-- Botón volver a la página principal -->
+            <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click"  class="btnVolver"/>
+         </div>
     </form>
 </body>
 </html>
