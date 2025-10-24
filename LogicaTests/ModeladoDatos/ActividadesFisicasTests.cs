@@ -14,9 +14,9 @@ namespace Practica1.ModeladoDatos.Tests
     {
 
 
-        private ActividadesFisicas CrearActividadCorrecta(string id, string nombre, int duracion, string descripcion, Usuario usuario)
+        private ActividadesFisicas CrearActividadCorrecta(string id, string nombre, int duracion, DateTime fecha, string descripcion, Usuario usuario)
         {
-            return new ActividadesFisicas(id, nombre, duracion, descripcion, usuario);
+            return new ActividadesFisicas(id, nombre, duracion, fecha, descripcion, usuario);
         }
         
         private Usuario CrearUsuarioCorrecto1()
@@ -47,7 +47,7 @@ namespace Practica1.ModeladoDatos.Tests
         public void ActividadCorrecta()   
         {
             var usuario = CrearUsuarioCorrecto1();
-            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio",usuario );
+            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio",usuario );
 
             Assert.AreEqual("AF-001", actividad.IdActividad);
             Assert.AreEqual("Correr", actividad.NombreActividad);
@@ -73,9 +73,9 @@ namespace Practica1.ModeladoDatos.Tests
         public void CalculoCaloriasCorrecto()
         {
             var usuario1 = CrearUsuarioCorrecto1();
-            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
+            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario1);
 
-            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 50, "Correr en el gimnasio", usuario1);
+            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 50, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario1);
 
             float caloriasCalculadas1 = actividad.CalcularCalorias(usuario1);
            
@@ -95,11 +95,11 @@ namespace Practica1.ModeladoDatos.Tests
         public void CalculoMBRCorrecto()
         {
             var usuario1 = CrearUsuarioCorrecto1();
-            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
+            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario1);
             var usuario2 = CrearUsuarioCorrecto2();
-            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario2);
+            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario2);
             var usuario3 = new Usuario("a-007", "Ivan", "Lopez", "ivan66@gmail.com", "ConMasDe12Caracteres!", "OTRO", 76.0f, 1.74f, 37, 1, "NORMAL");
-            var actividad3 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario3);
+            var actividad3 = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario3);
 
             float mbrHombre = actividad.CalcularMetabolismobasal(usuario1);
             float mbrMujer = actividad2.CalcularMetabolismobasal(usuario2);
@@ -123,11 +123,11 @@ namespace Practica1.ModeladoDatos.Tests
         public void EqualsTest()
         {
             var usuario = CrearUsuarioCorrecto1();
-            var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
-            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
+            var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario);
+            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario);
             Assert.IsTrue(actividad1.Equals(actividad2));
 
-            var actividad3 = CrearActividadCorrecta("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario);
+            var actividad3 = CrearActividadCorrecta("AF-002", "Nadar", 40, new DateTime(2 / 09 / 2020), "Hacer largos en una piscina olimpica", usuario);
             Assert.IsFalse(actividad1.Equals(actividad3));
 
         }
@@ -136,14 +136,14 @@ namespace Practica1.ModeladoDatos.Tests
         public void GetHashCodeTest()
         {
             var usuario = CrearUsuarioCorrecto1();
-            var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
-            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, "Correr en el gimnasio", usuario);
+            var actividad1 = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario);
+            var actividad2 = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario);
 
             int hash1 = actividad1.GetHashCode();
             int hash2 = actividad2.GetHashCode();
             Assert.AreEqual(hash1, hash2);
 
-            var actividad3 = CrearActividadCorrecta("AF-002", "Nadar", 40, "Hacer largos en una piscina olimpica", usuario);
+            var actividad3 = CrearActividadCorrecta("AF-002", "Nadar", 40, new DateTime(2 / 09 / 2020), "Hacer largos en una piscina olimpica", usuario);
             int hash3 = actividad3.GetHashCode();
             Assert.AreNotEqual(hash1, hash3);
         }

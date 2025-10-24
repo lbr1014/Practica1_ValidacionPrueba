@@ -93,7 +93,7 @@ namespace Datos.Tests
         public void GuardaActividadBuena()
         {
             var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 0, "NORMAL");
-            var actividad = new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
+            var actividad = new ActividadesFisicas("AF-001", "Correr", 30, new DateTime(2/09/2020), "Correr en el gimnasio", usuario1);
             var antes = capaDatos.NumActividades("a-002");
 
             var actividadNuevoSistema = capaDatos.GuardaActividad(actividad);
@@ -139,9 +139,9 @@ namespace Datos.Tests
             capaDatos.GuardaUsuario(usuario1);
             capaDatos.GuardaUsuario(usuario2);
 
-            capaDatos.GuardaActividad(new ActividadesFisicas("AF-100", "Correr", 30, "Carrera corta", usuario1));
-            capaDatos.GuardaActividad(new ActividadesFisicas("AF-101", "Nadar", 45, "Piscina", usuario1));
-            capaDatos.GuardaActividad(new ActividadesFisicas("AF-102", "Pesas", 60, "Entrenamiento de fuerza", null));
+            capaDatos.GuardaActividad(new ActividadesFisicas("AF-100", "Correr", 30, new DateTime(2 / 09 / 2020), "Carrera corta", usuario1));
+            capaDatos.GuardaActividad(new ActividadesFisicas("AF-101", "Nadar", 45, new DateTime(2 / 09 / 2020), "Piscina", usuario1));
+            capaDatos.GuardaActividad(new ActividadesFisicas("AF-102", "Pesas", 60, new DateTime(2 / 09 / 2020), "Entrenamiento de fuerza", null));
 
             int numUsuario1 = capaDatos.NumActividades("a-055");
             int numUsuario2 = capaDatos.NumActividades("a-016");
@@ -155,7 +155,7 @@ namespace Datos.Tests
         public void LeeActividadConIdValido()
         {
             var usuario1 = new Usuario("a-002", "Alexia", "Putellas", "balondeoro@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, 0, "NORMAL");
-            var actividad1_Usuario1 = new ActividadesFisicas("AF-001", "Correr", 30, "Correr en el gimnasio", usuario1);
+            var actividad1_Usuario1 = new ActividadesFisicas("AF-001", "Correr", 30, new DateTime(14/ 02 / 2022), "Correr en el gimnasio", usuario1);
             capaDatos.GuardaActividad(actividad1_Usuario1);
 
             var lecturaActividad = capaDatos.LeeActividad(0);
@@ -228,11 +228,11 @@ namespace Datos.Tests
         public void ActualizaActividad()
         {
             var usuario = new Usuario("a-034", "Maximilian", "Verstappen", "max@f1.com", "COntraseñad476!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
-            var actividadSinActualizar = new ActividadesFisicas("AF-016", "Correr", 50, "Carrera larga", usuario);
+            var actividadSinActualizar = new ActividadesFisicas("AF-016", "Correr", 50, new DateTime(2 / 09 / 2020), "Carrera larga", usuario);
 
             capaDatos.GuardaActividad(actividadSinActualizar);
 
-            var actividadActualizada = new ActividadesFisicas("AF-016", "Correr", 45, "Carrera larga", usuario);
+            var actividadActualizada = new ActividadesFisicas("AF-016", "Correr", 45, new DateTime(2 / 09 / 2020), "Carrera larga", usuario);
             var resultadoVerdadero = capaDatos.ActualizaActividad(actividadActualizada);
 
             Assert.IsTrue(resultadoVerdadero);
@@ -241,7 +241,7 @@ namespace Datos.Tests
         [TestMethod]
         public void EliminaUsuario()
         {
-            var usuario = new Usuario("a-034", "Max", "Verstappen", "max@f1.com", "CContraseña123!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
+            var usuario = new Usuario("a-034", "Max", "Verstappen", "max@f1.com", "Contraseña123!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
             capaDatos.GuardaUsuario(usuario);
 
             var resultadoCorrecto = capaDatos.EliminaUsuario("max@f1.com");
@@ -258,7 +258,7 @@ namespace Datos.Tests
         public void EliminaActividad()
         {
             var usuario = new Usuario("a-034", "Max", "Verstappen", "max@f1.com", "CContraseña123!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
-            var actividad = new ActividadesFisicas("AF-016", "Correr", 50, "Carrera larga", usuario);
+            var actividad = new ActividadesFisicas("AF-016", "Correr", 50, new DateTime(2 / 09 / 2020), "Carrera larga", usuario);
             capaDatos.GuardaUsuario(usuario);
             capaDatos.GuardaActividad(actividad);
 

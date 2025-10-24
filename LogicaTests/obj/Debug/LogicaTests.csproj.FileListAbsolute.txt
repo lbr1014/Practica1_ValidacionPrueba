@@ -103,3 +103,6 @@ C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\LogicaT
 C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\LogicaTests\bin\Debug\System.Text.Json.xml
 C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\LogicaTests\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\LogicaTests\bin\Debug\System.ValueTuple.xml
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\obj\Debug\LogicaTests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\obj\Debug\LogicaTests.gentestingplatformentrypointinputcache.cache
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\obj\Debug\LogicaTests.genautoregisteredextensionsinputcache.cache
