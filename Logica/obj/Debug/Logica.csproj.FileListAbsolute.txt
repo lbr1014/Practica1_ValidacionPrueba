@@ -51,8 +51,10 @@ C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\
 C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\System.Text.Json.xml
 C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\System.Threading.Tasks.Extensions.xml
-C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\System.ValueTuple.xml
 C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\obj\Debug\Logica.csproj.Up2Date
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\bin\Debug\Logica.dll.config
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\bin\Debug\System.IO.Pipelines.dll
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\Logica\bin\Debug\System.IO.Pipelines.xml
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\Logica.dll.config
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\System.IO.Pipelines.dll
+C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\Logica\bin\Debug\System.IO.Pipelines.xml
