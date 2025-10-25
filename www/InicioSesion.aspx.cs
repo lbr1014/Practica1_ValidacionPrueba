@@ -27,7 +27,7 @@ namespace www
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
             usuarioAutenticado = datos.LeeUsuario(tbxUsuario.Text);
-            if (usuarioAutenticado != null && usuarioAutenticado.ComprobarContraseña(tbxPassword.Text))
+            if (usuarioAutenticado != null && usuarioAutenticado.ComprobarContraseña(tbxPassword.Text) && usuarioAutenticado.obtenerEstado(usuarioAutenticado) != "BLOQUEADO")
             {
 
                 usuarioAutenticado.InicioSesionActual = DateTime.Now;
@@ -40,7 +40,16 @@ namespace www
             }
             else
             {
-                lblError.Text = "Usuario y/o contraseña incorectos";
+                if (usuarioAutenticado.obtenerEstado(usuarioAutenticado) == "BLOQUEADO")
+                {
+                    lblError.Text = "Usuario Bloqueado, habla con un admin";
+
+                } else
+                {
+                    lblError.Text = "Usuario y/o contraseña incorectos";
+
+                }
+
                 lblError.Visible = true;
             }
         }

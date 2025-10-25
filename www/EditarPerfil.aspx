@@ -118,10 +118,8 @@
 
         </div>
         <div class="btn-container-volver">
-            <td colspan="2" ">
-                <!-- Botón volver a la página principal -->
-                <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" class="btnVolver"/>
-            </td>
+            <!-- Botón volver a la página principal -->
+            <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click" class="btnVolver"/>
         </div>
     </form>
 </body>
