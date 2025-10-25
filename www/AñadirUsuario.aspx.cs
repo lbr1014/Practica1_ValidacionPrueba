@@ -162,8 +162,6 @@ namespace www
 
                 if (guardado)
                 {
-                    // Guardar usuario en la sesión
-                    Session["usuarioAutenticado"] = nuevoUsuario;
 
                     lblMensaje.Text = "Usuario registrado correctamente.";
                     lblMensaje.ForeColor = System.Drawing.Color.Green;
