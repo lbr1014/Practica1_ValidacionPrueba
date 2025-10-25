@@ -34,7 +34,7 @@ namespace www
         {
             lblError.Text = ""; // Limpiar mensaje previo
 
-            // ✅ Validar campos obligatorios
+            // Validar campos obligatorios
             if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
                 string.IsNullOrWhiteSpace(txtApellidos.Text) ||
                 string.IsNullOrWhiteSpace(txtEmail.Text) ||
@@ -48,15 +48,22 @@ namespace www
                 lblError.Text = ":Todos los campos son obligatorios.";
                 return;
             }
+            var email = txtEmail.Text.Trim();
+            bool emailExiste = datos.ObtenerUsuarios().Any(u => string.Equals(u.Email, email, StringComparison.OrdinalIgnoreCase));
 
-            // ✅ Verificar contraseñas iguales
+            if (emailExiste)
+            {
+                lblError.Text = "Ya estas registrado";
+                return;
+            }
+            // Verificar contraseñas iguales
             if (tbxPassword.Text != tbxPassword1.Text)
             {
                 lblError.Text = ":Las contraseñas no coinciden.";
                 return;
             }
 
-            // ✅ Convertir valores
+            // Convertir valores
             string sexo;
             switch (ddlSexo.SelectedValue)
             {
@@ -74,10 +81,10 @@ namespace www
                     return;
             }
 
-            // ✅ Determinar tipo de usuario (Premium opcional)
+            // Determinar tipo de usuario (Premium opcional)
             string tipoUsuario = CheckBox1.Checked ? "PREMIUM" : "NORMAL";
 
-            // ✅ Convertir datos numéricos
+            // Convertir datos numéricos
             if (!float.TryParse(txtPeso.Text, out float peso))
             {
                 lblError.Text = ":El peso debe ser un número válido.";
@@ -98,7 +105,7 @@ namespace www
 
             try
             {
-                // ✅ Crear nuevo usuario
+                // Crear nuevo usuario
                 var nuevoUsuario = new Usuario(
                     idUsuario: Guid.NewGuid().ToString(),
                     name: txtNombre.Text.Trim(),
@@ -113,15 +120,15 @@ namespace www
                     tipoUsuario: tipoUsuario
                 );
 
-                // ✅ Guardar en la capa de datos
+                // Guardar en la capa de datos
                 bool guardado = datos.GuardaUsuario(nuevoUsuario);
 
                 if (guardado)
                 {
-                    // ✅ Guardar usuario en la sesión
+                    // Guardar usuario en la sesión
                     Session["usuarioAutenticado"] = nuevoUsuario;
 
-                    // ✅ Redirigir a la página principal
+                    // Redirigir a la página principal
                     Response.Redirect("PaginaPrincipal.aspx");
                 }
                 else
@@ -131,7 +138,7 @@ namespace www
             }
             catch (Exception ex)
             {
-                // ✅ Mostrar error de validaciones de la clase Usuario
+                // Mostrar error de validaciones de la clase Usuario
                 lblError.Text = "Error: " + ex.Message;
             }
         }

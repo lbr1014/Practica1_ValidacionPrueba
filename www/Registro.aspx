@@ -86,15 +86,13 @@
                     </td>
                 </tr>
 
-                <!-- Botones con eventos OnClick -->
-                <tr>
-                    <td colspan="2" style="text-align:center;">
-                        <asp:Button ID="btnRegistro" runat="server" Text="REGISTRO" OnClick="btnRegistro_Click" />
-                        &nbsp;&nbsp;
-                        <asp:Button ID="btnInicioSesion" runat="server" Text="INICIO SESIÓN" OnClick="btnInicioSesion_Click" />
-                    </td>
-                </tr>
             </table>
+                <!-- Botones con eventos OnClick -->
+                <div class="button-container">
+                    <asp:Button ID="btnInicioSesion" runat="server" Text="Inicio Sesión" OnClick="btnInicioSesion_Click" CssClass="boton-inicio" />
+                    <asp:Button ID="btnRegistro" runat="server" Text="Registro" OnClick="btnRegistro_Click" CssClass="boton-registro"/>
+
+                </div>
         </div>
     </form>
 </body>

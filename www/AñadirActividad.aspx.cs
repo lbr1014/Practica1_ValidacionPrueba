@@ -4,6 +4,7 @@ using Practica1.ModeladoDatos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,10 +17,22 @@ namespace www
         protected void Page_Load(object sender, EventArgs e)
         {
             // Verificar que el usuario está autenticado
+
             Usuario usuario = Session["usuarioAutenticado"] as Usuario;
             if (usuario == null)
             {
                 Response.Redirect("InicioSesion.aspx");
+            }
+            if (!IsPostBack)
+            {
+                bool esAdmin = string.Equals(usuario.ObtenerTipoUsuario(usuario) , "ADMIN", StringComparison.OrdinalIgnoreCase);
+                // Muestra/oculta solo para admin
+                lblId.Visible = esAdmin;         
+                txtId.Visible = esAdmin;
+                lblUsuario.Visible = esAdmin;
+                txtUsuario.Visible = esAdmin;
+
+
             }
         }
 
@@ -32,7 +45,30 @@ namespace www
         {
             try
             {
+
                 Usuario usuario = Session["usuarioAutenticado"] as Usuario;
+                bool esAdmin = string.Equals(usuario.ObtenerTipoUsuario(usuario), "ADMIN", StringComparison.OrdinalIgnoreCase);
+
+                // Por defecto, el propio usuario autenticado
+                Usuario usuarioAsociado = usuario;
+                if (esAdmin && !string.IsNullOrWhiteSpace(txtUsuario.Text))
+                {
+                    string emailDestino = txtUsuario.Text.Trim();
+
+                    // Buscar en capaDatos (case-insensitive)
+                    var usuarioEncontrado = capaDatos.ObtenerUsuarios()
+                        .FirstOrDefault(u => string.Equals(u.Email, emailDestino, StringComparison.OrdinalIgnoreCase));
+
+                    if (usuarioEncontrado == null)
+                    {
+                        lblMensaje.Text = "El email indicado no existe.";
+                        lblMensaje.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+
+                    usuarioAsociado = usuarioEncontrado;
+                }
+
                 if (usuario == null)
                 {
                     lblMensaje.Text = "Error: usuario no autenticado.";
@@ -60,17 +96,34 @@ namespace www
                 }
 
                 // Crear ID de actividad único (puede ser simple concatenación con timestamp)
-                string idActividad = "AF-" + DateTime.Now.Ticks;
+
+                string idActividad;
+                if (string.IsNullOrWhiteSpace(txtId.Text.Trim()))
+                {
+                    idActividad = "AF-" + DateTime.Now.Ticks;
+                }
+                else
+                {
+
+                    if (!Regex.IsMatch(txtId.Text.Trim(), @"^[A-Za-z]{2}-\d{3,}$"))
+                    {
+                        lblMensaje.Text = "El ID debe tener el formato letra-guion-números (ejemplo: af-001).";
+                        lblMensaje.ForeColor = System.Drawing.Color.Red;
+
+                        return;
+                    }
+                    idActividad = txtId.Text.Trim();
+                }
 
                 // Crear la actividad
                 ActividadesFisicas actividad = new ActividadesFisicas(
-                    idActividad,
-                    nombre,
-                    duracion,
-                    fecha,
-                    descripcion,
-                    usuario
-                );
+                        idActividad,
+                        nombre,
+                        duracion,
+                        fecha,
+                        descripcion,
+                        usuario
+                    );
 
                 // Guardar en la capa de datos
                 bool guardado = capaDatos.GuardaActividad(actividad);
@@ -82,8 +135,10 @@ namespace www
 
                     // Limpiar campos
                     txtNombre.Text = "";
+                    txtFecha.Text = "";
                     txtDuracion.Text = "";
                     txtDescripcion.Text = "";
+                    txtUsuario.Text = "";
                 }
                 else
                 {

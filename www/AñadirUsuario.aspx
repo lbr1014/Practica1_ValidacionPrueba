@@ -72,8 +72,8 @@
 
             <table>
                 <tr>
-                    <td><asp:Label ID="lblIdUsuario" runat="server" Text="IdUsuario"></asp:Label></td>
-                    <td><asp:TextBox ID="txtIdUsuario" runat="server"></asp:TextBox></td>
+                    <td><asp:Label ID="lblId" runat="server" Text="IdUsuario"></asp:Label></td>
+                    <td><asp:TextBox ID="txtId" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:Label ID="lblNombre" runat="server" Text="Nombre"></asp:Label></td>
@@ -89,7 +89,7 @@
                 </tr>
                 <tr>
                     <td><asp:Label ID="lblContraseña" runat="server" Text="Contraseña"></asp:Label></td>
-                    <td><asp:TextBox ID="txtContraseña" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtContraseña" TextMode="Password"  runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:Label ID="lblEstado" runat="server" Text="Estado"></asp:Label></td>
@@ -136,7 +136,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" class="btn-container">
-                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" />
+                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" class="boton" />
                     </td>
                 </tr>
                 <tr>

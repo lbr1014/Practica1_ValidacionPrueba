@@ -71,6 +71,10 @@
 
             <table>
                 <tr>
+                    <td><asp:Label ID="lblId" runat="server" Text="Id Actividad"></asp:Label></td>
+                    <td><asp:TextBox ID="txtId" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
                     <td><asp:Label ID="lblNombre" runat="server" Text="Nombre Actividad"></asp:Label></td>
                     <td><asp:TextBox ID="txtNombre" runat="server"></asp:TextBox></td>
                 </tr>
@@ -78,7 +82,7 @@
                     <td><asp:Label ID="lblDuracion" runat="server" Text="Duración (min)"></asp:Label></td>
                     <td><asp:TextBox ID="txtDuracion" runat="server"></asp:TextBox></td>
                 </tr>
-                                <tr>
+                <tr>
                     <td><asp:Label ID="lblFecha" runat="server" Text="Fecha (día/mes/año)"></asp:Label></td>
                     <td><asp:TextBox ID="txtFecha" runat="server"></asp:TextBox></td>
                 </tr>
@@ -86,6 +90,10 @@
                 <tr>
                     <td><asp:Label ID="lblDescripcion" runat="server" Text="Descripción"></asp:Label></td>
                     <td><asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="4"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td><asp:Label ID="lblUsuario" runat="server" Text="Usuario (emial)"></asp:Label></td>
+                    <td><asp:TextBox ID="txtUsuario" runat="server" TextMode="MultiLine" Rows="4"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="btn-container">
