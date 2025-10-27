@@ -1,10 +1,13 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Logica.utils;
+﻿using Logica.utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace Logica.utils.Tests
 {
@@ -25,11 +28,40 @@ namespace Logica.utils.Tests
 
         }
 
-        [TestMethod()]
-        public void IBANTest()
+        public static IEnumerable<object[]> LeerIbanCsv()
         {
-            Assert.IsFalse(Validar.NIF(" "));
-            Assert.IsFalse(Validar.NIF("111111"));
+            var ruta = Path.Combine(AppContext.BaseDirectory, "utils", "IBAN.csv");
+
+            if (!File.Exists(ruta))
+                Assert.Inconclusive($"No se encontró el archivo de datos: {ruta}");
+
+            foreach (var linea in File.ReadLines(ruta))
+            {
+                if (string.IsNullOrWhiteSpace(linea)) continue;
+                if (linea.StartsWith("#")) continue; 
+
+                var partes = linea.Split(';');
+                if (partes.Length < 2) continue;
+
+                var raw = partes[0];
+                string iban =
+                    raw.Equals("null", StringComparison.OrdinalIgnoreCase) ? null :
+                    raw.Replace("\\t", "\t").Replace("\\n", "\n"); // desescapa \t y \n
+
+                var esperado = partes[1].Trim() == "1";
+
+                yield return new object[] { iban, esperado };
+            }
+        }
+
+        [TestMethod]
+        [DynamicData(nameof(LeerIbanCsv))]
+        public void IBANTest(string iban, bool esperado)
+        {
+            // Llama a tu método real
+            bool ok = Validar.IBAN(iban); // <-- reemplaza por la clase que contiene IBAN
+
+            Assert.AreEqual(esperado, ok, $"IBAN probado: {iban}");
         }
 
         [TestMethod()]
@@ -46,23 +78,32 @@ namespace Logica.utils.Tests
 
         }
 
-
-        [TestMethod()]
-        public void EmailTest()
+        public static IEnumerable<object[]> ObtenerDatosDesdeJson()
         {
+            string filePath = Path.Combine(AppContext.BaseDirectory, "utils", "email.json");
+            if (!File.Exists(filePath))
+                Assert.Inconclusive($"No se encontró el archivo de datos: {filePath}");
 
-            Assert.IsTrue(Validar.Email("nombre@gmail.com"));
+            string json = File.ReadAllText(filePath);
+            JsonArray data = JsonNode.Parse(json).AsArray();
 
-            Assert.IsFalse(Validar.Email(" "));
-            Assert.IsFalse(Validar.Email("miUsuario@gmail"));
-            Assert.IsFalse(Validar.Email("miUsuario@@gmail.com"));
-            Assert.IsFalse(Validar.Email("@gmail.com"));
-            Assert.IsFalse(Validar.Email(" @gmail.com"));
-            Assert.IsFalse(Validar.Email("miUsu ario@gmail.com"));
-            Assert.IsFalse(Validar.Email("mi-Usuario@gmail.com"));
-            Assert.IsFalse(Validar.Email("miUsuario@."));
-            Assert.IsFalse(Validar.Email("miUsuario@. "));
+            foreach (var item in data)
+            {
+                string email = item?["email"]?.ToString() ?? "";
+                int correcto = item?["correcto"]?.GetValue<int?>() ?? 0;
+
+                yield return new object[] { email, correcto == 1 };
+            }
         }
+
+        [TestMethod]
+        [DynamicData(nameof(ObtenerDatosDesdeJson))]
+        public void EmailTest(string email, bool esperado)
+        {
+            bool ok = Validar.Email(email);
+            Assert.AreEqual(esperado, ok, $"Email probado: '{email}'");
+        }
+
 
         [TestMethod()]
         public void UltimoInicioSesionTest()
@@ -149,6 +190,32 @@ namespace Logica.utils.Tests
             Assert.IsFalse(Validar.Edad(0));
             Assert.IsFalse(Validar.Edad(-1));
             Assert.IsFalse(Validar.Edad(121));
+        }
+
+        [TestMethod()]
+        public void FormatoFechaValidoTest()
+        {
+            var formatos = new[]
+            {
+                "dd/MM/yyyy",
+                "d/M/yyyy",
+                "dd-MM-yyyy"
+            };
+            Assert.IsTrue(Validar.FormatoFechaValido("31/01/2025", formatos));
+            Assert.IsTrue(Validar.FormatoFechaValido("1/1/2025", formatos));       
+            Assert.IsTrue(Validar.FormatoFechaValido("31-12-1999", formatos));
+            Assert.IsTrue(Validar.FormatoFechaValido("29/02/2024", formatos));
+
+            Assert.IsFalse(Validar.FormatoFechaValido(null, formatos));             
+            Assert.IsFalse(Validar.FormatoFechaValido("", formatos));               
+            Assert.IsFalse(Validar.FormatoFechaValido("   ", formatos));
+
+            Assert.IsFalse(Validar.FormatoFechaValido("31/13/2025", formatos));     
+            Assert.IsFalse(Validar.FormatoFechaValido("32/01/2025", formatos));     
+            Assert.IsFalse(Validar.FormatoFechaValido("29/02/2023", formatos));     
+            Assert.IsFalse(Validar.FormatoFechaValido("31/01/25", formatos));
+            Assert.IsFalse(Validar.FormatoFechaValido("31/01/2025 10:00", formatos));
+
         }
     }
 }

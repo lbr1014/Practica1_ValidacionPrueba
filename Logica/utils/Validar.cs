@@ -130,6 +130,12 @@ namespace Logica.utils
             if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(dominio))
                 return false;
 
+            if (dominio.Contains(".."))
+                return false;
+            // No permite ".@" ni "@." 
+            if (usuario.EndsWith(".") || dominio.StartsWith("."))
+                return false;
+
             int puntoDominio = dominio.LastIndexOf('.');
             if (puntoDominio <= 0 || puntoDominio == dominio.Length - 1) { return false; }
 
