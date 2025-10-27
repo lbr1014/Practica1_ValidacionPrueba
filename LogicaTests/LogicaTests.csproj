@@ -147,10 +147,10 @@
     <None Include="utils\email.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="utils\IBAN.csv">
+    <None Include="utils\IBAN.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="utils\IBAN.json">
+    <None Include="utils\NIF.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

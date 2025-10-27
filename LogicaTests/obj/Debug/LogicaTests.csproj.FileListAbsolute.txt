@@ -219,6 +219,6 @@ C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\D
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\Debug\tr\MSTest.TestFramework.resources.dll
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\Debug\zh-Hans\MSTest.TestFramework.resources.dll
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\Debug\zh-Hant\MSTest.TestFramework.resources.dll
-C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\Debug\utils\IBAN.csv
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\Debug\utils\email.json
 C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\Debug\utils\IBAN.json
+C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\Debug\utils\NIF.csv

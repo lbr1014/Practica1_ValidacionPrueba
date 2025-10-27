@@ -14,21 +14,40 @@ namespace Logica.utils.Tests
     [TestClass()]
     public class ValidarTests
     {
-        [TestMethod()]
-        public void NIFTest()
+        public static IEnumerable<object[]> LeerNifCsv()
         {
-            Assert.IsTrue(Validar.NIF("71567703Y"));
+            // Busca el archivo en la carpeta de salida (bin)
+            string path = Path.Combine(AppContext.BaseDirectory, "utils", "NIF.csv");
+            if (!File.Exists(path))
+                Assert.Inconclusive($"No se encontró el archivo de datos: {path}");
 
-            Assert.IsFalse(Validar.NIF(" "));
-            Assert.IsFalse(Validar.NIF("22L"));
-            Assert.IsFalse(Validar.NIF("71567703"));
-            Assert.IsFalse(Validar.NIF("KKKKKKKK"));
-            Assert.IsFalse(Validar.NIF("ABCDEFGHX"));
+            foreach (var line in File.ReadLines(path))
+            {
+                if (string.IsNullOrWhiteSpace(line)) continue;
+                if (line.StartsWith("#")) continue; // comentarios
 
+                var parts = line.Split(';');
+                if (parts.Length < 2) continue;
 
+                // Permitir escribir "null" en el CSV para probar el caso null
+                var raw = parts[0].Trim();
+                string nif = raw.Equals("null", StringComparison.OrdinalIgnoreCase) ? null : raw;
+
+                bool esperado = parts[1].Trim() == "1";
+                yield return new object[] { nif, esperado };
+            }
         }
 
-        public static IEnumerable<object[]> ObtenerDatosDesdeJson()
+        [TestMethod]
+        [DynamicData(nameof(LeerNifCsv))]
+        public void NIFTest(string nif, bool esperado)
+        {
+            bool ok = Validar.NIF(nif);
+            Assert.AreEqual(esperado, ok, $"NIF probado: '{nif}'");
+        }
+
+
+        public static IEnumerable<object[]> ObtenerIBANDesdeJson()
         {
             string filePath = Path.Combine(AppContext.BaseDirectory, "utils", "IBAN.json");
             if (!File.Exists(filePath))
@@ -47,7 +66,7 @@ namespace Logica.utils.Tests
         }
 
         [TestMethod]
-        [DynamicData(nameof(ObtenerDatosDesdeJson))]
+        [DynamicData(nameof(ObtenerIBANDesdeJson))]
         public void IBANTest(string iban, bool esperado)
         {
             // Llama a tu método real
