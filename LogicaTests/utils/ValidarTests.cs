@@ -28,38 +28,30 @@ namespace Logica.utils.Tests
 
         }
 
-        public static IEnumerable<object[]> LeerIbanCsv()
+        public static IEnumerable<object[]> ObtenerDatosDesdeJson()
         {
-            var ruta = Path.Combine(AppContext.BaseDirectory, "utils", "IBAN.csv");
+            string filePath = Path.Combine(AppContext.BaseDirectory, "utils", "IBAN.json");
+            if (!File.Exists(filePath))
+                Assert.Inconclusive($"No se encontró el archivo de datos: {filePath}");
 
-            if (!File.Exists(ruta))
-                Assert.Inconclusive($"No se encontró el archivo de datos: {ruta}");
+            string json = File.ReadAllText(filePath);
+            JsonArray data = JsonNode.Parse(json).AsArray();
 
-            foreach (var linea in File.ReadLines(ruta))
+            foreach (var item in data)
             {
-                if (string.IsNullOrWhiteSpace(linea)) continue;
-                if (linea.StartsWith("#")) continue; 
+                string email = item?["IBAN"]?.ToString() ?? "";
+                int correcto = item?["correcto"]?.GetValue<int?>() ?? 0;
 
-                var partes = linea.Split(';');
-                if (partes.Length < 2) continue;
-
-                var raw = partes[0];
-                string iban =
-                    raw.Equals("null", StringComparison.OrdinalIgnoreCase) ? null :
-                    raw.Replace("\\t", "\t").Replace("\\n", "\n"); // desescapa \t y \n
-
-                var esperado = partes[1].Trim() == "1";
-
-                yield return new object[] { iban, esperado };
+                yield return new object[] { email, correcto == 1 };
             }
         }
 
         [TestMethod]
-        [DynamicData(nameof(LeerIbanCsv))]
+        [DynamicData(nameof(ObtenerDatosDesdeJson))]
         public void IBANTest(string iban, bool esperado)
         {
             // Llama a tu método real
-            bool ok = Validar.IBAN(iban); // <-- reemplaza por la clase que contiene IBAN
+            bool ok = Validar.IBAN(iban); 
 
             Assert.AreEqual(esperado, ok, $"IBAN probado: {iban}");
         }
@@ -78,7 +70,7 @@ namespace Logica.utils.Tests
 
         }
 
-        public static IEnumerable<object[]> ObtenerDatosDesdeJson()
+        public static IEnumerable<object[]> ObtenerEmailDesdeJson()
         {
             string filePath = Path.Combine(AppContext.BaseDirectory, "utils", "email.json");
             if (!File.Exists(filePath))
@@ -97,7 +89,7 @@ namespace Logica.utils.Tests
         }
 
         [TestMethod]
-        [DynamicData(nameof(ObtenerDatosDesdeJson))]
+        [DynamicData(nameof(ObtenerEmailDesdeJson))]
         public void EmailTest(string email, bool esperado)
         {
             bool ok = Validar.Email(email);
