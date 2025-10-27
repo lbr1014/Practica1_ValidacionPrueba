@@ -150,11 +150,31 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.Throws<ArgumentException>(() => usuario.Edad = 121);
             Assert.AreEqual(32, usuario.Edad = 32);
 
-            /*
-            var futuro = DateTime.Now.AddMinutes(1);
-            Assert.ThrowsException<ArgumentException>(() => CrearUsuarioCorrecto("a-002", "Maria", "Perez", "maria22@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.7f, 22, INACTIVO, "ADMIN", futuro));
-            Assert.ThrowsException<ArgumentException>(() => usuario.InicioSesionActual = DateTime.Now.AddHours(1));
-            */
+            var ahora = DateTime.Now;
+            var pasado = ahora.AddDays(-5);
+            var futuro = ahora.AddDays(5);
+
+            // --- InicioSesionActual ---
+            usuario.InicioSesionActual = pasado;
+            Assert.AreEqual(pasado, usuario.InicioSesionActual);
+
+            usuario.InicioSesionActual = ahora;
+            Assert.AreEqual(ahora, usuario.InicioSesionActual);
+
+            var ex_futura = Assert.Throws<ArgumentException>(() => usuario.InicioSesionActual = futuro);
+            StringAssert.Contains(ex_futura.Message, "no puede ser futura");
+            Assert.AreEqual(ahora, usuario.InicioSesionActual);
+
+            // --- UltimoInicioSesion ---
+            usuario.UltimoInicioSesion = pasado;
+            Assert.AreEqual(pasado, usuario.UltimoInicioSesion);
+
+            usuario.UltimoInicioSesion = ahora;
+            Assert.AreEqual(ahora, usuario.UltimoInicioSesion);
+
+            var ex_ultimoInicioSesion = Assert.Throws<ArgumentException>(() => usuario.UltimoInicioSesion = futuro);
+            StringAssert.Contains(ex_ultimoInicioSesion.Message, "no puede ser futura");
+            Assert.AreEqual(ahora, usuario.UltimoInicioSesion);
         }
 
         [TestMethod()]
@@ -164,6 +184,28 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.AreEqual("ACTIVO", usuarioActivo.obtenerEstado(usuarioActivo));
             usuarioActivo.Estado = BLOQUEADO; 
             Assert.AreEqual("BLOQUEADO", usuarioActivo.obtenerEstado(usuarioActivo));
+        }
+
+        [TestMethod()]
+        public void CambioUltimoInicioSesionTest()
+        {
+            var usuario = CrearUsuarioCorrecto("a-001", "Pablo", "García", "pablo66@gmail.com", "ConMasDe12Caracteres!", "DESCONOCIDO", 67, 1.83f, 23, ACTIVO, "NORMAL");
+
+            var baseLocal = DateTime.Now;
+            var inicio = baseLocal.AddDays(-10);
+            var ultimo = baseLocal.AddDays(-5);
+
+            usuario.InicioSesionActual = inicio;
+            usuario.UltimoInicioSesion = ultimo;
+
+            Assert.AreEqual(inicio, usuario.InicioSesionActual);
+            Assert.AreEqual(ultimo, usuario.UltimoInicioSesion);
+
+            usuario.CambioUltimoInicioSesion();
+
+            Assert.AreEqual(inicio, usuario.UltimoInicioSesion);
+            Assert.AreEqual(inicio, usuario.InicioSesionActual);
+            Assert.AreNotEqual(ultimo, usuario.UltimoInicioSesion);
         }
 
         [TestMethod()]
