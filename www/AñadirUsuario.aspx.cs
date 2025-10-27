@@ -18,7 +18,7 @@ namespace www
         private static CapaDatos capaDatos = new CapaDatos();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
         protected void btnVolver_Click(object sender, EventArgs e)
         {
@@ -179,5 +179,13 @@ namespace www
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
             }
         }
+
+        protected void ddlTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Mostrar IBAN solo si se selecciona PREMIUM
+            panelIBAN.Visible = ddlTipoUsuario.SelectedValue == "PREMIUM";
+        }
+
+
     }
 }

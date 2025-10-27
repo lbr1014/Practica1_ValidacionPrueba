@@ -150,6 +150,33 @@ namespace www
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoUsuario;
 
         /// <summary>
+        /// Control panelIBAN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel panelIBAN;
+
+        /// <summary>
+        /// Control lblIBAN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIBAN;
+
+        /// <summary>
+        /// Control txtIBAN.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIBAN;
+
+        /// <summary>
         /// Control lblSexo.
         /// </summary>
         /// <remarks>

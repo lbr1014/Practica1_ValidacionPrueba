@@ -104,13 +104,22 @@
                 <tr>
                     <td><asp:Label ID="lblTipoUsuario" runat="server" Text="Tipo Usuario"></asp:Label></td>
                     <td>
-                        <asp:DropDownList ID="ddlTipoUsuario" runat="server">
+                        <asp:DropDownList ID="ddlTipoUsuario" runat="server"
+                            AutoPostBack="true" 
+                            OnSelectedIndexChanged="ddlTipoUsuario_SelectedIndexChanged">
                             <asp:ListItem Text="Selecciona una opción" Value="" />
                             <asp:ListItem Text="NORMAL" Value="NORMAL" />
                             <asp:ListItem Text="PREMIUM" Value="PREMIUM" />
                         </asp:DropDownList>
                     </td>
                 </tr>
+                <!-- Panel que se muestra solo si el usuario es Premium -->
+                <asp:Panel ID="panelIBAN" runat="server" Visible="false">
+                    <tr>
+                        <td><asp:Label ID="lblIBAN" runat="server" Text="IBAN"></asp:Label></td>
+                        <td><asp:TextBox ID="txtIBAN" runat="server"></asp:TextBox></td>
+                    </tr>
+                </asp:Panel>
                 <tr>
                     <td><asp:Label ID="lblSexo" runat="server" Text="Sexo"></asp:Label></td>
                     <td>
