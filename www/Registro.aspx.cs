@@ -82,7 +82,7 @@ namespace www
             }
 
             // Determinar tipo de usuario (Premium opcional)
-            string tipoUsuario = CheckBox1.Checked ? "PREMIUM" : "NORMAL";
+            string tipoUsuario = chkPremium.Checked ? "PREMIUM" : "NORMAL";
 
             // Convertir datos numéricos
             if (!float.TryParse(txtPeso.Text, out float peso))
@@ -141,6 +141,11 @@ namespace www
                 // Mostrar error de validaciones de la clase Usuario
                 lblError.Text = "Error: " + ex.Message;
             }
+        }
+        protected void chkPremium_CheckedChanged(object sender, EventArgs e)
+        {
+            // Si está marcado, mostramos el campo IBAN
+            panelIBAN.Visible = chkPremium.Checked;
         }
 
 
