@@ -1,5 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Logica.ModeladoDatos;
+﻿using Logica.ModeladoDatos;
+using Logica.utils;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Practica1.ModeladoDatos; 
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,87 @@ namespace Practica1.ModeladoDatos.Tests
             Assert.IsNotNull(actividad.CalcularMetabolismobasal(usuario));
             Assert.AreNotEqual(0,actividad.MET);
 
+        }
+
+        [TestMethod]
+        public void FechaIncorrectaTest()
+        {
+            var usuario = CrearUsuarioCorrecto1();
+
+            // Caso válido: fecha pasada -> no lanza y asigna
+            var pasada = DateTime.Now.AddDays(-5);
+            var ok = new ActividadesFisicas("AF-001", "Correr", 30f, pasada, "Correr en el gimnasio", usuario);
+            Assert.AreEqual(pasada, ok.Fecha);
+
+            // Caso inválido: fecha futura -> DEBE lanzar la excepción del constructor
+            var futura = DateTime.Now.Date.AddDays(1); // “mañana” asegura futuro incluso si solo se compara la Date
+            var ex = Assert.Throws<ArgumentException>(() =>
+                new ActividadesFisicas("AF-002", "Correr", 30f, futura, "Correr en el gimnasio", usuario)
+            );
+            StringAssert.Contains(ex.Message, "no puede ser futura");
+
+        }
+
+        [TestMethod]
+        public void ConvertirFecha_Valida_DevuelveDateCorrecto()
+        {
+            // d/M/yyyy
+            var d1 = ActividadesFisicas.ConvertirFecha("1/9/2025");
+            Assert.AreEqual(new DateTime(2025, 9, 1), d1);
+            Assert.AreEqual(TimeSpan.Zero, d1.TimeOfDay, "Debe devolver solo la fecha (hora 00:00:00)");
+
+            // dd/M/yyyy
+            var d2 = ActividadesFisicas.ConvertirFecha("01/9/2025");
+            Assert.AreEqual(new DateTime(2025, 9, 1), d2);
+
+            // d/MM/yyyy
+            var d3 = ActividadesFisicas.ConvertirFecha("1/09/2025");
+            Assert.AreEqual(new DateTime(2025, 9, 1), d3);
+
+            // dd/MM/yyyy (con espacios alrededor -> Trim)
+            var d4 = ActividadesFisicas.ConvertirFecha("  15/01/2024  ");
+            Assert.AreEqual(new DateTime(2024, 1, 15), d4);
+        }
+
+        [TestMethod]
+        public void ConvertirFecha_Invalida_LanzaExcepcionApropiada()
+        {
+            // nulo o vacío -> ArgumentException con nombre de parámetro
+            var exNull = Assert.Throws<ArgumentException>(() => ActividadesFisicas.ConvertirFecha(null));
+            StringAssert.Contains(exNull.Message, "La fecha no puede estar vacía.");
+            Assert.AreEqual("fechaTexto", exNull.ParamName);
+
+            var exEmpty = Assert.Throws<ArgumentException>(() => ActividadesFisicas.ConvertirFecha("   "));
+            StringAssert.Contains(exEmpty.Message, "La fecha no puede estar vacía.");
+            Assert.AreEqual("fechaTexto", exEmpty.ParamName);
+
+            // formato o valor imposible -> FormatException
+            Assert.Throws<FormatException>(() => ActividadesFisicas.ConvertirFecha("31/02/2025"));   // día no válido
+            Assert.Throws<FormatException>(() => ActividadesFisicas.ConvertirFecha("15/13/2025"));   // mes 13
+            Assert.Throws<FormatException>(() => ActividadesFisicas.ConvertirFecha("15-01-2024"));   // separador '-'
+            Assert.Throws<FormatException>(() => ActividadesFisicas.ConvertirFecha("15/01/25"));     // año 2 dígitos
+            Assert.Throws<FormatException>(() => ActividadesFisicas.ConvertirFecha("15/01/2025 10:00")); // lleva hora
+            Assert.Throws<FormatException>(() => ActividadesFisicas.ConvertirFecha("Jan/15/2025"));  // cultura no es-ES
+        }
+
+        [TestMethod]
+        public void FechaTest()
+        {
+            var usuario = CrearUsuarioCorrecto1();
+            var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio", usuario);
+
+            var ahora = DateTime.Now;
+            var pasado = ahora.AddDays(-10);
+            var futuro = ahora.AddDays(10);
+
+            actividad.Fecha = pasado;
+            Assert.AreEqual(pasado, actividad.Fecha);
+
+            actividad.Fecha = ahora;
+            Assert.AreEqual(ahora, actividad.Fecha);
+
+            var ex = Assert.Throws<ArgumentException>(() => actividad.Fecha = futuro);
+            Assert.AreEqual(ahora, actividad.Fecha);
         }
 
         [TestMethod]
