@@ -5,6 +5,7 @@ using Practica1.ModeladoDatos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -231,6 +232,8 @@ namespace Datos.Tests
             var usuario = new Usuario("a-034", "Maximilian", "Verstappen", "max@f1.com", "COntraseñad476!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
             var actividadSinActualizar = new ActividadesFisicas("AF-016", "Correr", 50, new DateTime(2 / 09 / 2020), "Carrera larga", usuario);
 
+            Assert.IsFalse(capaDatos.ActualizaActividad(actividadSinActualizar));
+
             capaDatos.GuardaActividad(actividadSinActualizar);
 
             var actividadActualizada = new ActividadesFisicas("AF-016", "Correr", 45, new DateTime(2 / 09 / 2020), "Carrera larga", usuario);
@@ -285,6 +288,69 @@ namespace Datos.Tests
             var actividadNulo = capaDatos.ObtenerActividadesUsuario(null);
             Assert.IsNotNull(actividadNulo);
             Assert.IsEmpty(actividadNulo);
+        }
+
+        [TestMethod]
+        public void ObtenerActividadesUsuarioTest()
+        {
+            var usuarioNuevo = new Usuario("a-009", "Caroline", "Graham", "hansen@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.78f, 30, 1, "NORMAL");
+            var actividad1 = new ActividadesFisicas("AF-900", "Correr", 90f, new DateTime(2020, 9, 2), "Carrera durante partido", usuarioNuevo);
+            var actividad2 = new ActividadesFisicas("AF-901", "futbol", 45f, new DateTime(2020, 9, 3), "Entrenamiento futbol", usuarioNuevo);
+
+            var otroUsuario = new Usuario("a-034", "Max", "Verstappen", "max@f1.com", "CContraseña123!", "HOMBRE", 72, 1.80f, 26, 1, "PREMIUM");
+            var actividad3 = new ActividadesFisicas("AF-201", "Bici", 40f, new DateTime(2020, 9, 4), "C", otroUsuario);
+
+            var actividadUsuarioNull = new ActividadesFisicas("AF-301", "Andar", 20f, new DateTime(2020, 9, 5), "Andar por el campo para despejarse", null);
+
+            capaDatos.GuardaActividad(actividad1);
+            capaDatos.GuardaActividad(actividad2);
+            capaDatos.GuardaActividad(actividad3);
+            capaDatos.GuardaActividad(actividadUsuarioNull);
+
+            var lista = capaDatos.ObtenerActividadesUsuario("a-009");
+            Assert.IsNotNull(lista);
+            Assert.HasCount(2, lista);
+
+
+
+        }
+
+
+        [TestMethod]
+        public void ObtenerUsuariosTest()
+        {
+            var listaUsuarios = capaDatos.ObtenerUsuarios();
+            Assert.IsNotNull(listaUsuarios);
+            Assert.HasCount(3, listaUsuarios);
+
+            var usuarioNuevo = new Usuario("a-009", "Caroline", "Graham", "hansen@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.78f, 30, 1, "NORMAL");
+            Assert.IsTrue(capaDatos.GuardaUsuario(usuarioNuevo));
+
+            var listaUsuariosNueva = capaDatos.ObtenerUsuarios();
+            Assert.HasCount(4, listaUsuariosNueva);
+            Assert.AreNotSame(listaUsuarios, listaUsuariosNueva);
+        }
+
+        [TestMethod]
+        public void ObtenerActividadesTest()
+        {
+            var usuarioNuevo = new Usuario("a-009", "Caroline", "Graham", "hansen@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.78f, 30, 1, "NORMAL");
+            Assert.IsTrue(capaDatos.GuardaUsuario(usuarioNuevo));
+
+            var actividad1 = new ActividadesFisicas("AF-900", "Correr", 90f, new DateTime(2020, 9, 2), "Carrera durante partido", usuarioNuevo);
+            Assert.IsTrue(capaDatos.GuardaActividad(actividad1));
+
+            var listaActividades = capaDatos.ObtenerActividades();
+            Assert.IsNotNull(listaActividades);
+            Assert.HasCount(4, listaActividades);
+
+            var actividad2 = new ActividadesFisicas("AF-901", "futbol", 45f, new DateTime(2020, 9, 3), "Entrenamiento futbol", usuarioNuevo);
+            Assert.IsTrue(capaDatos.GuardaActividad(actividad2));
+
+            var listaActividadesNueva = capaDatos.ObtenerActividades();
+            Assert.IsNotNull(listaActividadesNueva);
+            Assert.HasCount(5, listaActividadesNueva);
+            Assert.AreNotSame(listaActividades, listaActividadesNueva);
         }
     }
 }
