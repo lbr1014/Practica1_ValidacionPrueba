@@ -58,18 +58,11 @@ namespace www
                 return;
             }
 
-            // Verificar contraseñas iguales
-            if (txtContraseña.Text != txtContraseña.Text)
-            {
-                lblMensaje.Text = ":Las contraseñas no coinciden.";
-                lblMensaje.ForeColor = System.Drawing.Color.Red;
-                return;
-            }
 
             string idUsuario;
             if (string.IsNullOrWhiteSpace(txtId.Text.Trim()))
             {
-                idUsuario = "A-" + DateTime.Now.Ticks;
+                idUsuario = "a-" + DateTime.Now.Ticks;
             }
             else
             {
@@ -94,7 +87,7 @@ namespace www
                     tipoUsuario = "PREMIUM";
                     break;
                 default:
-                    lblMensaje.Text = "Debes seleccionar un tipo de usuario válido.";
+                    lblMensaje.Text = "Error:Debes seleccionar un tipo de usuario válido.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
             }
@@ -113,7 +106,7 @@ namespace www
                     sexo = "OTRO";
                     break;
                 default:
-                    lblMensaje.Text = "Debes seleccionar un sexo válido.";
+                    lblMensaje.Text = "Error:Debes seleccionar un sexo válido.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
             }
@@ -122,27 +115,27 @@ namespace www
             // Convertir datos numéricos
             if (!float.TryParse(txtPeso.Text, out float peso))
             {
-                lblMensaje.Text = ":El peso debe ser un número válido.";
+                lblMensaje.Text = "Error:El peso debe ser un número válido.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
             if (!float.TryParse(txtAltura.Text, out float altura))
             {
-                lblMensaje.Text = ":La altura debe ser un número válido.";
+                lblMensaje.Text = "Error:La altura debe ser un número válido.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
             if (!int.TryParse(txtEdad.Text, out int edad))
             {
-                lblMensaje.Text = ":La edad debe ser un número entero.";
+                lblMensaje.Text = "Error:La edad debe ser un número entero.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
             if (!Validar.IBAN(IBAN))
             {
-                lblMensaje.Text = "Error el IBAN debe ser correcto.";
+                lblMensaje.Text = "Error:El IBAN debe ser correcto.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
