@@ -1,4 +1,5 @@
 ﻿using Datos;
+using Logica.utils;
 using Practica1.ModeladoDatos;
 using System;
 using System.Collections.Generic;
@@ -20,16 +21,7 @@ namespace www
             }
         }
 
-        protected void lblUsuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         protected void btnRegistro_Click(object sender, EventArgs e)
         {
             lblError.Text = ""; // Limpiar mensaje previo
@@ -45,21 +37,25 @@ namespace www
                 string.IsNullOrWhiteSpace(tbxPassword1.Text) ||
                 ddlSexo.SelectedValue == "")
             {
-                lblError.Text = ":Todos los campos son obligatorios.";
+                lblError.Text = "Error:Todos los campos son obligatorios";
+                lblError.ForeColor = System.Drawing.Color.Red;
                 return;
             }
+            //Comprobar si el email ya esta registrado
             var email = txtEmail.Text.Trim();
             bool emailExiste = datos.ObtenerUsuarios().Any(u => string.Equals(u.Email, email, StringComparison.OrdinalIgnoreCase));
 
             if (emailExiste)
             {
-                lblError.Text = "Ya estas registrado";
+                lblError.Text = "Error:Este email ya esta registrado";
+                lblError.ForeColor = System.Drawing.Color.Red;
                 return;
             }
             // Verificar contraseñas iguales
             if (tbxPassword.Text != tbxPassword1.Text)
             {
-                lblError.Text = ":Las contraseñas no coinciden.";
+                lblError.Text = "Error:Las contraseñas no coinciden";
+                lblError.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
@@ -77,29 +73,44 @@ namespace www
                     sexo = "OTRO";
                     break;
                 default:
-                    lblError.Text = "Debes seleccionar un sexo válido.";
+                    lblError.Text = "Error:Debes seleccionar un sexo válido";
+                    lblError.ForeColor = System.Drawing.Color.Red;
                     return;
             }
 
-            // Determinar tipo de usuario (Premium opcional)
+            // Determinar tipo de usuario 
+
             string tipoUsuario = chkPremium.Checked ? "PREMIUM" : "NORMAL";
+
+            var IBAN = txtIBAN.Text;
+
+            // Error IBAN
+            if (!Validar.IBAN(IBAN) && chkPremium.Checked)
+            {
+                lblError.Text = "Error:El IBAN debe ser correcto";
+                lblError.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
 
             // Convertir datos numéricos
             if (!float.TryParse(txtPeso.Text, out float peso))
             {
-                lblError.Text = ":El peso debe ser un número válido.";
+                lblError.Text = "Error:El peso debe ser un número válido";
+                lblError.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
             if (!float.TryParse(txtAltura.Text, out float altura))
             {
-                lblError.Text = ":La altura debe ser un número válido.";
+                lblError.Text = "Error:La altura debe ser un número válido";
+                lblError.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
             if (!int.TryParse(txtEdad.Text, out int edad))
             {
-                lblError.Text = ":La edad debe ser un número entero.";
+                lblError.Text = "Error:La edad debe ser un número entero";
+                lblError.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
@@ -133,7 +144,7 @@ namespace www
                 }
                 else
                 {
-                    lblError.Text = "Error: al guardar el usuario. Inténtalo de nuevo.";
+                    lblError.Text = "Error:Al guardar el usuario. Inténtalo de nuevo";
                 }
             }
             catch (Exception ex)

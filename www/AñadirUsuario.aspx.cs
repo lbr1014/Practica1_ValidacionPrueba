@@ -26,7 +26,7 @@ namespace www
             Response.Redirect("PaginaPrincipal.aspx");
         }
 
-        //Hay que editar esto 
+        
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             lblMensaje.Text = ""; // Limpiar mensaje previo
@@ -42,18 +42,18 @@ namespace www
                 string.IsNullOrWhiteSpace(txtContraseña.Text) ||
                 ddlSexo.SelectedValue == "")
             {
-                lblMensaje.Text = ":Todos los campos son obligatorios.";
+                lblMensaje.Text = "Error:Todos los campos son obligatorios";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
-
+            //Comprobar si el email ya esta registrado
             var email = txtEmail.Text.Trim();
             bool emailExiste = capaDatos.ObtenerUsuarios().Any(u => string.Equals(u.Email, email, StringComparison.OrdinalIgnoreCase));
 
             if (emailExiste)
             {
-                lblMensaje.Text = "Ya esta registrado";
+                lblMensaje.Text = "Error:Email ya esta registrado";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
@@ -69,7 +69,7 @@ namespace www
 
                 if (!Regex.IsMatch(txtId.Text.Trim(), @"^[A-Za-z]-\d{3,}$"))
                 {
-                    lblMensaje.Text = "El ID debe tener el formato letra-guion-números (ejemplo: a-001).";
+                    lblMensaje.Text = "Error:El ID debe tener el formato letra-guion-números (ejemplo: a-001)";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     
                     return;
@@ -87,7 +87,7 @@ namespace www
                     tipoUsuario = "PREMIUM";
                     break;
                 default:
-                    lblMensaje.Text = "Error:Debes seleccionar un tipo de usuario válido.";
+                    lblMensaje.Text = "Error:Debes seleccionar un tipo de usuario válido";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
             }
@@ -106,36 +106,42 @@ namespace www
                     sexo = "OTRO";
                     break;
                 default:
-                    lblMensaje.Text = "Error:Debes seleccionar un sexo válido.";
+                    lblMensaje.Text = "Error:Debes seleccionar un sexo válido";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
             }
+            //Error IBAN
             var IBAN = txtIBAN.Text;
-
+            if (!Validar.IBAN(IBAN) && ddlTipoUsuario.SelectedValue == "PREMIUM")
+            {
+                lblMensaje.Text = "Error:El IBAN debe ser correcto";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
             // Convertir datos numéricos
             if (!float.TryParse(txtPeso.Text, out float peso))
             {
-                lblMensaje.Text = "Error:El peso debe ser un número válido.";
+                lblMensaje.Text = "Error:El peso debe ser un número válido";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
             if (!float.TryParse(txtAltura.Text, out float altura))
             {
-                lblMensaje.Text = "Error:La altura debe ser un número válido.";
+                lblMensaje.Text = "Error:La altura debe ser un número válido";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
             if (!int.TryParse(txtEdad.Text, out int edad))
             {
-                lblMensaje.Text = "Error:La edad debe ser un número entero.";
+                lblMensaje.Text = "Error:La edad debe ser un número entero";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
-            if (!Validar.IBAN(IBAN))
+            if(!int.TryParse(ddlEstado.SelectedValue, out int estado))
             {
-                lblMensaje.Text = "Error:El IBAN debe ser correcto.";
+                lblMensaje.Text = "Error:El estado de usuario es incorrecto";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
@@ -153,7 +159,7 @@ namespace www
                     peso: peso,
                     altura: altura,
                     edad: edad,
-                    estado: 1,
+                    estado: estado,
                     tipoUsuario: tipoUsuario
                 );
 
@@ -163,12 +169,12 @@ namespace www
                 if (guardado)
                 {
 
-                    lblMensaje.Text = "Usuario registrado correctamente.";
+                    lblMensaje.Text = "Usuario registrado correctamente";
                     lblMensaje.ForeColor = System.Drawing.Color.Green;
                 }
                 else
                 {
-                    lblMensaje.Text = "Error: al guardar el usuario. Inténtalo de nuevo.";
+                    lblMensaje.Text = "Error:Al guardar el usuario. Inténtalo de nuevo";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                 }
             }
