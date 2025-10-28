@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Logica.utils;
 
 
 
@@ -116,7 +117,7 @@ namespace www
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
             }
-
+            var IBAN = txtIBAN.Text;
 
             // Convertir datos numéricos
             if (!float.TryParse(txtPeso.Text, out float peso))
@@ -136,6 +137,12 @@ namespace www
             if (!int.TryParse(txtEdad.Text, out int edad))
             {
                 lblMensaje.Text = ":La edad debe ser un número entero.";
+                lblMensaje.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+            if (!Validar.IBAN(IBAN))
+            {
+                lblMensaje.Text = "Error el IBAN debe ser correcto.";
                 lblMensaje.ForeColor = System.Drawing.Color.Red;
                 return;
             }
