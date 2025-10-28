@@ -3,5 +3,5 @@ bin/
 obj/
 *.user
 *.vsidx
-*.json
+
 

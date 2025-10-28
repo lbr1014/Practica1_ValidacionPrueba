@@ -1,0 +1,86 @@
+[
+  {
+    "email": "nombre@gmail.com",
+    "correcto": 1
+  },
+  {
+    "email": "USUARIO.SUB_nombre@dom.es",
+    "correcto": 1
+  },
+  {
+    "email": " user@dominio.com ",
+    "correcto": 0
+  },
+  {
+    "email": "",
+    "correcto": 0
+  },
+  {
+    "email": "   ",
+    "correcto": 0
+  },
+  {
+    "email": "miUsuario@gmail",
+    "correcto": 0
+  },
+  {
+    "email": "miUsuario@@gmail.com",
+    "correcto": 0
+  },
+  {
+    "email": "@gmail.com",
+    "correcto": 0
+  },
+  {
+    "email": "miUsuario@",
+    "correcto": 0
+  },
+  {
+    "email": "miUsuario@dominio.",
+    "correcto": 0
+  },
+  {
+    "email": "mi Usuario@gmail.com",
+    "correcto": 0
+  },
+  {
+    "email": "mi-Usuario@gmail.com",
+    "correcto": 0
+  },
+  {
+    "email": "miUsuario@.com",
+    "correcto": 0
+  },
+  {
+    "email": "miUsuario@sub..dom.com",
+    "correcto": 0
+  },
+  {
+    "email": "miUsuario@dominio.c",
+    "correcto": 1
+  },
+  {
+    "email": "miUsuario@sub.dominio.org",
+    "correcto": 1
+  },
+  {
+    "email": "mi\tUsuario@dom.com",
+    "correcto": 0
+  },
+  {
+    "email": "ñusuario@dominio.com",
+    "correcto": 1
+  },
+  {
+    "email": "miUsuario@dominio.corporate",
+    "correcto": 1
+  },
+  {
+    "email": "miUsuario.@dominio.com",
+    "correcto": 0
+  },
+  {
+    "email": "miUsuario@.dominio.com",
+    "correcto": 0
+  }
+]

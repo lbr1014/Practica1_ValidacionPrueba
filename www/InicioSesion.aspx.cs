@@ -40,7 +40,7 @@ namespace www
             }
             else
             {
-                if (usuarioAutenticado.obtenerEstado(usuarioAutenticado) == "BLOQUEADO")
+                if (usuarioAutenticado != null && usuarioAutenticado.obtenerEstado(usuarioAutenticado) == "BLOQUEADO")
                 {
                     lblError.Text = "Usuario Bloqueado, habla con un admin";
 
