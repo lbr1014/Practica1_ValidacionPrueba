@@ -204,7 +204,19 @@ namespace Logica.utils.Tests
         }
 
         [TestMethod()]
-        public void FormatoFechaValidoTest()
+        [DataRow("31/01/2025", true)]
+        [DataRow("1/1/2025", true)]
+        [DataRow("31-12-1999", true)]
+        [DataRow("29/02/2024", true)]
+        [DataRow(null, false)]
+        [DataRow("", false)]
+        [DataRow("   ", false)]
+        [DataRow("31/13/2025", false)]
+        [DataRow("32/01/2025", false)]
+        [DataRow("29/02/2023", false)]
+        [DataRow("31/01/25", false)]
+        [DataRow("31/01/2025 10:00", false)]
+        public void FormatoFechaValidoTest(string fecha, bool esperado)
         {
             var formatos = new[]
             {
@@ -212,20 +224,8 @@ namespace Logica.utils.Tests
                 "d/M/yyyy",
                 "dd-MM-yyyy"
             };
-            Assert.IsTrue(Validar.FormatoFechaValido("31/01/2025", formatos));
-            Assert.IsTrue(Validar.FormatoFechaValido("1/1/2025", formatos));       
-            Assert.IsTrue(Validar.FormatoFechaValido("31-12-1999", formatos));
-            Assert.IsTrue(Validar.FormatoFechaValido("29/02/2024", formatos));
-
-            Assert.IsFalse(Validar.FormatoFechaValido(null, formatos));             
-            Assert.IsFalse(Validar.FormatoFechaValido("", formatos));               
-            Assert.IsFalse(Validar.FormatoFechaValido("   ", formatos));
-
-            Assert.IsFalse(Validar.FormatoFechaValido("31/13/2025", formatos));     
-            Assert.IsFalse(Validar.FormatoFechaValido("32/01/2025", formatos));     
-            Assert.IsFalse(Validar.FormatoFechaValido("29/02/2023", formatos));     
-            Assert.IsFalse(Validar.FormatoFechaValido("31/01/25", formatos));
-            Assert.IsFalse(Validar.FormatoFechaValido("31/01/2025 10:00", formatos));
+            var ok = Validar.FormatoFechaValido(fecha, formatos);
+            Assert.AreEqual(esperado, ok);
 
         }
     }
