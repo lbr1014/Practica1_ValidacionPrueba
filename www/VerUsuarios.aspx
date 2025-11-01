@@ -48,7 +48,7 @@
                         <asp:BoundField DataField="EstadoTexto" HeaderText="Estado" />
 
                        
-                        <asp:TemplateField HeaderText="Acciones">
+                        <asp:TemplateField HeaderText="Acciones" ControlStyle-CssClass="boton">
                             <ItemTemplate>
                                 
                                 <asp:Button ID="btnEliminarUsuario" runat="server" 
