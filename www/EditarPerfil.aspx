@@ -102,6 +102,22 @@
                     </td>
                 </tr>
                 <tr>
+                    <td><asp:Label ID="lblPremium" runat="server" Text="PREMIUM"></asp:Label></td>
+                    <td>
+                        <asp:CheckBox ID="chkPremium" runat="server" 
+                                      AutoPostBack="true" 
+                                      OnCheckedChanged="chkPremium_CheckedChanged" />
+                    </td>
+                </tr>
+
+                <!-- Panel que se muestra solo si el usuario es Premium -->
+                <asp:Panel ID="panelIBAN" runat="server" Visible="false">
+                    <tr>
+                        <td><asp:Label ID="lblIBAN" runat="server" Text="IBAN"></asp:Label></td>
+                        <td><asp:TextBox ID="txtIBAN" runat="server"></asp:TextBox></td>
+                    </tr>
+                </asp:Panel>
+                <tr>
                     <td colspan="2" class="btn-container">
                         <asp:Button ID="btnGuardar" runat="server" Text="Guardar Cambios" OnClick="btnGuardar_Click" CssClass="boton"/>
                     </td>

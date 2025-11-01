@@ -44,6 +44,13 @@ namespace www
                 txtPeso.Text = usuario.Peso.ToString();
                 txtAltura.Text = usuario.Altura.ToString();
                 ddlSexo.SelectedValue = usuario.obtenerSexo(usuario);
+                chkPremium.Checked = usuario.ObtenerTipoUsuario(usuario) == "PREMIUM";
+                panelIBAN.Visible = chkPremium.Checked;
+
+                if (chkPremium.Checked && Session["ibanTemporal"] != null)
+                {
+                    txtIBAN.Text = Session["ibanTemporal"].ToString();
+                }
             }
         }
 
@@ -54,7 +61,7 @@ namespace www
                 Usuario usuario = Session["usuarioAutenticado"] as Usuario;
                 if (usuario == null)
                 {
-                    lblMensaje.Text = "Error: usuario no autenticado.";
+                    lblMensaje.Text = "Error:Usuario no autenticado.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
@@ -63,35 +70,35 @@ namespace www
                 string nombre = txtNombre.Text.Trim();
                 if (string.IsNullOrEmpty(nombre))
                 {
-                    lblMensaje.Text = "El nombre no puede estar vacío.";
+                    lblMensaje.Text = "Error:El nombre no puede estar vacío.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
                 string apellidos = txtApellidos.Text.Trim();
                 if (string.IsNullOrEmpty(apellidos))
                 {
-                    lblMensaje.Text = "El Apellido no puede estar vacío.";
+                    lblMensaje.Text = "Error:El Apellido no puede estar vacío.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
 
                 if (!int.TryParse(txtEdad.Text.Trim(), out int edad) || edad < 1 || edad > 120)
                 {
-                    lblMensaje.Text = "Ingrese una edad válida (1-120).";
+                    lblMensaje.Text = "Error:Ingrese una edad válida (1-120).";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
 
                 if (!float.TryParse(txtPeso.Text.Trim(), out float peso) || peso <= 0)
                 {
-                    lblMensaje.Text = "Ingrese un peso válido.";
+                    lblMensaje.Text = "Error:Ingrese un peso válido.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
 
                 if (!float.TryParse(txtAltura.Text.Trim(), out float altura) || altura <= 0)
                 {
-                    lblMensaje.Text = "Ingrese una altura válida.";
+                    lblMensaje.Text = "Error:Ingrese una altura válida.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
@@ -99,10 +106,34 @@ namespace www
                 string sexo = ddlSexo.SelectedValue;
                 if (sexo != "HOMBRE" && sexo != "MUJER" && sexo != "OTRO")
                 {
-                    lblMensaje.Text = "Seleccione un sexo válido.";
+                    lblMensaje.Text = "Error:Seleccione un sexo válido.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                     return;
                 }
+                string tipoUsuario = chkPremium.Checked ? "PREMIUM" : "NORMAL";
+
+                if (chkPremium.Checked)
+                {
+                    string iban = txtIBAN.Text.Trim();
+
+                    if (string.IsNullOrEmpty(iban))
+                    {
+                        lblMensaje.Text = "Error:Debe introducir un IBAN si el usuario es PREMIUM.";
+                        lblMensaje.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+
+                    // Validar IBAN usando la clase Validar
+                    if (!Logica.utils.Validar.IBAN(iban))
+                    {
+                        lblMensaje.Text = "Error:El IBAN introducido no es válido.";
+                        lblMensaje.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+
+                    Session["ibanTemporal"] = iban;
+                }
+               
 
                 // Actualizar usuario
                 usuario.Nombre = nombre;
@@ -111,6 +142,8 @@ namespace www
                 usuario.Peso = peso;
                 usuario.Altura = altura;
                 usuario.Sexo = sexo;
+                usuario.TipoUsuario = tipoUsuario;
+
 
                 bool actualizado = capaDatos.ActualizaUsuario(usuario);
 
@@ -124,7 +157,7 @@ namespace www
                 }
                 else
                 {
-                    lblMensaje.Text = "Error al actualizar el perfil.";
+                    lblMensaje.Text = "Error:Al actualizar el perfil.";
                     lblMensaje.ForeColor = System.Drawing.Color.Red;
                 }
             }
@@ -135,6 +168,11 @@ namespace www
             }
         }
 
+        protected void chkPremium_CheckedChanged(object sender, EventArgs e)
+        {
+            // Si está marcado, mostramos el campo IBAN
+            panelIBAN.Visible = chkPremium.Checked;
+        }
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("PaginaPrincipal.aspx");
