@@ -32,6 +32,7 @@ namespace wwwTests
             driver.FindElement(By.Id("tbxPassword")).Clear();
             driver.FindElement(By.Id("tbxPassword")).SendKeys("hola");
             driver.FindElement(By.Id("btnAceptar")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
             Assert.AreEqual("Usuario y/o contraseña incorectos", driver.FindElement(By.Id("lblError")).Text);
 
@@ -42,13 +43,16 @@ namespace wwwTests
             driver.FindElement(By.Id("tbxPassword")).Clear();
             driver.FindElement(By.Id("tbxPassword")).SendKeys("ConMasDe12Caracteres!");
             driver.FindElement(By.Id("btnAceptar")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
             driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Click();
 
             Assert.AreEqual("Bienvenid@, Alexia!", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Text);
-            
 
             Assert.AreEqual("CERRAR SESIÓN", driver.FindElement(By.Id("btnCerrarSesion")).GetAttribute("value"));
             driver.FindElement(By.Id("btnCerrarSesion")).Click();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
             Assert.AreEqual("Inicio de sesión", driver.FindElement(By.XPath("//form[@id='form2']/div[3]/h2")).Text);
 
             driver.Close();

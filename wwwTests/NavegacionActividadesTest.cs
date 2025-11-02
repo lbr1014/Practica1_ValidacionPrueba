@@ -56,21 +56,6 @@ public class NavegacionActividadesTest
         driver.FindElement(By.Id("btnGuardar")).Click();
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-        var byMsg = By.Id("lblMensaje");
-        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        wait.Until(d =>
-        {
-            try
-            {
-                return d.FindElement(byMsg).Text.Trim()
-                       == "Ingrese una duración válida en minutos.";
-            }
-            catch (StaleElementReferenceException)
-            {
-                return false; // reintenta hasta que el DOM se estabilice
-            }
-        });
-
         Assert.AreEqual("Ingrese una duración válida en minutos.", driver.FindElement(By.Id("lblMensaje")).Text);       
            
         driver.Close();
@@ -107,21 +92,6 @@ public class NavegacionActividadesTest
 
         driver.FindElement(By.Id("btnGuardar")).Click();
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-
-        var byMsg = By.Id("lblMensaje");
-        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        wait.Until(d =>
-        {
-            try
-            {
-                return d.FindElement(byMsg).Text.Trim()
-                       == "Error: Fecha inválida. Usa el formato día/mes/año (ej.: 19/09/2025).";
-            }
-            catch (StaleElementReferenceException)
-            {
-                return false; // reintenta hasta que el DOM se estabilice
-            }
-        });
 
         Assert.AreEqual("Error: Fecha inválida. Usa el formato día/mes/año (ej.: 19/09/2025).", driver.FindElement(By.Id("lblMensaje")).Text);
 
@@ -160,22 +130,6 @@ public class NavegacionActividadesTest
         driver.FindElement(By.Id("btnGuardar")).Click();
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-        var byMsg = By.Id("lblMensaje");
-        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        wait.Until(d =>
-        {
-            try
-            {
-                return d.FindElement(byMsg).Text.Trim()
-                       == "Actividad guardada correctamente.";
-            }
-            catch (StaleElementReferenceException)
-            {
-                return false; // reintenta hasta que el DOM se estabilice
-            }
-        });
-
-
         Assert.AreEqual("Actividad guardada correctamente.", driver.FindElement(By.Id("lblMensaje")).Text);
 
         driver.FindElement(By.Id("btnVolver")).Click();
@@ -184,6 +138,7 @@ public class NavegacionActividadesTest
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         new SelectElement(driver.FindElement(By.Id("ddlOpcionesUsuario"))).SelectByText("Ver Actividades");
 
+        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
 
         wait.Until(d => d.FindElement(By.Id("GridViewActividades")));
 
