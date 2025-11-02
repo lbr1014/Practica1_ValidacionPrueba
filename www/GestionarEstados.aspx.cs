@@ -44,7 +44,7 @@ namespace www
                 var usuario = datos.ObtenerUsuarios().FirstOrDefault(u => u.Email == email);
                 if (usuario != null)
                 {
-                    // Alternar entre ACTIVO e INACTIVO, BLOQUEADO no se cambia
+                    // Alternar entre ACTIVO e INACTIVO, y desbloquear cuenta
                     if (usuario.obtenerEstado(usuario) == "ACTIVO")
                         usuario.Estado = 0; // INACTIVO
                     else if (usuario.obtenerEstado(usuario) == "INACTIVO")

@@ -49,7 +49,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td class="auto-style2">
-                    <!-- Desplegable de opciones del usuario con AutoPostBack -->
+                    <!-- Desplegable de opciones del usuario -->
                     <asp:DropDownList ID="ddlOpcionesUsuario" runat="server" CssClass="ddl-usuario"
                         AutoPostBack="true" OnSelectedIndexChanged="ddlOpcionesUsuario_SelectedIndexChanged">
                     </asp:DropDownList>
@@ -80,7 +80,7 @@
         </div>
 
 
-        <!-- GRID DE ÚLTIMAS ACTIVIDADES -->
+        <!-- ÚLTIMAS ACTIVIDADES -->
         <div class="gridview-container">
                     <asp:GridView ID="GridViewUltimas" runat="server" AutoGenerateColumns="False"
                         EmptyDataText="No hay actividades registradas.">
@@ -115,17 +115,16 @@
                     to   { opacity: 1; transform: translateX(0); }
                   }
 
-                  /* Clases helpers para disparar la animación */
+                  /* Disparar la animación */
                   .slide-out { animation: slideOutLeft 280ms ease forwards; }
                   .slide-in  { animation: slideInRight 280ms ease forwards; }
 
                   /* Suaviza el contenedor y evita saltos */
                   .panel-tips #consejo-rotativo {
                     will-change: transform, opacity;
-                    min-height: 1.4em;       /* evita “rebotes” de altura entre cambios */
+                    min-height: 1.4em;       
                   }
 
-                  /* Respeta accesibilidad */
                   @media (prefers-reduced-motion: reduce) {
                     .slide-out, .slide-in { animation: none !important; }
                   }
@@ -144,7 +143,6 @@
                     const el = document.getElementById("consejo-rotativo");
                     let i = 0;
 
-                    // pinta el primero
                     el.textContent = consejos[i];
 
                     function pasarConsejo() {
@@ -153,15 +151,15 @@
                         el.classList.add("slide-out");
 
                         el.addEventListener("animationend", function handler() {
-                            // 2) Cuando termina de salir, cambiamos el texto…
+                            // 2) Cuando termina de salir, cambia el consejo
                             i = (i + 1) % consejos.length;
                             el.textContent = consejos[i];
 
-                            // 3) …y lo hacemos entrar desde la derecha
+                            // 3) El siguiente consejo entra desde la derecha
                             el.classList.remove("slide-out");
                             el.classList.add("slide-in");
 
-                            // Quitamos el listener (solo una vez)
+                            // Desactiva la respuesta cuando la animación termine
                             el.removeEventListener("animationend", handler);
                         }, { once: true });
                     }

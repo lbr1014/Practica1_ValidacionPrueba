@@ -279,15 +279,15 @@ namespace Datos.Tests
             var actividadesCorrecto = capaDatos.ObtenerActividadesUsuario("a-005");
 
             Assert.IsNotNull(actividadesCorrecto);
-            Assert.HasCount(2, actividadesCorrecto);
+            Assert.AreEqual(2, actividadesCorrecto.Count);
 
             var actividadesIncorrecto = capaDatos.ObtenerActividadesUsuario("a-999");
             Assert.IsNotNull(actividadesIncorrecto);
-            Assert.IsEmpty(actividadesIncorrecto);
+            Assert.AreEqual(0, actividadesIncorrecto.Count);
 
             var actividadNulo = capaDatos.ObtenerActividadesUsuario(null);
             Assert.IsNotNull(actividadNulo);
-            Assert.IsEmpty(actividadNulo);
+            Assert.AreEqual(0, actividadNulo.Count);
         }
 
         [TestMethod]
@@ -309,7 +309,7 @@ namespace Datos.Tests
 
             var lista = capaDatos.ObtenerActividadesUsuario("a-009");
             Assert.IsNotNull(lista);
-            Assert.HasCount(2, lista);
+            Assert.AreEqual(2, lista.Count);
 
 
 
@@ -321,13 +321,13 @@ namespace Datos.Tests
         {
             var listaUsuarios = capaDatos.ObtenerUsuarios();
             Assert.IsNotNull(listaUsuarios);
-            Assert.HasCount(3, listaUsuarios);
+            Assert.AreEqual(3, listaUsuarios.Count);
 
             var usuarioNuevo = new Usuario("a-009", "Caroline", "Graham", "hansen@gmail.com", "ConMasDe12Caracteres!", "MUJER", 60, 1.78f, 30, 1, "NORMAL");
             Assert.IsTrue(capaDatos.GuardaUsuario(usuarioNuevo));
 
             var listaUsuariosNueva = capaDatos.ObtenerUsuarios();
-            Assert.HasCount(4, listaUsuariosNueva);
+            Assert.AreEqual(4, listaUsuariosNueva.Count);
             Assert.AreNotSame(listaUsuarios, listaUsuariosNueva);
         }
 
@@ -342,14 +342,14 @@ namespace Datos.Tests
 
             var listaActividades = capaDatos.ObtenerActividades();
             Assert.IsNotNull(listaActividades);
-            Assert.HasCount(4, listaActividades);
+            Assert.AreEqual(4, listaActividades.Count);
 
             var actividad2 = new ActividadesFisicas("AF-901", "futbol", 45f, new DateTime(2020, 9, 3), "Entrenamiento futbol", usuarioNuevo);
             Assert.IsTrue(capaDatos.GuardaActividad(actividad2));
 
             var listaActividadesNueva = capaDatos.ObtenerActividades();
             Assert.IsNotNull(listaActividadesNueva);
-            Assert.HasCount(5, listaActividadesNueva);
+            Assert.AreEqual(5, listaActividadesNueva.Count);
             Assert.AreNotSame(listaActividades, listaActividadesNueva);
         }
     }

@@ -156,7 +156,6 @@
             </table>
         </div>
         <div class="btn-container-volver">
-            <!-- Botón volver a la página principal -->
             <asp:Button ID="btnVolver" runat="server" Text="Volver a Página Principal" OnClick="btnVolver_Click"  class="btnVolver"/>
          </div>
     </form>

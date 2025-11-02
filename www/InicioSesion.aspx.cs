@@ -15,6 +15,7 @@ namespace www
         Usuario usuarioAutenticado;
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Conexión actual de capa datos desde la aplicaión, estado semipersistente
             datos = (CapaDatos)Application["Conexión"];
             if (datos == null)
             {
@@ -26,7 +27,9 @@ namespace www
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
+            // busca al usuario
             usuarioAutenticado = datos.LeeUsuario(tbxUsuario.Text);
+            // comprueba que exista su email y que la contraseña sea correcta
             if (usuarioAutenticado != null && usuarioAutenticado.ComprobarContraseña(tbxPassword.Text) && usuarioAutenticado.obtenerEstado(usuarioAutenticado) != "BLOQUEADO")
             {
 
@@ -40,6 +43,7 @@ namespace www
             }
             else
             {
+                // mensaje específico si la cuenta está bloqueada 
                 if (usuarioAutenticado != null && usuarioAutenticado.obtenerEstado(usuarioAutenticado) == "BLOQUEADO")
                 {
                     lblError.Text = "Usuario Bloqueado, habla con un admin";

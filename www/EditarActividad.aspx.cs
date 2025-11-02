@@ -39,7 +39,7 @@ namespace www
 
                 if (actividad == null)
                 {
-                    // id inválido o ya no existe
+                    // id inválido 
                     Response.Redirect("VerActividades.aspx");
                     return;
                 }
@@ -100,14 +100,14 @@ namespace www
 
                 string descripcion = txtDescripcion.Text.Trim();
 
-                // 4) Usuario dueño de la actividad (puede venir de ViewState)
+                // 4) Usuario que ha realizado la actividad
                 var usuarioActividad = (ViewState["UsuarioActividad"] as Usuario) ?? usuarioSesion;
 
-                // 5) Construir la actividad y actualizar
+                // 5) Construir la actividad con los datos actualizar
                 var actividadActualizada = new ActividadesFisicas(
                     id,             // mismo IdActividad
-                    nombre,         // NombreActividad
-                    duracion,       // Duración en minutos (según tu modelo)
+                    nombre,         // Nombre de la actividad
+                    duracion,       // Duración en minutos
                     fecha,
                     descripcion,    // Descripción
                     usuarioActividad
@@ -120,7 +120,7 @@ namespace www
                     lblMensaje.Text = "Actividad actualizada correctamente.";
                     lblMensaje.ForeColor = System.Drawing.Color.Green;
 
-                    // Vuelve al listado (evita repost y muestra datos actualizados)
+                    // Muestra el listado actualizado
                     Response.Redirect("VerActividades.aspx", true);
                 }
                 else

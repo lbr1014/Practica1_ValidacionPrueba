@@ -95,7 +95,7 @@ namespace www
                     return;
                 }
 
-                // Crear ID de actividad único (puede ser simple concatenación con timestamp)
+                // Crear ID de actividad único
 
                 string idActividad;
                 if (string.IsNullOrWhiteSpace(txtId.Text.Trim()))

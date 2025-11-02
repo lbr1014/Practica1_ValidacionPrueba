@@ -120,7 +120,7 @@ namespace www
             }
             else
             {
-                // Solo actividades propias
+                // Solo actividades del propio usuario
                 actividades = capaDatos.ObtenerActividadesUsuario(usuario.IdUsuario);
 
                 GridViewUltimas.Columns.Clear();
@@ -149,7 +149,7 @@ namespace www
             ddlOpcionesUsuario.Items.Clear();
             ddlOpcionesUsuario.Items.Add(new ListItem("Selecciona una opción", ""));
 
-            // Opciones comunes
+            // Opciones comunes para todos los usuarioa
             ddlOpcionesUsuario.Items.Add(new ListItem("Editar Perfil", "EditarPerfil"));
             ddlOpcionesUsuario.Items.Add(new ListItem("Añadir Actividad", "AñadirActividad"));
             ddlOpcionesUsuario.Items.Add(new ListItem("Ver Actividades", "VerActividades"));

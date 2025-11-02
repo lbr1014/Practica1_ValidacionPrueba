@@ -27,13 +27,9 @@
           </div>
         </header>
 
-
-
-        <!-- CONTENIDO EXISTENTE -->
         <div class="form-container">
             <h2>Inicio de sesión</h2>
 
-            <!-- Ejemplo de controles (ajusta a tus IDs reales) -->
             <asp:Label ID="lblEmail" runat="server" Text="Usuario"></asp:Label>
             
                 <br />
@@ -51,7 +47,6 @@
                 <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Mensaje Error" Visible="False"></asp:Label>
 
             <div class="button-container">
-                <!-- Añade las clases para que cojan el estilo morado y redondeado -->
                 <asp:Button ID="btnRegistro" runat="server" OnClick="btnRegistro_Click" Text="Registrarse" CssClass="boton-registro" />
                 <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" CssClass="boton-inicio" />
             </div>

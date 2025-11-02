@@ -59,7 +59,7 @@ namespace www
                 return;
             }
 
-            // Convertir valores
+            // Normalizar los valores del sexo
             string sexo;
             switch (ddlSexo.SelectedValue)
             {
@@ -84,7 +84,7 @@ namespace www
 
             var IBAN = txtIBAN.Text;
 
-            // Error IBAN
+            // Error de IBAN incorrecto
             if (!Validar.IBAN(IBAN) && chkPremium.Checked)
             {
                 lblError.Text = "Error:El IBAN debe ser correcto";
@@ -92,7 +92,7 @@ namespace www
                 return;
             }
 
-            // Convertir datos numéricos
+            // Convertir datos numéricos y lanzar un error si estos son incorrectos
             if (!float.TryParse(txtPeso.Text, out float peso))
             {
                 lblError.Text = "Error:El peso debe ser un número válido";

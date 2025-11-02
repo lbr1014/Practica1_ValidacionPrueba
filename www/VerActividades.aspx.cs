@@ -74,7 +74,7 @@ namespace www
                 capaDatos.EliminaActividad(idActividad);
                 //CargarActividades(); Recargar lista
             }
-            // Re-cargar el grid con el usuario actual
+            // Recargar la pantalla con las actividades del usuario
             var usuario = Session["usuarioAutenticado"] as Usuario;
             if (usuario == null)
             {

@@ -21,6 +21,7 @@ namespace www
 
         private void CargarUsuarios()
         {
+            // Muestra los usuarios del sistema
             var usuarios = datos.ObtenerUsuarios()
                 .Select(u => new
                 {
@@ -45,7 +46,7 @@ namespace www
         {
             Button btn = (Button)sender;
             string email = btn.CommandArgument;
-
+            // Elimina un usuario y vuelve a cargar los usuarios
             datos.EliminaUsuario(email);
 
 

@@ -12,15 +12,21 @@ using OpenQA.Selenium.Support.UI;
 namespace wwwTests
 {
     [TestClass]
+    [DoNotParallelize]
     public class TestFormularioRegistro
     {
+        private IWebDriver driver;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            driver = new ChromeDriver();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+        }
+
         [TestMethod]
         public void TestFormularioRegistroContraseñaIncorrectaTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
-
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
             driver.FindElement(By.Id("btnRegistro")).Click();
@@ -61,9 +67,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroNombreIncompeltoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -107,9 +110,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroApellidosIncompeltoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -150,9 +150,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroEmailIncompeltoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -193,9 +190,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroSexoIncompeltoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -236,9 +230,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroPesoIncompeltoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -279,9 +270,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroAlturaIncompeltoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -322,9 +310,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroEdadIncompeltoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -365,9 +350,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroContraseñaIncompeltoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -406,9 +388,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroEmailErroneoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -460,9 +439,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroPesoErroneoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -513,9 +489,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroAlturaErroneoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -566,9 +539,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroEdadaErroneoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -619,9 +589,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroIBANErroneoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -675,9 +642,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroContraseñaErroneoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
@@ -725,9 +689,6 @@ namespace wwwTests
         [TestMethod]
         public void TestFormularioRegistroCorrectoTest()
         {
-            IWebDriver driver;
-
-            driver = new ChromeDriver();
 
             driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
             Assert.AreEqual("Registrarse", driver.FindElement(By.Id("btnRegistro")).GetAttribute("value"));
