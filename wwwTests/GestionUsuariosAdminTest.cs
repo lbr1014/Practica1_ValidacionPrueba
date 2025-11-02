@@ -11,16 +11,25 @@ using OpenQA.Selenium.Support.UI;
 namespace wwwTests;
 
 [TestClass]
+[DoNotParallelize]
 public class GestionUsuariosAdminTest
 {
     private bool acceptNextAlert = true;
+    private IWebDriver driver;
+
+    [TestInitialize]
+    public void Setup()
+    {
+        driver = new ChromeDriver();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+        driver.Manage().Window.Maximize();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
+    }
 
     [TestMethod]
     public void TestGestionUsuariosAdminIncompletoTest()
     {
-        IWebDriver driver;
-
-        driver = new ChromeDriver();
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
         driver.FindElement(By.Id("tbxUsuario")).Click();
@@ -81,9 +90,6 @@ public class GestionUsuariosAdminTest
     [TestMethod]
     public void TestGestionUsuariosAdminErroneoTest()
     {
-        IWebDriver driver;
-
-        driver = new ChromeDriver();
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
         driver.FindElement(By.Id("tbxUsuario")).Click();
@@ -148,9 +154,6 @@ public class GestionUsuariosAdminTest
     [TestMethod]
     public void TestGestionUsuariosAdminCorrectoTest()
     {
-        IWebDriver driver;
-
-        driver = new ChromeDriver();
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
         driver.FindElement(By.Id("tbxUsuario")).Click();
@@ -170,6 +173,7 @@ public class GestionUsuariosAdminTest
 
         driver.FindElement(By.Id("btnAñadirUsuario")).Click();
         driver.Navigate().GoToUrl("https://localhost:44313/A%c3%b1adirUsuario.aspx");
+
 
         Assert.AreEqual("Añadir Usuario", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Text);
 
@@ -209,17 +213,24 @@ public class GestionUsuariosAdminTest
 
         driver.FindElement(By.Id("btnVolver")).Click();
         driver.Navigate().GoToUrl("https://localhost:44313/PaginaPrincipal.aspx");
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
         driver.FindElement(By.Id("ddlOpcionesUsuario")).Click();
         new SelectElement(driver.FindElement(By.Id("ddlOpcionesUsuario"))).SelectByText("Ver Usuarios");
         driver.Navigate().GoToUrl("https://localhost:44313/VerUsuarios.aspx");
 
-        Assert.AreEqual("Paula", driver.FindElement(By.XPath("//table[@id='GridViewUsuarios']/tbody/tr[6]/td")).Text);
+        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        wait.Until(d => d.FindElement(By.Id("GridViewUsuarios")));
 
-        acceptNextAlert = true;
+        var filaPaula = wait.Until(d =>
+            d.FindElement(By.XPath("//table[@id='GridViewUsuarios']//tr[td[normalize-space()='Paula'] and td[normalize-space()='Gonzalez']]"))
+        );
 
-        Assert.AreEqual("Eliminar", driver.FindElement(By.Id("GridViewUsuarios_btnEliminarUsuario_4")).GetAttribute("value"));
+        var btnEliminar = filaPaula.FindElement(By.XPath(".//input[contains(@id,'btnEliminarUsuario')]"));
+        Assert.AreEqual("Eliminar", btnEliminar.GetAttribute("value"));
 
-        driver.FindElement(By.Id("GridViewUsuarios_btnEliminarUsuario_4")).Click();
+        btnEliminar.Click();
+
 
         IAlert alert = driver.SwitchTo().Alert();
         string alertText = alert.Text;

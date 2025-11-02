@@ -20,9 +20,47 @@ namespace Datos.Tests
         [TestInitialize]
         public void Setup()
         {
-            // 🔹 Limpia y restaura los datos base antes de cada test
+            // Limpia y restaura los datos base antes de cada test
             CapaDatos.ResetDatos();
             capaDatos = new CapaDatos();
+        }
+
+        [TestMethod]
+        public void Constructor_NoInicializaSiYaHayDatos()
+        {
+            // Hay datos en alguna lista -> NO debe volver a inicializar
+            CapaDatos.ResetDatos();
+            var capa1 = new CapaDatos(); // primera vez: se inicializa
+
+            var usuariosAntes = capa1.ObtenerUsuarios().Count;    
+            var actividadesAntes = capa1.ObtenerActividades().Count; 
+
+            // Crear otra instancia no debe duplicar nada
+            var capa2 = new CapaDatos();
+
+            Assert.AreEqual(usuariosAntes, capa2.ObtenerUsuarios().Count);
+            Assert.AreEqual(actividadesAntes, capa2.ObtenerActividades().Count);
+        }
+
+        [TestMethod]
+        public void Constructor_NoInicializaSiSoloUnaListaVacia()
+        {
+            // Usuarios con datos, actividades vacías
+            CapaDatos.ResetDatos();
+            var capa1 = new CapaDatos(); // se inicializa
+
+            // Vaciar solo actividades
+            foreach (var act in capa1.ObtenerActividades().ToList())
+                Assert.IsTrue(capa1.EliminaActividad(act.IdActividad));
+
+            Assert.AreEqual(0, capa1.ObtenerActividades().Count);
+            Assert.AreEqual(3, capa1.ObtenerUsuarios().Count);
+
+            // Nueva instancia, no debe inicializar
+            var capa2 = new CapaDatos();
+
+            Assert.AreEqual(0, capa2.ObtenerActividades().Count); 
+            Assert.AreEqual(3, capa2.ObtenerUsuarios().Count);   
         }
 
         [TestMethod]

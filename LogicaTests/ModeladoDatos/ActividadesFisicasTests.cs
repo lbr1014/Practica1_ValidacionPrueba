@@ -51,6 +51,10 @@ namespace Practica1.ModeladoDatos.Tests
             var actividad = CrearActividadCorrecta("AF-001", "Correr", 30, new DateTime(2 / 09 / 2020), "Correr en el gimnasio",usuario );
 
             Assert.AreEqual("AF-001", actividad.IdActividad);
+            string nuevoID = "AF-002";
+            actividad.IdActividad = nuevoID;
+            Assert.AreEqual("AF-002", actividad.IdActividad);
+
             Assert.AreEqual("Correr", actividad.NombreActividad);
             actividad.NombreActividad = "Nadar";
             Assert.AreEqual("Nadar", actividad.NombreActividad);
@@ -63,10 +67,17 @@ namespace Practica1.ModeladoDatos.Tests
             actividad.Descripcion = "Hacer largos en una piscina olimpica";
             Assert.AreEqual("Hacer largos en una piscina olimpica", actividad.Descripcion);
             Assert.AreEqual(usuario, actividad.Usuario);
+            var usuario2 = CrearUsuarioCorrecto2();
+            actividad.Usuario = usuario2;
+            Assert.AreEqual(usuario2, actividad.Usuario);
 
             Assert.IsNotNull(actividad.CalcularCalorias(usuario));
             Assert.IsNotNull(actividad.CalcularMetabolismobasal(usuario));
             Assert.AreNotEqual(0,actividad.MET);
+            int nuevoMET = 28;
+            actividad.MET = nuevoMET;
+            Assert.AreNotEqual(0, actividad.MET);
+
 
         }
 

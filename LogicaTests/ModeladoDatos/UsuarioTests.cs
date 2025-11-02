@@ -35,8 +35,21 @@ namespace Practica1.ModeladoDatos.Tests
             var usuarioBloqueado = CrearUsuarioCorrecto("a-003", "Alexia", "Putellas", "alexia11@gmail.com", "ConMasDe12Caracteres!", "MUJER", 69, 1.73f, 31, BLOQUEADO, "ADMIN");
             
             Assert.IsNotNull(usuarioActivo);
+            Assert.AreEqual("a-001", usuarioActivo.IdUsuario);
+            string nuevoID = "a-002";
+            usuarioActivo.IdUsuario = nuevoID;
+            Assert.AreEqual(nuevoID, usuarioActivo.IdUsuario);
+
             Assert.AreEqual("Pablo", usuarioActivo.Nombre);
+            string nuevoNombre = "Javier";
+            usuarioActivo.Nombre = nuevoNombre;
+            Assert.AreEqual(nuevoNombre, usuarioActivo.Nombre);
+
             Assert.AreEqual("García", usuarioActivo.Apellidos);
+            string nuevosApellidos = "Pina";
+            usuarioActivo.Apellidos = nuevosApellidos;
+            Assert.AreEqual(nuevosApellidos, usuarioActivo.Apellidos);
+
             Assert.AreEqual("pablo66@gmail.com", usuarioActivo.Email);
             Assert.AreEqual("ACTIVO", usuarioActivo.obtenerEstado(usuarioActivo));
             Assert.AreEqual("ADMIN", usuarioActivo.ObtenerTipoUsuario(usuarioActivo));
