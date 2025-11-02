@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RunSettings>
   <RunConfiguration>
-    <ResultsDirectory>C:\Users\lydia\Desktop\CosasEjecutar\validacionPruebas\Ejemplo\LogicaTests\bin\Debug\fine-code-coverage\coverage-tool-output</ResultsDirectory>
-    <TestAdaptersPaths>C:\Users\lydia\AppData\Local\FineCodeCoverage\msCodeCoverage\17.13.0\build\netstandard2.0</TestAdaptersPaths>
+    <ResultsDirectory>C:\Users\Bea\Desktop\uni\4º\1ºCuatri\ValidacionYPruebas\Practicas\Prac\LogicaTests\bin\Debug\fine-code-coverage\coverage-tool-output</ResultsDirectory>
+    <TestAdaptersPaths>C:\Users\Bea\AppData\Local\FineCodeCoverage\msCodeCoverage\17.13.0\build\netstandard2.0</TestAdaptersPaths>
     <CollectSourceInformation>False</CollectSourceInformation>
   </RunConfiguration>
   <DataCollectionRunSettings>
