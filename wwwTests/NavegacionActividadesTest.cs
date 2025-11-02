@@ -31,38 +31,26 @@ public class NavegacionActividadesTest
     {
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
-        driver.FindElement(By.Id("tbxUsuario")).Click();
-        driver.FindElement(By.Id("tbxUsuario")).Clear();
         driver.FindElement(By.Id("tbxUsuario")).SendKeys("norris@gmail.com");
-        driver.FindElement(By.Id("tbxPassword")).Click();
-        driver.FindElement(By.Id("tbxPassword")).Clear();
         driver.FindElement(By.Id("tbxPassword")).SendKeys("ConMasDe12Caracteres!");
         
         Assert.AreEqual("Aceptar", driver.FindElement(By.Id("btnAceptar")).GetAttribute("value"));
        
         driver.FindElement(By.Id("btnAceptar")).Click();
-        
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
         Assert.AreEqual("Bienvenid@, Lando!", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Text);
       
         Assert.AreEqual("Añadir Nueva Actividad", driver.FindElement(By.Id("btnAñadirActividad")).GetAttribute("value"));
        
         driver.FindElement(By.Id("btnAñadirActividad")).Click();
-        driver.Navigate().GoToUrl("https://localhost:44313/A%c3%b1adirActividad.aspx");
-       
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
         Assert.AreEqual("Añadir Actividad", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Text);
         
-        driver.FindElement(By.Id("txtNombre")).Click();
-        driver.FindElement(By.Id("txtNombre")).Clear();
         driver.FindElement(By.Id("txtNombre")).SendKeys("Correr");
-        driver.FindElement(By.Id("txtDuracion")).Click();
-        
-        driver.FindElement(By.Id("txtDuracion")).Clear();
         driver.FindElement(By.Id("txtDuracion")).SendKeys("-30");
-        driver.FindElement(By.Id("txtFecha")).Click();
-        driver.FindElement(By.Id("txtFecha")).Clear();
         driver.FindElement(By.Id("txtFecha")).SendKeys("09/03/2025");
-        driver.FindElement(By.Id("txtDescripcion")).Click();
-        driver.FindElement(By.Id("txtDescripcion")).Clear();
         driver.FindElement(By.Id("txtDescripcion")).SendKeys("Correr durante media hora");
 
         driver.FindElement(By.Id("btnGuardar")).Click();
@@ -70,10 +58,8 @@ public class NavegacionActividadesTest
 
         Assert.AreEqual("Ingrese una duración válida en minutos.", driver.FindElement(By.Id("lblMensaje")).Text);       
            
-        
         driver.Close();
         driver.Dispose();
-        
 
 }
 
@@ -82,46 +68,32 @@ public class NavegacionActividadesTest
     {
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
-        driver.FindElement(By.Id("tbxUsuario")).Click();
-        driver.FindElement(By.Id("tbxUsuario")).Clear();
         driver.FindElement(By.Id("tbxUsuario")).SendKeys("norris@gmail.com");
-        driver.FindElement(By.Id("tbxPassword")).Click();
-        driver.FindElement(By.Id("tbxPassword")).Clear();
         driver.FindElement(By.Id("tbxPassword")).SendKeys("ConMasDe12Caracteres!");
 
         Assert.AreEqual("Aceptar", driver.FindElement(By.Id("btnAceptar")).GetAttribute("value"));
 
         driver.FindElement(By.Id("btnAceptar")).Click();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
         Assert.AreEqual("Bienvenid@, Lando!", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Text);
 
         Assert.AreEqual("Añadir Nueva Actividad", driver.FindElement(By.Id("btnAñadirActividad")).GetAttribute("value"));
 
         driver.FindElement(By.Id("btnAñadirActividad")).Click();
-        driver.Navigate().GoToUrl("https://localhost:44313/A%c3%b1adirActividad.aspx");
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
         Assert.AreEqual("Añadir Actividad", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Text);
 
-        driver.FindElement(By.Id("txtNombre")).Click();
-        driver.FindElement(By.Id("txtNombre")).Clear();
         driver.FindElement(By.Id("txtNombre")).SendKeys("Correr");
-        driver.FindElement(By.Id("txtDuracion")).Click();
-
-        driver.FindElement(By.Id("txtDuracion")).Clear();
         driver.FindElement(By.Id("txtDuracion")).SendKeys("30");
-        driver.FindElement(By.Id("txtFecha")).Click();
-        driver.FindElement(By.Id("txtFecha")).Clear();
         driver.FindElement(By.Id("txtFecha")).SendKeys("32/03/2025");
-        driver.FindElement(By.Id("txtDescripcion")).Click();
-        driver.FindElement(By.Id("txtDescripcion")).Clear();
         driver.FindElement(By.Id("txtDescripcion")).SendKeys("Correr durante media hora");
 
         driver.FindElement(By.Id("btnGuardar")).Click();
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
-
         Assert.AreEqual("Error: Fecha inválida. Usa el formato día/mes/año (ej.: 19/09/2025).", driver.FindElement(By.Id("lblMensaje")).Text);
-
 
         driver.Close();
         driver.Dispose();
@@ -134,48 +106,37 @@ public class NavegacionActividadesTest
     {
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
-        driver.FindElement(By.Id("tbxUsuario")).Click();
-        driver.FindElement(By.Id("tbxUsuario")).Clear();
         driver.FindElement(By.Id("tbxUsuario")).SendKeys("norris@gmail.com");
-        driver.FindElement(By.Id("tbxPassword")).Click();
-        driver.FindElement(By.Id("tbxPassword")).Clear();
         driver.FindElement(By.Id("tbxPassword")).SendKeys("ConMasDe12Caracteres!");
 
         Assert.AreEqual("Aceptar", driver.FindElement(By.Id("btnAceptar")).GetAttribute("value"));
 
         driver.FindElement(By.Id("btnAceptar")).Click();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
         Assert.AreEqual("Bienvenid@, Lando!", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Text);
 
         Assert.AreEqual("Añadir Nueva Actividad", driver.FindElement(By.Id("btnAñadirActividad")).GetAttribute("value"));
 
         driver.FindElement(By.Id("btnAñadirActividad")).Click();
-        driver.Navigate().GoToUrl("https://localhost:44313/A%c3%b1adirActividad.aspx");
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
         Assert.AreEqual("Añadir Actividad", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/h2")).Text);
 
-        driver.FindElement(By.Id("txtNombre")).Click();
-        driver.FindElement(By.Id("txtNombre")).Clear();
         driver.FindElement(By.Id("txtNombre")).SendKeys("Correr");
-        driver.FindElement(By.Id("txtDuracion")).Click();
-
-        driver.FindElement(By.Id("txtDuracion")).Clear();
         driver.FindElement(By.Id("txtDuracion")).SendKeys("30");
-        driver.FindElement(By.Id("txtFecha")).Click();
-        driver.FindElement(By.Id("txtFecha")).Clear();
         driver.FindElement(By.Id("txtFecha")).SendKeys("09/03/2025");
-        driver.FindElement(By.Id("txtDescripcion")).Click();
-        driver.FindElement(By.Id("txtDescripcion")).Clear();
         driver.FindElement(By.Id("txtDescripcion")).SendKeys("Correr durante media hora");
         driver.FindElement(By.Id("btnGuardar")).Click();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
         Assert.AreEqual("Actividad guardada correctamente.", driver.FindElement(By.Id("lblMensaje")).Text);
 
         driver.FindElement(By.Id("btnVolver")).Click();
-        driver.Navigate().GoToUrl("https://localhost:44313/PaginaPrincipal.aspx");
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         driver.FindElement(By.Id("ddlOpcionesUsuario")).Click();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         new SelectElement(driver.FindElement(By.Id("ddlOpcionesUsuario"))).SelectByText("Ver Actividades");
-        driver.Navigate().GoToUrl("https://localhost:44313/VerActividades.aspx");
 
 
         var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
@@ -197,7 +158,7 @@ public class NavegacionActividadesTest
         alert.Accept();
 
         driver.FindElement(By.Id("btnVolver")).Click();
-        driver.Navigate().GoToUrl("https://localhost:44313/PaginaPrincipal.aspx");
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
         Assert.AreEqual("Tienes 1 actividad(es) registradas.", driver.FindElement(By.Id("lblNumActividades")).Text);
 
