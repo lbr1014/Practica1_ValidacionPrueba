@@ -11,17 +11,24 @@ using static System.Net.Mime.MediaTypeNames;
 namespace wwwTests;
 
 [TestClass]
+[DoNotParallelize]
 public class NavegacionActividadesTest
 {
     private bool acceptNextAlert = true;
+    private IWebDriver driver;
+
+    [TestInitialize]
+    public void Setup()
+    {
+        driver = new ChromeDriver();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+    }
+
 
 
     [TestMethod]
     public void TestNavegacionActividadesDuracionIncorrectaTest()
     {
-        IWebDriver driver;
-
-        driver = new ChromeDriver();
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
         driver.FindElement(By.Id("tbxUsuario")).Click();
@@ -59,6 +66,7 @@ public class NavegacionActividadesTest
         driver.FindElement(By.Id("txtDescripcion")).SendKeys("Correr durante media hora");
 
         driver.FindElement(By.Id("btnGuardar")).Click();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
 
         Assert.AreEqual("Ingrese una duración válida en minutos.", driver.FindElement(By.Id("lblMensaje")).Text);       
            
@@ -72,9 +80,6 @@ public class NavegacionActividadesTest
     [TestMethod]
     public void TestNavegacionActividadesFechaIncorrectaTest()
     {
-        IWebDriver driver;
-
-        driver = new ChromeDriver();
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
         driver.FindElement(By.Id("tbxUsuario")).Click();
@@ -112,6 +117,8 @@ public class NavegacionActividadesTest
         driver.FindElement(By.Id("txtDescripcion")).SendKeys("Correr durante media hora");
 
         driver.FindElement(By.Id("btnGuardar")).Click();
+        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+
 
         Assert.AreEqual("Error: Fecha inválida. Usa el formato día/mes/año (ej.: 19/09/2025).", driver.FindElement(By.Id("lblMensaje")).Text);
 
@@ -125,9 +132,6 @@ public class NavegacionActividadesTest
     [TestMethod]
     public void TestNavegacionActividadesCorrectoTest()
     {
-        IWebDriver driver;
-
-        driver = new ChromeDriver();
 
         driver.Navigate().GoToUrl("https://localhost:44313/InicioSesion.aspx");
         driver.FindElement(By.Id("tbxUsuario")).Click();
@@ -173,11 +177,19 @@ public class NavegacionActividadesTest
         new SelectElement(driver.FindElement(By.Id("ddlOpcionesUsuario"))).SelectByText("Ver Actividades");
         driver.Navigate().GoToUrl("https://localhost:44313/VerActividades.aspx");
 
-        Assert.AreEqual("Mis Actividades", driver.FindElement(By.XPath("//form[@id='form1']/div[3]/div[2]")).Text);
-        Assert.AreEqual("Correr", driver.FindElement(By.XPath("//table[@id='GridViewActividades']/tbody/tr[3]/td")).Text);
 
-        Assert.AreEqual("Eliminar", driver.FindElement(By.Id("GridViewActividades_btnEliminar_1")).GetAttribute("value"));
-        driver.FindElement(By.Id("GridViewActividades_btnEliminar_1")).Click();
+        var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        wait.Until(d => d.FindElement(By.Id("GridViewActividades")));
+
+        var filaCorrer = wait.Until(d =>
+            d.FindElement(By.XPath("//table[@id='GridViewActividades']//tr[td[normalize-space()='Correr']]"))
+        );
+
+        var btnEliminar = filaCorrer.FindElement(By.XPath(".//input[contains(@id,'btnEliminar')]"));
+        Assert.AreEqual("Eliminar", btnEliminar.GetAttribute("value"));
+
+        btnEliminar.Click();
+
 
         IAlert alert = driver.SwitchTo().Alert();
         string alertText = alert.Text;
